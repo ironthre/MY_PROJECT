@@ -20,3 +20,19 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about');
 });
+
+Route::get('/header', function(){
+    return view('header');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::middleware(['auth', 'isAdmin'])->group( function(){
+    Route::get('/dashboard', function(){
+        return "This is Admin";
+        // return view('admin.dashboard');
+    });
+});
