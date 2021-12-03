@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function () {
-    return view('about');
+Route::get('/sidebar', function () {
+    return view('sidebar');
 });
 
 Route::get('/header', function(){
@@ -31,7 +31,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::middleware(['auth', 'isAdmin'])->group( function(){
-    Route::get('/dashboard', function(){
-        return view('admin.index');
-    });
+    Route::get('/dashboard', 'Admin\FrontendController@index');
+    
+    Route::get('categories', 'Admin\CatogoryController@index');
+
+
 });
