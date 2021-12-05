@@ -21,7 +21,7 @@ Route::get('/sidebar', function () {
     return view('sidebar');
 });
 
-Route::get('/header', function(){
+Route::get('/header', function () {
     return view('header');
 });
 
@@ -30,10 +30,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::middleware(['auth', 'isAdmin'])->group( function(){
+Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', 'Admin\FrontendController@index');
-    
     Route::get('categories', 'Admin\CatogoryController@index');
-
-
+    Route::get('add-category', 'Admin\CatogoryController@add');
+    Route::post('insert-category', 'Admin\CatogoryController@insert');
 });
