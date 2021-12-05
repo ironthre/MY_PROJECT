@@ -21,15 +21,12 @@ Route::get('/sidebar', function () {
     return view('sidebar');
 });
 
-<<<<<<< HEAD
-Route::get('/header', function () {
-=======
-oute::get('/footer', function () {
+
+Route::get('/footer', function () {
     return view('footer');
 });
 
-Route::get('/header', function(){
->>>>>>> ad0a8c07cf7fa76a7854ecb9947f038d9fead515
+Route::get('/header', function () {
     return view('header');
 });
 
