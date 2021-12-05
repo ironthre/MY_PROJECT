@@ -21,8 +21,8 @@ Route::get('/about', function () {
     return view('about');
 });
 
-oute::get('/footer', function () {
-    return view('footer');
+Route::get('/sidemenu', function () {
+    return view('sidemenu');
 });
 
 Route::get('/header', function(){
