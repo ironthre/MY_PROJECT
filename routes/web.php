@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CatogoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,14 +22,11 @@ Route::get('/sidebar', function () {
     return view('sidebar');
 });
 
-<<<<<<< HEAD
-Route::get('/sidemenu', function () {
-    return view('sidemenu');
-=======
-
-Route::get('/footer', function () {
-    return view('footer');
->>>>>>> 01b93fdae0bc8247e59f4f5b5ada04a63b48ec3d
+Route::get('/sidenav', function () {
+    return view('sidenav');
+});
+Route::get('/about', function () {
+    return view('about');
 });
 
 Route::get('/header', function () {
@@ -45,4 +43,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('categories', 'Admin\CatogoryController@index');
     Route::get('add-category', 'Admin\CatogoryController@add');
     Route::post('insert-category', 'Admin\CatogoryController@insert');
+    Route::get('edit-product/{id}', [CatogoryController::class, 'edit']);
+    Route::put('update-category/{id}', [CatogoryController::class, 'update']);
 });

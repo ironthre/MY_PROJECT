@@ -47,8 +47,8 @@
                                                     <span class="text-xs font-weight-bold">{{ $item->meta_descrip }}</span>
                                                 </td>
                                                 <td class="align-middle">
-                                                    <button class="btn btn-primary mb-0">Edit</button>
-                                                    <button class="btn btn-danger mb-0">Delete</button>
+                                                    <a href="{{ url('edit-product/'.$item->id) }}" class="btn btn-primary mb-0">Edit</a>
+                                                    <a href="{{url('delete-product')}}" class="btn btn-danger mb-0">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach
