@@ -29,17 +29,32 @@
     <div class="card">
          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Add Category</h6>
+                <h6 class="text-white text-capitalize ps-3">Add Product</h6>
             </div>
         </div>
         <div class="card-body">
-            <form action="{{url('insert-category')}}" method="POST" class="inline-form" enctype="multipart/form-data">
+            <form action="{{url('insert-product')}}" method="POST" class="inline-form" enctype="multipart/form-data">
                 @csrf
+                <div class="form-row">
+                    <div class="from-group col-md-6 ">
+                        <label for="">Select Category</label>
+                        <select class="form-select"  name="cate_id">
+                            <option value="">Select a Category</option>
+                            @foreach ($category as $item)
+                                <option value="{{ $item->id}}">{{$item->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group  col-md-6">
+                        <label for="">Name</label>
+                        <input type="text" class="form-control" id="" name="name" placeholder="Name">
+                    </div>
+                </div>
 
                 <div class="form-row">
                     <div class="form-group  col-md-6">
-                            <label for="">Name</label>
-                            <input type="text" class="form-control" id="" name="name" placeholder="Name">
+                            <label for="">Small Description</label>
+                            <input type="text" class="form-control" id="" name="small_description" placeholder="Name">
                     </div>
                     <div class="form-group col-md-6">
                             <label for="">Slug</label>
@@ -54,18 +69,40 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="">Meta_Keyword</label>
-                        <input type="text" class="form-control" id="" name="meta_keyword" placeholder="">
+                        <input type="text" class="form-control" id="" name="meta_keywords" placeholder="">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="">Meta Description</label>
-                        <textarea class="form-control" id="" name="meta_desc" rows="3"></textarea>
+                        <textarea class="form-control" id="" name="meta_descrip" rows="3"></textarea>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="">Product Description</label>
                         <textarea class="form-control" id="" name="description" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="">Original Price</label>
+                        <input type="number" class="form-control" id="" name="org_price" rows="3">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="">Selling Price</label>
+                        <input type="number" class="form-control" id="" name="selling_price" rows="3">
+                    </div>
+                </div>
+
+                 <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="">Tax</label>
+                        <input type="number" class="form-control" id="" name="tax" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="">Quantity</label>
+                        <input type="number" class="form-control" id="" name="qty" placeholder="">
                     </div>
                 </div>
 
@@ -77,9 +114,9 @@
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="popular" >
+                        <input class="form-check-input" type="checkbox" name="trending" >
                         <label class="form-check-label" for="">
-                            Popular
+                            Trending
                         </label>
                     </div>
                 </div>

@@ -27,8 +27,10 @@
 </style>
 @section('content')
     <div class="card">
-        <div class="card-header">
-            <h4>Add Category</h4>
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Edit Category</h6>
+            </div>
         </div>
         <div class="card-body">
             <form action="{{url('update-category/'.$category->id)}}" method="POST" class="inline-form" enctype="multipart/form-data">
