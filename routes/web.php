@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CatogoryController;
+use App\Http\Controllers\UsersideController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Controllers\Admin\ProductController;
 
@@ -33,6 +34,10 @@ Route::get('/about', function () {
 Route::get('/header', function () {
     return view('header');
 });
+
+//USERSIDE ROUTES
+Route::get('/', [UsersideController::class, 'index']);
+
 
 Auth::routes();
 

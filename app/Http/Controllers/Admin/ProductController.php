@@ -37,7 +37,7 @@ class ProductController extends Controller
             $product->image = $filename;
 
             // save to other inputs to database
-
+            $product->cate_id = $request->input('cate_id');
             $product->name = $request->input('name');
             $product->slug = $request->input('slug');
             $product->small_description = $request->input('small_description');

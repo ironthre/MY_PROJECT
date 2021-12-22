@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-
         <div class="card-body">
             <div class="row">
                 <div class="col-12">
@@ -38,7 +37,7 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <p class="text-sm font-weight-bold mb-0">{{ $item->category->name }}</p>
+                                                    <p class="text-sm font-weight-bold mb-0">{{ $item->categoryBelongs->id}}</p>
                                                 </td>
                                                 <td>
                                                     <span class="text-xs font-weight-bold">{{ $item->description }}</span>
@@ -52,7 +51,6 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-
                                     </tbody>
                                 </table>
                             </div>
@@ -61,6 +59,4 @@
                 </div>
             </div>
         </div>
-
-
 @endsection
