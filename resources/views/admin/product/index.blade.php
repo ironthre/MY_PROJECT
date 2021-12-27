@@ -37,7 +37,7 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <p class="text-sm font-weight-bold mb-0">{{ $item->categoryBelongs->id}}</p>
+                                                    <p class="text-sm font-weight-bold mb-0">{{ $item->id}}</p>
                                                 </td>
                                                 <td>
                                                     <span class="text-xs font-weight-bold">{{ $item->description }}</span>
