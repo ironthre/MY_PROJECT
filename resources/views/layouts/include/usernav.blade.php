@@ -34,7 +34,10 @@
         <button class="btn btn-outline-white bg-primary" type="submit"><i class="fas fa-search"></i></button>
       </form>
     </div>
-    <div class="col-sm-3"></div>
+    <div class="col-sm-3 ml-auto">
+
+            <a href="" class="pl-2"><i class="fa fa-user fa-2x"></i>Login</a>
+    </div>
   </div>
 </div>
 

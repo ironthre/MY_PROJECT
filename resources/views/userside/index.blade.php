@@ -40,7 +40,7 @@
                 <div class="owl-carousel featured-carousel owl-theme">
                     @foreach ($trending_category as $trend)
                         <div class="item">
-                            <div class="card" style="height: 250px;" >
+                            <div class="card border-0" style="height: 250px;" >
                                 <div class="card-body">
                                     <img src="{{asset('assets/uploads/category/'.$trend->image)}}" style="height: 150px;" class="card-img-top" alt="product image">
                                     <h5 class="">{{$trend->name}}</h5>

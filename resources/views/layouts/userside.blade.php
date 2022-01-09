@@ -37,7 +37,7 @@
 
 
     @include('layouts.include.usernav')
-    <div class="content">
+    <div class="content bg-light">
         @yield('content')
     </div>
 
