@@ -12,18 +12,18 @@
         {{-- End of Indicators --}}
 
         {{-- Images of Display --}}
-        <div class="carousel-inner ">
+        <div class="carousel-inner py-1" >
           <div class="carousel-item  active">
-            <img src="{{asset('assets/image/DispKO.jpg')}}" alt="Display1" class="d-block img-fluid" >
+            <img src="{{asset('assets/image/DispKO.jpg')}}" style="border-radius: 8px;"  alt="Display1" class="d-block img-fluid" >
           </div>
           <div class="carousel-item">
-            <img src="{{asset('assets/image/DispKO1.jpg')}}" alt="Display1" class="d-block  img-fluid">
+            <img src="{{asset('assets/image/DispKO1.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block  img-fluid">
           </div>
           <div class="carousel-item">
-            <img src="{{asset('assets/image/DispKO2.jpg')}}" alt="Display1" class="d-block img-fluid" >
+            <img src="{{asset('assets/image/DispKO2.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
           </div>
           <div class="carousel-item">
-            <img src="{{asset('assets/image/DispKO.jpg')}}" alt="Display1" class="d-block img-fluid" >
+            <img src="{{asset('assets/image/DispKO.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
           </div>
         </div>
 

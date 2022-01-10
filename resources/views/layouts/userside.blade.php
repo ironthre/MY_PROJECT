@@ -30,6 +30,9 @@
     <link href="{{ asset('userside/css/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('userside/css/owl.theme.default.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('userside/css/all.css')}}">
+    <link rel="stylesheet" href="{{ asset('userside/css/demo.css')}}">
+    <link rel="stylesheet" href="{{ asset('userside/css/login.css')}}">
+
 
 </head>
 <body >
@@ -45,9 +48,13 @@
     <!--   Core JS Files   -->
     <script src="{{ asset('userside/js/jquery.min.js')}}"></script>
     <script src="{{ asset('userside/js/owl.carousel.min.js')}}"></script>
+     <!-- Popper JS -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
     <script src="{{ asset('userside/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('userside/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{ asset('userside/js/all.js')}}"></script>
+     <!-- Custom Script -->
+  <script  src="js/script.js"></script>
 
     {{-- Sweet Alert --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
