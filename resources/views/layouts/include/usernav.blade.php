@@ -36,8 +36,11 @@
         <button class="btn btn-outline-white bg-primary" type="submit"><i class="fas fa-search"></i></button>
       </form>
     </div>
-    <div class="col-sm-3 pr-auto">
-        <a href="" class="pl-2" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user fa-2x"></i> <span class="ml-1">Login</span> </a>
+    <div class="col-sm-3 pr-auto hstack gap-3">
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user fa-fw"></i>Login</button>
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user-plus fa-fw"></i>Register</button>
+        {{-- <a href="" class="pl-2" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user fa-2x"></i> <span class="ml-1">Login</span> </a> --}}
+        <div class="vr"></div>
     </div>
 
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"   aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -88,9 +91,15 @@
               <i class="fab fa-linkedin"></i>
             </button>
           </div>
-          <div class="modal-footer d-flex justify-content-center">
-        <div class="signup-section">Not a member yet? <a href="#a" class="text-info"> Sign Up</a>.</div>
-      </div>
+           <div class="modal-footer d-flex justify-content-center">
+                <div class="signup-section">
+                    Not a member yet? <a href="#a" class="text-info" data-toggle="modal" data-target="#registerModal"> Sign Up</a>.
+                </div>
+{{-- Register model --}}
+
+{{-- End of Register Model --}}
+           </div>
+           []
         </div>
       </div>
     </div>
@@ -99,6 +108,10 @@
 </div>
   </div>
 </div>
+
+
+
+
 
 <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-primary">
   <div class="container ">
