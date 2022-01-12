@@ -31,12 +31,13 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/header', function () {
-    return view('header');
-});
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
 
 //USERSIDE ROUTES
 Route::get('/', [UsersideController::class, 'index']);
+
 
 
 Auth::routes();

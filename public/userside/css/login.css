@@ -2,12 +2,42 @@
     padding: 2rem 0rem;
 } */
 
+@media all and (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: none;
+    }
+    .navbar .nav-item:hover .nav-link {
+    }
+    .navbar .nav-item:hover .dropdown-menu {
+        display: block;
+    }
+    .navbar .nav-item .dropdown-menu {
+        margin-top: 0;
+    }
+}
+
 @media (min-width: 576px) {
     .modal-dialog {
         max-width: 500px;
     }
     .modal-dialog .modal-content {
         padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .info {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .hidelink {
+        display: none;
+        outline: none;
+    }
+    .out {
+        outline: none;
     }
 }
 .modal-header .close {

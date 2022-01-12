@@ -1,44 +1,85 @@
 
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <div class="container-fluid">
-      <div class="col-sm-4">
+      <div class="col-7 col-sm-8  col-md-5  mx-auto">
           <span class="">
             Welcome to our Online Shopping center
           </span>
       </div>
-      <div class="col-sm-4">
-          <i class="fas fa-phone-alt"></i> <span>+255 743 289 196</span>
+      <div class="col-5 col-sm-4  col-md-3  mx-auto ">
+          <i class="fas fa-phone-alt"></i><span>+255 743 289 196</span>
 
       </div>
-       <div class="col-sm-4 justify-content-center">
+       <div class=" col-sm-3  col-md-4 d-none d-md-block mx-auto justify-content-center ">
            <i class="fas fa-envelope fa-fw"></i><span>info@andmack.co.tz</span>
-
-
-      </div>
-      <div class="col-sm-4">
-
       </div>
   </div>
 </nav>
 
 
 <div class="navbar navbar-expand-lg navbar-light bg-white">
-  <div class="container-fluid">
-     <div class="col-sm-4">
+  <div class="container-fluid collapse navbar-collapse">
+     <div class="col-sm-4 ">
         <a class="navbar-brand" href="#">
             <img src="{{ asset('assets/image/shop.jfif')}}" alt="" width="70" height="64">&nbsp;
             <strong>AndMack Mall</strong>
         </a>
     </div>
-    <div class="col-sm-5 border border-primary rounded p-0" id=" ">
+    <div class="col-sm-5 border border-primary rounded p-0 order-xs-12" id=" ">
       <form class="d-flex">
         <input type="text" class="form-control border-0 " name="search" id="" placeholder="Search here...." >
         <button class="btn btn-outline-white bg-primary" type="submit"><i class="fas fa-search"></i></button>
       </form>
     </div>
-    <div class="col-sm-3 pr-auto hstack gap-3">
-        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user fa-fw"></i>Login</button>
-        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user-plus fa-fw"></i>Register</button>
+    <div class="col-sm-3 pr-auto hstack gap-3 order-xs-1">
+
+        @guest
+            @if (Route::has('login'))
+                <a class="btn btn-outline-primary out" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user fa-fw"></i><span class="hidelink d-xs-none">Login</span></a>
+            @endif
+
+            @if(Route::has('register'))
+                <a class="btn btn-outline-primary" href="{{ route('register') }}"><i class="fa fa-user-plus fa-fw me-sm-1"></i><span class="hidelink">{{ __('Register') }}</span></a>
+
+            @endif
+
+            @else
+            <li class="nav-item dropdown">
+
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                    <li>
+                                        <a class="dropdown-item"  href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </div>
+                            </li>
+            {{-- <div class="row ml-2">
+                <h4>{{Auth::user()->name}}</h4>
+                <a class="btn btn-outline-primary"  href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                     @csrf
+                </form>
+            </div> --}}
+
+        @endguest
+
+
+
         {{-- <a href="" class="pl-2" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user fa-2x"></i> <span class="ml-1">Login</span> </a> --}}
         <div class="vr"></div>
     </div>
@@ -93,13 +134,12 @@
           </div>
            <div class="modal-footer d-flex justify-content-center">
                 <div class="signup-section">
-                    Not a member yet? <a href="#a" class="text-info" data-toggle="modal" data-target="#registerModal"> Sign Up</a>.
+                    Not a member yet? <a href="{{ route('register') }}" class="text-info" >{{ __('Register') }}</a>.
                 </div>
 {{-- Register model --}}
 
 {{-- End of Register Model --}}
            </div>
-           []
         </div>
       </div>
     </div>
@@ -127,8 +167,21 @@
         <li class="nav-item">
           <a class="nav-link text-dark" href="#">Shop</a>
         </li>
+        <li class="nav-item dropdown">
+		   <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown"> Categories </a>
+		    <ul class="dropdown-menu">
+			  <li><a class="dropdown-item" href="#"> Mobile Phones</a></li>
+			  <li><a class="dropdown-item" href="#"> Accessories </a></li>
+			  <li><a class="dropdown-item" href="#"> Textile and Decor </a></li>
+              <li><a class="dropdown-item" href="#"> Kanga na Vitenge </a></li>
+			  <li><a class="dropdown-item" href="#"> Hand Bags </a></li>
+              <li><a class="dropdown-item" href="#"> Flat Screen TV </a></li>
+			  <li><a class="dropdown-item" href="#"> Refrigerators </a></li>
+              <li><a class="dropdown-item" href="#"> Music System </a></li>
+		    </ul>
+		</li>
         <li class="nav-item">
-          <a class="nav-link text-dark"  href="#">Contact Us</a>
+          <a class="nav-link text-dark"  href="{{url('contact')}}">Contact Us</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark" href="#">About Us</a>
@@ -137,3 +190,16 @@
     </div>
   </div>
 </nav>
+
+
+
+<style type="css/text">
+    @media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .nav-link{   }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+}
+
+
+</style>

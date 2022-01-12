@@ -39,8 +39,14 @@
                 <div class="form-row">
                     <div class="from-group col-md-6 ">
                         <label for="">Select Category</label>
-                        <select class="form-select"  >
+                        {{-- <select class="form-select"  >
                             <option value="">{{$product->category->name}}</option>
+                        </select> --}}
+                        <select class="form-select"  name="cate_id">
+                            <option value="">Select a Category</option>
+                            @foreach ($category as $item)
+                                <option value="{{ $item->id}}">{{$item->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group  col-md-6">
