@@ -43,6 +43,7 @@
     <div class="content bg-light">
         @yield('content')
     </div>
+    @include('layouts.include.footer')
 
 
     <!--   Core JS Files   -->
