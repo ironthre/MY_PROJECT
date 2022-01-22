@@ -35,8 +35,15 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::get('product/mobile', function () {
+    return view('/userside/products/index');
+})->name('Mobile');
+
 //USERSIDE ROUTES
 Route::get('/', [UsersideController::class, 'index']);
+Route::get('view-category/{name}', [UsersideController::class, 'viewCategory']);
+Route::get('product/{name}', [UsersideController::class, 'mobile']);
+
 
 
 

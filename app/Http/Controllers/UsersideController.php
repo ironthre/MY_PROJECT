@@ -15,4 +15,28 @@ class UsersideController extends Controller
         $bags = Product::where('cate_id', '17')->get();
         return view('userside.index', compact('featured_products', 'trending_category', 'bags'));
     }
+
+    public function viewCategory($name)
+    {
+        if (Category::where('name', $name)->exists()) {
+            $category = Category::where('name', $name)->first();
+            $products = Product::where('cate_id', $category->id)->where('status', '1')->get();
+            return view('userside.products.index', compact('category', 'products'));
+        } else {
+            return redirect('/')->with('status', "Category Name does not exist");
+        }
+    }
+
+    public function mobile($name)
+    {
+        // $name = $request->value;
+        //echo $name;
+        if (Category::where('name', $name)->exists()) {
+            $category = Category::where('name', $name)->first();
+            $product = Product::where('cate_id', $category->id)->where('status', '1')->get();
+            return view('userside.products.mobile', compact('category', 'product'));
+        } else {
+            return redirect('/')->with('status', "Category Name does not exist");
+        }
+    }
 }

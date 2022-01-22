@@ -22,9 +22,8 @@
 <div class="navbar navbar-expand-lg navbar-light bg-white">
   <div class="container-fluid collapse navbar-collapse">
      <div class="col-sm-4 ">
-        <a class="navbar-brand" href="#">
-            <img src="{{ asset('assets/image/shop.jfif')}}" alt="" width="70" height="64">&nbsp;
-            <strong>AndMack Mall</strong>
+        <a class="navbar-brand" href="{{url('/')}}">
+            <img src="{{ asset('assets/image/Logo3.png')}}" alt="" width="350" height="100" class="d-block img-fluid">
         </a>
     </div>
     <div class="col-sm-5 border border-primary rounded p-0 order-xs-12" id=" ">
@@ -33,20 +32,29 @@
         <button class="btn btn-outline-white bg-primary" type="submit"><i class="fas fa-search"></i></button>
       </form>
     </div>
-    <div class="col-sm-3 pr-auto hstack gap-3 order-xs-1">
+    <div class="col-sm-3 pr-auto hstack gap-3 order-xs-1 user">
 
         @guest
             @if (Route::has('login'))
-                <a class="btn btn-outline-primary out" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user fa-fw"></i><span class="hidelink d-xs-none">Login</span></a>
+                <a class="btn  " data-toggle="modal" data-target="#loginModal"><i class="fa fa-user fa-fw"></i><span class="hidelink d-xs-none">Login</span></a>
             @endif
 
             @if(Route::has('register'))
-                <a class="btn btn-outline-primary" href="{{ route('register') }}"><i class="fa fa-user-plus fa-fw me-sm-1"></i><span class="hidelink">{{ __('Register') }}</span></a>
+                <a class="btn  " href="{{ route('register') }}"><i class="fa fa-user-plus fa-fw me-sm-1"></i><span class="hidelink">{{ __('Register') }}</span></a>
 
             @endif
 
             @else
-            <li class="nav-item dropdown">
+
+            <h4 class="btn">{{ Auth::user()->name }}</h4>
+            <a class="btn"  href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+            {{-- <li class="nav-item dropdown">
 
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }}
@@ -64,7 +72,7 @@
                                         </form>
                                     </li>
                                 </div>
-                            </li>
+                            </li> --}}
             {{-- <div class="row ml-2">
                 <h4>{{Auth::user()->name}}</h4>
                 <a class="btn btn-outline-primary"  href="{{ route('logout') }}"
@@ -155,36 +163,35 @@
 
 <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-primary">
   <div class="container ">
-    <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"  aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse page-wrapper toggled" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
+    <div class="collapse navbar-collapse page-wrapper  toggled" id="navbarNav">
+      <ul class="navbar-nav justify-content-around">
+        <li class="nav-item ">
           <a class="nav-link active" aria-current="page" href="{{url('/')}}">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="#">Shop</a>
+        <li class="nav-item ">
+          <a class="nav-link " href="#">Shop</a>
         </li>
         <li class="nav-item dropdown">
 		   <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown"> Categories </a>
 		    <ul class="dropdown-menu">
-			  <li><a class="dropdown-item" href="#"> Mobile Phones</a></li>
-			  <li><a class="dropdown-item" href="#"> Accessories </a></li>
-			  <li><a class="dropdown-item" href="#"> Textile and Decor </a></li>
-              <li><a class="dropdown-item" href="#"> Kanga na Vitenge </a></li>
-			  <li><a class="dropdown-item" href="#"> Hand Bags </a></li>
-              <li><a class="dropdown-item" href="#"> Flat Screen TV </a></li>
-			  <li><a class="dropdown-item" href="#"> Refrigerators </a></li>
-              <li><a class="dropdown-item" href="#"> Music System </a></li>
+			  <li><a class="dropdown-item" href="{{url('product/Mobile Phones')}} "> Mobile Phones</a></li>
+			  <li><a class="dropdown-item" href="{{url('product/Accessories')}}"> Accessories </a></li>
+			  <li><a class="dropdown-item" href="{{url('product/Textile & Decor')}}"> Textile and Decor </a></li>
+              <li><a class="dropdown-item" href="{{url('product/Kanga & Vitenge')}}"> Kanga na Vitenge </a></li>
+			  <li><a class="dropdown-item" href="{{url('product/Hand Bags')}}"> Hand Bags </a></li>
+              <li><a class="dropdown-item" href="{{url('product/Televisions')}}"> Flat Screen TV </a></li>
+			  <li><a class="dropdown-item" href="{{url('product/Refrigerators & Coolers')}}"> Refrigerators </a></li>
+              <li><a class="dropdown-item" href="{{url('product/Music System')}}"> Music System </a></li>
 		    </ul>
 		</li>
-        <li class="nav-item">
-          <a class="nav-link text-dark"  href="{{url('contact')}}">Contact Us</a>
+        <li class="nav-item ">
+          <a class="nav-link "  href="{{url('contact')}}">Contact Us</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="{{url('about')}}">About Us</a>
+        <li class="nav-item ">
+          <a class="nav-link " href="{{url('about')}}">About Us</a>
         </li>
       </ul>
     </div>
