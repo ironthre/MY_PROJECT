@@ -39,4 +39,18 @@ class UsersideController extends Controller
             return redirect('/')->with('status', "Category Name does not exist");
         }
     }
+
+    public function productview($cate_name, $prod_name)
+    {
+        if (Category::where('name', $cate_name)->exists()) {
+            if (Product::where('name', $prod_name)->exists()) {
+                $product = Product::where('name', $prod_name)->first();
+                return view('userside.products.productDetails', compact('product'));
+            } else {
+                return redirect('/')->with('status', " Sorry, Product Details were not found");
+            }
+        } else {
+            return redirect('/')->with('status', " Sorry, Product Details were not found");
+        }
+    }
 }

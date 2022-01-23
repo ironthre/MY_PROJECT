@@ -6,6 +6,7 @@
             <h1>Our Admin Dashboard</h1>
         </div>
     </div> --}}
+
     @include('layouts.include.containerR1')
 
 

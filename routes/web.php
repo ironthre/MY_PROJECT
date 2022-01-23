@@ -43,6 +43,7 @@ Route::get('product/mobile', function () {
 Route::get('/', [UsersideController::class, 'index']);
 Route::get('view-category/{name}', [UsersideController::class, 'viewCategory']);
 Route::get('product/{name}', [UsersideController::class, 'mobile']);
+Route::get('category/{cate_name}/{prod_name}', [UsersideController::class, 'productview']);
 
 
 

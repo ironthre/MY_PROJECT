@@ -32,6 +32,8 @@
     <link rel="stylesheet" href="{{ asset('userside/css/all.css')}}">
     <link rel="stylesheet" href="{{ asset('userside/css/demo.css')}}">
     <link rel="stylesheet" href="{{ asset('userside/css/login.css')}}">
+    <link rel="stylesheet" href="{{ asset('userside/css/product.css')}}">
+
 
 
 </head>
