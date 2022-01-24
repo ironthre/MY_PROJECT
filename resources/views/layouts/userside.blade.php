@@ -17,6 +17,7 @@
     <script src="https://kit.fontawesome.com/42d5adcbca.js"    crossorigin="anonymous"></script>
     <script src="{{ asset('userside/js/all.js')}}"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    @yield('head')
 
 
 

@@ -22,6 +22,7 @@
                 <p><i></i>Email: info@andmack.co.tz</p>
             </div>
             <div class="template-demo">
+                <h6 class="font-weight-bold">Social</h6>
                 <button type="button" class="btn btn-social-icon btn-facebook btn-rounded"><i class="fa fa-facebook"></i></button>
                 <button type="button" class="btn btn-social-icon btn-youtube btn-rounded"><i class="fa fa-youtube"></i></button>
                 <button type="button" class="btn btn-social-icon btn-twitter btn-rounded"><i class="fa fa-twitter"></i></button>

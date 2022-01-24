@@ -20,8 +20,8 @@ class UsersideController extends Controller
     {
         if (Category::where('name', $name)->exists()) {
             $category = Category::where('name', $name)->first();
-            $products = Product::where('cate_id', $category->id)->where('status', '1')->get();
-            return view('userside.products.index', compact('category', 'products'));
+            $product = Product::where('cate_id', $category->id)->where('status', '1')->get();
+            return view('userside.products.index', compact('category', 'product'));
         } else {
             return redirect('/')->with('status', "Category Name does not exist");
         }
