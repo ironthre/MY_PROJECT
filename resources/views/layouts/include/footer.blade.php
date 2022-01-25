@@ -23,11 +23,10 @@
             </div>
             <div class="template-demo">
                 <h6 class="font-weight-bold">Social</h6>
-                <button type="button" class="btn btn-social-icon btn-facebook btn-rounded"><i class="fa fa-facebook"></i></button>
-                <button type="button" class="btn btn-social-icon btn-youtube btn-rounded"><i class="fa fa-youtube"></i></button>
-                <button type="button" class="btn btn-social-icon btn-twitter btn-rounded"><i class="fa fa-twitter"></i></button>
-                <button type="button" class="btn btn-social-icon btn-instagram btn-rounded"><i class="fa fa-instagram"></i></button>
-                <button><i class="fa fa-user"></i></button>
+                <button type="button" class="btn btn-social-icon btn-facebook btn-rounded"><i class="fab fa-facebook"></i></button>
+                <button type="button" class="btn btn-social-icon btn-youtube btn-rounded"><i class="fab fa-youtube"></i></button>
+                <button type="button" class="btn btn-social-icon btn-twitter btn-rounded"><i class="fab fa-twitter"></i></button>
+                <button type="button" class="btn btn-social-icon btn-instagram btn-rounded"><i class="fab fa-instagram"></i></button>
             </div>
 
                 </div>

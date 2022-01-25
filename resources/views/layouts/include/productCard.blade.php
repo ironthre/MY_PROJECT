@@ -238,7 +238,7 @@
 <body>
 <div class="container mt-2">
     <div class="row">
-        <h2 class="text-primary">Testing Products</h2>
+        <h4 class="text-primary">Testing Products</h4>
         <div class="owl-carousel featured-carousel owl-theme">
             @foreach ($featured_products as $prod)
                 <div class="col-md-3 item">
@@ -250,7 +250,7 @@
                         </div>
                         <div class="product-detail-container p-2">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="dress-name">{{$prod->name}}</h5>
+                                <h5 class="dress-name"><a href="{{url('Product-Details/'.$prod->name)}}">{{$prod->name}}</a></h5>
                             </div>
                             <div class="d-flex justify-content-between align-items-center pt-1">
                                 <div class="d-flex flex-column mb-2"> <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->selling_price}}</small> </div>

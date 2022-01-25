@@ -42,9 +42,8 @@ Route::get('product/mobile', function () {
 //USERSIDE ROUTES
 Route::get('/', [UsersideController::class, 'index']);
 Route::get('view-category/{name}', [UsersideController::class, 'viewCategory']);
-Route::get('product/{name}', [UsersideController::class, 'mobile']);
 Route::get('category/{cate_name}/{prod_name}', [UsersideController::class, 'productview']);
-
+Route::get('Product-Details/{prod_name}', [UsersideController::class, 'productDetails']);
 
 
 

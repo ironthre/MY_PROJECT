@@ -177,14 +177,14 @@
         <li class="nav-item dropdown">
 		   <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown"> Categories </a>
 		    <ul class="dropdown-menu">
-			  <li><a class="dropdown-item" href="{{url('product/Mobile Phones')}} "> Mobile Phones</a></li>
-			  <li><a class="dropdown-item" href="{{url('product/Accessories')}}"> Accessories </a></li>
-			  <li><a class="dropdown-item" href="{{url('product/Textile & Decor')}}"> Textile and Decor </a></li>
-              <li><a class="dropdown-item" href="{{url('product/Kanga & Vitenge')}}"> Kanga na Vitenge </a></li>
-			  <li><a class="dropdown-item" href="{{url('product/Hand Bags')}}"> Hand Bags </a></li>
-              <li><a class="dropdown-item" href="{{url('product/Televisions')}}"> Flat Screen TV </a></li>
-			  <li><a class="dropdown-item" href="{{url('product/Refrigerators & Coolers')}}"> Refrigerators </a></li>
-              <li><a class="dropdown-item" href="{{url('product/Music System')}}"> Music System </a></li>
+			  <li><a class="dropdown-item" href="{{url('view-category/Mobile Phones')}} "> Mobile Phones</a></li>
+			  <li><a class="dropdown-item" href="{{url('view-category/Accessories')}}"> Accessories </a></li>
+			  <li><a class="dropdown-item" href="{{url('view-category/Textile & Decor')}}"> Textile and Decor </a></li>
+              <li><a class="dropdown-item" href="{{url('view-category/Kanga & Vitenge')}}"> Kanga na Vitenge </a></li>
+			  <li><a class="dropdown-item" href="{{url('view-category/Hand Bags')}}"> Hand Bags </a></li>
+              <li><a class="dropdown-item" href="{{url('view-category/Televisions')}}"> Flat Screen TV </a></li>
+			  <li><a class="dropdown-item" href="{{url('view-category/Sandals')}}"> Sandals </a></li>
+              <li><a class="dropdown-item" href="{{url('view-category/Music System')}}"> Music System </a></li>
 		    </ul>
 		</li>
         <li class="nav-item ">

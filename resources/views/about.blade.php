@@ -4,86 +4,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card my-5">
-                <div class="card-header">{{ __('About Us') }}</div>
+            <div class="card my-5 border-0">
+                <div class="card-header" style="font-weight: bold"><h4>{{ __('About Us') }}</h4></div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('contact') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Message') }}</label>
-
-                            <div class="col-md-6">
-                                <textarea name="" id="" cols="42" rows="4"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary btn-block btn-round">
-                                    {{ __('Submit') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    <p> <strong style="font-weight: bolder;">Andmack Business</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, amet cupiditate hic tenetur magnam cumque doloribus, a animi eveniet impedit saepe iusto quasi, nam ullam perspiciatis enim magni quidem delectus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quidem debitis ullam alias aperiam non perspiciatis laboriosam exercitationem aliquid, suscipit ducimus optio expedita. Ipsum magnam quia mollitia nam delectus repudiandae?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, velit! Quo doloremque sequi nostrum eveniet laudantium similique facere quas, ipsum quibusdam beatae ab commodi quisquam deleniti quod suscipit deserunt sint!</p>
                 </div>
             </div>
         </div>
