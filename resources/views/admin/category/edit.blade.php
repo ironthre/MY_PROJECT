@@ -1,30 +1,7 @@
 @extends('layouts.admin')
 
 <link id="pagestyle" href="{{ asset('css/bootstrap.min.css')}}"  rel="stylesheet" />
-<style>
-    input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-    }
-
-    input[type=textarea], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-    }
-
-</style>
+<link  href="{{ asset('admin/css/form-style.css')}}"  rel="stylesheet" />
 @section('content')
     <div class="card">
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -37,34 +14,34 @@
                 @csrf
                 @method('PUT')
 
-                <div class="form-row">
-                    <div class="form-group  col-md-6">
+                <div class="form-row justify-content-around">
+                    <div class="form-group input-groups  col-md-5">
                             <label for="">Name</label>
                             <input type="text" class="form-control" id="" name="name" value="{{$category->name}}" placeholder="Name">
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group input-groups col-md-5">
                             <label for="">Slug</label>
                             <input type="text" class="form-control" id="" name="slug" value="{{$category->slug}}" placeholder="Slug">
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group col-md-6">
+                <div class="form-row justify-content-around">
+                    <div class="form-group input-groups col-md-5">
                         <label for="">Meta_Title</label>
                         <input type="text" class="form-control" id="" name="meta_title" value="{{$category->meta_title}}" placeholder="">
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group input-groups col-md-5">
                         <label for="">Meta_Keyword</label>
                         <input type="text" class="form-control" id="" name="meta_keyword" value="{{$category->meta_keywords}}" placeholder="">
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group col-md-6">
+                <div class="form-row justify-content-around">
+                    <div class="form-group input-groups col-md-5">
                         <label for="">Meta Description</label>
                         <textarea class="form-control" id="" name="meta_desc" rows="3">{{$category->meta_descrip}}</textarea>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group input-groups col-md-5">
                         <label for="">Product Description</label>
                         <textarea class="form-control" id="" name="description" rows="3">{{$category->description}}</textarea>
                     </div>

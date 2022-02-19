@@ -7,7 +7,7 @@
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Total Categories</p>
-                <h4 class="mb-0">8</h4>
+                <h4 class="mb-0">{{$category->count()}}</h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
@@ -24,7 +24,7 @@
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Total Products</p>
-                <h4 class="mb-0">2,300</h4>
+                <h4 class="mb-0">{{$products->count()}}</h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
@@ -41,7 +41,7 @@
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Registered Users</p>
-                <h4 class="mb-0">3,462</h4>
+                <h4 class="mb-0">{{$users->count()}}</h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
@@ -67,4 +67,4 @@
             </div>
           </div>
         </div>
-      </div>
+</div>

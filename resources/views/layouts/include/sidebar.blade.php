@@ -11,7 +11,7 @@
         <li class="nav-item " >
           <a class="nav-link  {{Request::is('dashboard') ? 'active bg-gradient-primary':'' }} text-white  " href="{{ url('/dashboard') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">dashboard</i>
+              <i class="material-icons opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
@@ -19,7 +19,7 @@
         <li class="nav-item ">
           <a class="nav-link text-white {{Request::is('categories') ? 'active bg-gradient-primary':'' }} "  href="{{ url('categories') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
+              <i class="material-icons opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Categories</span>
           </a>
@@ -27,25 +27,41 @@
         <li class="nav-item ">
           <a class="nav-link text-white {{Request::is('add-category') ? 'active bg-gradient-primary':'' }} "  href="{{ url('add-category') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
+              <i class="material-icons opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Add Category</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " {{Request::is('products') ? 'active bg-gradient-primary':'' }}   href="{{ url('products') }}">
+          <a class="nav-link text-white  {{Request::is('products') ? 'active bg-gradient-primary':'' }} "  href="{{ url('products') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+              <i class="material-icons opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Products</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " {{Request::is('add-product')?'active bg-gradient-primary':''}} href="{{ url('add-product')}}">
+          <a class="nav-link text-white {{Request::is('add-product')?'active bg-gradient-primary':''}} " href="{{ url('add-product')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
+              <i class="material-icons opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Add Product</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white  {{Request::is('orders')? 'active bg-gradient-primary':'' }}  " href="{{ url('orders') }}">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Orders</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white  {{Request::is('all-users') ? 'active bg-gradient-primary':'' }}  " href="{{ url('all-users') }}">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Users</span>
           </a>
         </li>
         <li class="nav-item mt-3">
@@ -57,7 +73,7 @@
             <li class="nav-item">
           <a class="nav-link text-white " href="../pages/sign-in.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">login</i>
+              <i class="material-icons opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Sign In</span>
           </a>
@@ -69,7 +85,7 @@
                 <li class="nav-item">
           <a class="nav-link text-white " href="../pages/sign-up.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">assignment</i>
+              <i class="material-icons opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Sign Up</span>
           </a>
@@ -81,7 +97,7 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="../pages/profile.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">person</i>
+              <i class="material-icons opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Profile</span>
           </a>
@@ -89,7 +105,7 @@
         <li class="nav-item">
             <a class="nav-link text-white " href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                    <i class="material-icons opacity-10">assignment</i>
+                    <i class="material-icons opacity-10"></i>
                 </div>
                 <span class="nav-link-text ms-1">{{ __('Logout') }}</span>
             </a>
@@ -99,9 +115,11 @@
           @endguest
       </ul>
     </div>
-    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+
+
+    {{-- <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+
       </div>
-    </div>
+    </div> --}}
   </aside>

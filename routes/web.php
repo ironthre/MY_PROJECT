@@ -1,7 +1,15 @@
 <?php
 
 use App\Http\Controllers\Admin\CatogoryController;
+use App\Http\Controllers\Admin\FrontendController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\UserDashboardController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\UsersideController;
+use App\Http\Controllers\CartControllerController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Controllers\Admin\ProductController;
 
@@ -41,15 +49,38 @@ Route::get('product/mobile', function () {
 
 //USERSIDE ROUTES
 Route::get('/', [UsersideController::class, 'index']);
+Route::get('/All Products', [UsersideController::class, 'products']);
 Route::get('view-category/{name}', [UsersideController::class, 'viewCategory']);
 Route::get('category/{cate_name}/{prod_name}', [UsersideController::class, 'productview']);
 Route::get('Product-Details/{prod_name}', [UsersideController::class, 'productDetails']);
+Route::get('/product-list', [UsersideController::class, 'productList']);
+Route::post('/searchProduct', [UsersideController::class, 'searchProduct']);
 
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/load-cart-data', [CartController::class, 'cartCount']);
+Route::post('add-to-cart', [CartController::class, 'addProductToCart']);
+Route::post('delete-cart-item', [CartController::class, 'deleteCartItem']);
+Route::post('update-cart-item', [CartController::class, 'updateCart']);
+
+Route::get('/load-wish-data', [WishlistController::class, 'wishCount']);
+Route::post('add-to-wishlist', [WishlistController::class, 'addToWishlist']);
+Route::post('delete-wish-item', [WishlistController::class, 'deleteWishItem']);
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('cart', [CartController::class, 'viewCart']);
+    Route::get('checkout', [CheckoutController::class, 'index']);
+    Route::post('place-order', [CheckoutController::class, 'placeorder']);
+    Route::get('my-orders', [UserController::class, 'index']);
+    Route::get('view-orders/{id}', [UserController::class, 'viewOrder']);
+    Route::get('wishlist', [WishlistController::class, 'index']);
+});
 
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
@@ -67,5 +98,14 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('edit-product/{id}', 'Admin\ProductController@edit');
     Route::put('update-product/{id}', 'Admin\ProductController@update');
     Route::get('delete-product/{id}', 'Admin\ProductController@delete');
+
+    Route::get('all-orders', [OrderController::class, 'allOrders']);
+    Route::get('orders', [OrderController::class, 'index']);
+    Route::get('admin/view-orders/{id}', [OrderController::class, 'viewOrder']);
+    Route::put('update-order/{id}', [OrderController::class, 'updateOrder']);
+    Route::get('order-history', [OrderController::class, 'orderHistory']);
+
+    Route::get('all-users', [UserDashboardController::class, 'allUsers']);
+    Route::get('view-user/{id}', [UserDashboardController::class, 'viewUser']);
     //Route::get('delete-category/{id}', [ProductController::class, 'delete']);
 });

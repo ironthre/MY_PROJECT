@@ -1,0 +1,82 @@
+:root {
+    --body: #ffffff;
+    --text: #363636;
+    --text-light: #898989;
+    --primary: #1bbeff;
+    --border: #bbbbbb;
+    --padding: 16px 24px;
+    --line-height: 24px;
+}
+
+body {
+    background-color: var(--body);
+}
+
+.input-groups {
+    position: relative;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.input-groups input {
+    padding: var(--padding);
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    color: var(--text);
+    font-size: 17px;
+    line-height: var(--line-height);
+}
+textarea {
+    padding: var(--padding) !important;
+    border: none;
+    background-color: transparent !important;
+    width: 100% !important;
+    color: var(--text) !important;
+    font-size: 17px !important;
+    line-height: var(--line-height) !important;
+}
+
+.input-groups,
+.input-groups {
+    border-color: var(--primary);
+}
+
+.input-groups input:focus,
+.input-groups:hover input {
+    color: var(--primary);
+}
+
+.input-groups label {
+    position: absolute;
+    background-color: transparent;
+    padding: var(--padding);
+    line-height: var(--line-height);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    color: var(--text-light);
+    cursor: text;
+    font-size: 17px;
+}
+
+option {
+    font-size: 20px;
+    padding: 4px;
+}
+
+.input-groups label {
+    color: var(--primary);
+}
+
+.input-groups label,
+.input-groups input:not(:placeholder-shown) ~ label {
+    padding: 0px 8px;
+    background-color: var(--body);
+    top: -12px;
+    left: 16px;
+    bottom: auto;
+    color: var(--text);
+}

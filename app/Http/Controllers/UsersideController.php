@@ -22,6 +22,11 @@ class UsersideController extends Controller
         $tv = Product::where('cate_id', '14')->get();
         return view('userside.index', compact('featured_products', 'trending_category', 'bags', 'sandals', 'phone', 'accessory', 'kanga', 'music', 'textile', 'tv'));
     }
+    public function products()
+    {
+        $all_products = Product::inRandomOrder()->get();
+        return view('userside.products.all_Products', compact('all_products'));
+    }
 
     public function viewCategory($name)
     {
@@ -53,9 +58,37 @@ class UsersideController extends Controller
     {
         if (Product::where('name', $prod_name)->exists()) {
             $product = Product::where('name', $prod_name)->first();
-            return view('userside.products.productDetails1', compact('product'));
+            $popular = Product::inRandomOrder()->limit(5)->get();
+            $related = Product::where('cate_id', $product->cate_id)->inRandomOrder()->limit(5)->get();
+            return view('userside.products.productDetails1', compact('product', 'related', 'popular'));
         } else {
             return redirect('/')->with('status', "Sorry, Product Details were not found");
+        }
+    }
+
+    public function productList()
+    {
+        $productList = Product::select('name')->where('status', '1')->get();
+        $data = [];
+
+        foreach ($productList as $item) {
+            $data[] = $item['name'];
+        }
+        return $data;
+    }
+
+    public function searchProduct(Request $request)
+    {
+        $searched_product = $request->searchproducts;
+        if ($searched_product != "") {
+            $product = Product::where("name", "LIKE", "%$searched_product%")->first();
+            if ($product) {
+                return redirect('Product-Details' . '/' . $product->name);
+            } else {
+                return redirect()->back()->with("satus", "The Product was not found");
+            }
+        } else {
+            return redirect()->back();
         }
     }
 }

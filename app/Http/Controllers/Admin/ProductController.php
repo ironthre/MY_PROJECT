@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Image;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
@@ -25,37 +26,54 @@ class ProductController extends Controller
     public function insert(Request $request)
     {
         $product = new Product();
+        $var = '';
+
+
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $ext;
+            $filename = time() . rand(1, 1000) . '.' . $ext;
 
             //move the image file to uploads Directory
             $file->move('assets/uploads/product/', $filename);
 
             //Save the file to database
             $product->image = $filename;
-
-            // save to other inputs to database
-            $product->cate_id = $request->input('cate_id');
-            $product->name = $request->input('name');
-            $product->slug = $request->input('slug');
-            $product->small_description = $request->input('small_description');
-            $product->description = $request->input('description');
-            $product->org_price = $request->input('org_price');
-            $product->selling_price = $request->input('selling_price');
-            $product->qty = $request->input('qty');
-            $product->tax = $request->input('tax');
-            $product->status = $request->input('status') == TRUE ? '1' : '0';
-            $product->trending = $request->input('trending') == TRUE ? '1' : '0';
-            $product->meta_title = $request->input('meta_title');
-            $product->meta_keywords = $request->input('meta_keywords');
-            $product->meta_descrip = $request->input('meta_descrip');
-            $product->save();
-            return redirect('/products')->with('status', "Product Added Successfully");
-        } else {
-            return redirect('/dashboard');
         }
+
+        if ($request->hasFile('images')) {
+            // $image = new Image;
+            // echo "<pre>";
+            // print_r($request->file('images'));
+            // die();
+            $headache = $request->file('images');
+            $a = '';
+            foreach ($headache as $key => $imagefile) {
+                $ext = $imagefile->getClientOriginalExtension();
+                $filename = time() . rand(1, 1000) . '.' . $ext;
+                $imagefile->move('assets/uploads/product/', $filename);
+                $a = $a . ',' . $filename;
+            }
+            $product->images = $a;
+        }
+
+        // save to other inputs to database
+        $product->cate_id = $request->input('cate_id');
+        $product->name = $request->input('name');
+        $product->slug = $request->input('slug');
+        $product->small_description = $request->input('small_description');
+        $product->description = $request->input('description');
+        $product->org_price = $request->input('org_price');
+        $product->selling_price = $request->input('selling_price');
+        $product->qty = $request->input('qty');
+        $product->tax = $request->input('tax');
+        $product->status = $request->input('status') == TRUE ? '1' : '0';
+        $product->trending = $request->input('trending') == TRUE ? '1' : '0';
+        $product->meta_title = $request->input('meta_title');
+        $product->meta_keywords = $request->input('meta_keywords');
+        $product->meta_descrip = $request->input('meta_descrip');
+        $product->save();
+        return redirect('/products')->with('status', "Product Added Successfully");
     }
 
     public function edit($id)

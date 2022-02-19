@@ -1,0 +1,99 @@
+h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #344767;
+    letter-spacing: -0.05rem;
+}
+
+p {
+    line-height: 1.625;
+}
+bg {
+    background-color: #f0f2f5;
+}
+
+.card {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.75rem;
+}
+.card .card-header {
+    padding: 1.5rem;
+    margin-bottom: 0;
+    background-color: #fff;
+    border-bottom: 0 solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.75rem 0.75rem 0 0;
+}
+.card .card-body {
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    padding: 1.5rem;
+    color: #7b809a;
+}
+
+h1,
+.h1 {
+    font-size: calc(1.425rem + 2.1vw);
+}
+@media (min-width: 1200px) {
+    h1,
+    .h1 {
+        font-size: 3rem;
+    }
+}
+
+h2,
+.h2 {
+    font-size: calc(1.35rem + 1.2vw);
+}
+@media (min-width: 1200px) {
+    h2,
+    .h2 {
+        font-size: 2.25rem;
+    }
+}
+
+h3,
+.h3 {
+    font-size: calc(1.3125rem + 0.75vw);
+}
+@media (min-width: 1200px) {
+    h3,
+    .h3 {
+        font-size: 1.875rem;
+    }
+}
+
+h4,
+.h4 {
+    font-size: calc(1.275rem + 0.3vw);
+}
+@media (min-width: 1200px) {
+    h4,
+    .h4 {
+        font-size: 1.5rem;
+    }
+}
+
+h5,
+.h5 {
+    font-size: 1.25rem;
+}
+
+h6,
+.h6 {
+    font-size: 1rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}

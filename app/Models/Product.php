@@ -18,6 +18,7 @@ class Product extends Model
         'org_price',
         'selling_price',
         'image',
+        'images',
         'qty',
         'tax',
         'status',
@@ -30,5 +31,15 @@ class Product extends Model
     public function categoryBelongs()
     {
         return $this->belongsTo(Category::class, 'cate_id', 'id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'cate_id', 'id');
+    }
+
+    public function images()
+    {
+        return $this->hasMany('App\Image', 'product_id');
     }
 }

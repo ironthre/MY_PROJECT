@@ -5,16 +5,17 @@
 @endsection
 
 @section('content')
-
-    <h6>Home > {{$category->name}} </h6>
-
-
-    <div class="container mt-2">
-    <h5 class="text-primary">{{$category->name}}</h5>
-        <div class="row">
+    <div class="container my-2 ">
+        <nav aria-label="breadcrumb font-weight-bolder">
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark font-weight-bolder" href="{{url('/')}}">Home</a></li>
+            <li class="breadcrumb-item text-sm text-dark active font-weight-bolder" aria-current="page">{{$category->name}}</li>
+          </ol>
+        </nav>
+        <div class="row justify-content-center mt-3">
             @foreach ($product as $prod)
-                <div class="col-md-3 item">
-                    <div class="card product headache">
+                 <div class="col-md-2.2 item">
+                    <div class="card product my-3 mx-3 headache">
                         <div class="image-container">
                             <div class="first">
                                 <div class="d-flex justify-content-between align-items-center"> <span class="discount">-25%</span> <span class="wishlist2"><i class="far fa-heart "></i></span> </div>
@@ -38,7 +39,7 @@
     </div>
 </div>
 
-
+<link rel="stylesheet" href="{{asset('userside/css/hide-menu.css')}}">
 
 
 @endsection

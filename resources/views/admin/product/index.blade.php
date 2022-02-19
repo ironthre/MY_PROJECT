@@ -19,6 +19,7 @@
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Category Name</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Product Description</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Selling Price</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Stock</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Action</th>
                                             <th></th>
                                         </tr>
@@ -37,13 +38,16 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <p class="text-sm font-weight-bold mb-0">{{ $item->id}}</p>
+                                                    <p class="text-sm font-weight-bold mb-0">{{ $item->category->name}}</p>
                                                 </td>
                                                 <td>
                                                     <span class="text-xs font-weight-bold">{{ $item->description }}</span>
                                                 </td>
                                                 <td>
                                                     <span class="text-xs font-weight-bold">{{ $item->selling_price }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-xs font-weight-bold">{{ $item->qty }}</span>
                                                 </td>
                                                 <td class="align-middle">
                                                     <a href="{{ url('edit-product/'.$item->id) }}" class="btn btn-primary mb-0">Edit</a>

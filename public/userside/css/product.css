@@ -1,5 +1,6 @@
 body {
     background-color: #eee;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
 /* .container {
@@ -82,9 +83,10 @@ a {
 }
 
 .dress-name {
-    font-size: 13px;
+    font-size: 17px;
     font-weight: bold;
-    width: 75%;
+    width: 90%;
+    text-transform: capitalize;
 }
 
 .new-price {
@@ -570,4 +572,86 @@ a {
 .message img.online {
     width: 40px;
     height: 40px;
+}
+
+.thumb-product {
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.img-thumbnail {
+    border: 2px solid #0b0c0c;
+}
+
+.img-thumbnail .active {
+    border: 2px solid #218888;
+}
+
+.thumb-img {
+    height: 140px;
+}
+.owl-nav {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s all ease;
+}
+
+.owl-nav .owl-prev {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 40px;
+    height: 60px;
+    color: white;
+    background-color: #144965 !important;
+    font-size: 35px;
+    padding: 10px !important;
+}
+
+.owl-nav .owl-next {
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 60px;
+    color: white;
+    background-color: #144965 !important;
+}
+
+.owl-dots {
+    display: none;
+}
+
+.featured-carousel:hover .owl-nav {
+    opacity: 1;
+    transition: 0.5s all ease;
+}
+
+/* .menu .nav-item {
+    text-align: center !important;
+    background-color: #71e134 !important;
+} */
+
+.menu .nav-link {
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 35px;
+}
+
+.menu .dropdown-item {
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+.menu a:hover {
+    color: white;
+    background-color: #144965;
+}
+
+.ui-menu {
+    z-index: 4000;
 }

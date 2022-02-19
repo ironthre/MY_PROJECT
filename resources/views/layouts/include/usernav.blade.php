@@ -1,7 +1,38 @@
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            loadcart();
+            loadwish();
+
+            function loadcart(){
+                $.ajax({
+                    method: "GET",
+                    url: "{{ url('/load-cart-data')}}",
+                    success: function(response){
+                        $('.cart-count').html();
+                        $('.cart-count').html(response.count);
+
+                    }
+                });
+            }
+
+            function loadwish(){
+                $.ajax({
+                    method: "GET",
+                    url: "{{ url('/load-wish-data')}}",
+                    success: function(response){
+                        console.log(response.wish)
+                        $('.wishlist-count').html();
+                        $('.wishlist-count').html(response.wish);
+                    }
+                });
+            }
+        });
+    </script>
+@endsection
 
 
-
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+<nav class="navbar navbar-expand-lg contact navbar-light bg-primary">
   <div class="container-fluid">
       <div class="col-7 col-sm-8  col-md-5  mx-auto">
           <span class="">
@@ -19,7 +50,7 @@
 </nav>
 
 
-<div class="navbar navbar-expand-lg navbar-light bg-white">
+<div class="navbar navbar-expand-lg brand navbar-light bg-white">
   <div class="container-fluid collapse navbar-collapse">
      <div class="col-sm-4 ">
         <a class="navbar-brand" href="{{url('/')}}">
@@ -27,8 +58,9 @@
         </a>
     </div>
     <div class="col-sm-5 border border-primary rounded p-0 order-xs-12" id=" ">
-      <form class="d-flex">
-        <input type="text" class="form-control border-0 " name="search" id="" placeholder="Search here...." >
+      <form class="d-flex" action="{{url('searchProduct')}}" method="POST">
+        @csrf
+        <input type="search" class="form-control border-0 " id="searchBar" name="searchproducts" id="" placeholder="Search here...." >
         <button class="btn btn-outline-white bg-primary" type="submit"><i class="fas fa-search"></i></button>
       </form>
     </div>
@@ -151,7 +183,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
   </div>
@@ -161,18 +192,15 @@
 
 
 
-<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-primary">
+<nav class="navbar navbar-expand-lg sticky-top navbar-light menu  bg-primary">
   <div class="container ">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"  aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse page-wrapper  toggled" id="navbarNav">
-      <ul class="navbar-nav justify-content-around">
+      <ul class="nav menu mx-auto">
         <li class="nav-item ">
           <a class="nav-link active" aria-current="page" href="{{url('/')}}">Home</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link " href="#">Shop</a>
         </li>
         <li class="nav-item dropdown">
 		   <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown"> Categories </a>
@@ -188,17 +216,34 @@
 		    </ul>
 		</li>
         <li class="nav-item ">
-          <a class="nav-link "  href="{{url('contact')}}">Contact Us</a>
+          <a class="nav-link " href="{{url('/All Products')}}">Products</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link " href="{{url('about')}}">About Us</a>
+          <a class="nav-link "  href="{{url('cart')}}">
+            Cart
+            (<span class="badge badge-pill cart-count">0</span>)
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link "  href="{{url('wishlist')}}">Wishlist
+          (<span class="badge badge-pill wishlist-count">0</span>)</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link "  href="{{url('my-orders')}}">My Orders</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link "  href="{{url('contact')}}">Contact</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " href="{{url('about')}}">About</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " href="{{url('about')}}">Help</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
-
 
 <style type="css/text">
     @media all and (min-width: 992px) {
@@ -206,7 +251,5 @@
 	.navbar .nav-item:hover .nav-link{   }
 	.navbar .nav-item:hover .dropdown-menu{ display: block; }
 	.navbar .nav-item .dropdown-menu{ margin-top:0; }
-}
-
-
+    }
 </style>

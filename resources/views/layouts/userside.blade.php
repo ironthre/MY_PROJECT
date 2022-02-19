@@ -15,6 +15,7 @@
 
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js"    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <script src="{{ asset('userside/js/all.js')}}"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     @yield('head')
@@ -30,12 +31,11 @@
     <link href="{{ asset('userside/css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('userside/css/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('userside/css/owl.theme.default.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('userside/css/all.css')}}">
-    <link rel="stylesheet" href="{{ asset('userside/css/demo.css')}}">
+    {{-- <link rel="stylesheet" href="{{ asset('userside/css/all.css')}}">
+    <link rel="stylesheet" href="{{ asset('userside/css/demo.css')}}">--}}
     <link rel="stylesheet" href="{{ asset('userside/css/login.css')}}">
     <link rel="stylesheet" href="{{ asset('userside/css/product.css')}}">
-
-
+    {{-- <script  src="{{ asset('userside/js/script.js')}}"></script> --}}
 
 </head>
 <body >
@@ -53,12 +53,15 @@
     <script src="{{ asset('userside/js/jquery.min.js')}}"></script>
     <script src="{{ asset('userside/js/owl.carousel.min.js')}}"></script>
      <!-- Popper JS -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script src="{{ asset('userside/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('userside/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{ asset('userside/js/all.js')}}"></script>
-     <!-- Custom Script -->
-  <script  src="js/script.js"></script>
+      {{-- Custom Script --}}
+    {{-- <script src="{{ asset('userside/js/script.js')}}"></script> --}}
+    <script src="{{ asset('userside/js/imageChange.js')}}"></script>
+
 
     {{-- Sweet Alert --}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -67,6 +70,23 @@
             swal("{{ session('status');}}");
         </script>
     @endif
+
+    <script>
+        var availableTags = [];
+        $.ajax({
+            method: "GET",
+            url: "{{ url('/product-list')}}",
+            success: function(response){
+                searchProducts(response);
+            }
+        });
+
+        function searchProducts(availableTags){
+            $( "#searchBar" ).autocomplete({
+            source: availableTags
+            });
+        }
+  </script>
 
     @yield('scripts')
 

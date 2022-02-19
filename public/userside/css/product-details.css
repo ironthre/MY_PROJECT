@@ -1,0 +1,12 @@
+.product-detail-one {
+    background: #f1dae0;
+    border-radius: 10px;
+}
+.old-prices {
+    text-decoration: line-through;
+}
+
+.old-prices,
+.new-prices {
+    font-weight: bold;
+}
