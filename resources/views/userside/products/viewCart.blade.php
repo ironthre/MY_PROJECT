@@ -51,7 +51,7 @@
                             @endif
                         </div>
                         <div class="col-md-2">
-                            <button class="btn btn-danger delete-cart-item"><i class="fa fa-trash"></i>Remove</button>
+                            <button class="btn btn-danger delete-cart-item"><i class="fa fa-trash"></i></button>
                         </div>
                     </div>
                     @endforeach

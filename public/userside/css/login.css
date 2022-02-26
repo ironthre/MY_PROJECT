@@ -1,7 +1,14 @@
 /* .container {
     padding: 2rem 0rem;
 } */
-
+.bar {
+    width: 40vw;
+}
+@media (min-width: 861) {
+    .bar input {
+        width: 80% !important;
+    }
+}
 @media all and (min-width: 992px) {
     .navbar .nav-item .dropdown-menu {
         display: none;
@@ -16,6 +23,12 @@
     }
 }
 
+@media (max-width: 860) {
+    .bar {
+        width: 30% !important;
+    }
+}
+
 @media (min-width: 576px) {
     .modal-dialog {
         max-width: 500px;
@@ -24,10 +37,41 @@
         padding: 1rem;
     }
 }
+@media (min-width: 709px) {
+    /* .small-icon {
+        display: none;
+    } */
+    .srch-icon {
+        display: none !important;
+    }
+}
+@media (min-width: 992px) {
+    .show-side-menu {
+        display: none !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .menu {
+        display: none !important;
+    }
+}
+@media (max-width: 708px) {
+    .bar {
+        display: none;
+    }
+}
+@media (min-width: 709px) {
+    .hidden-search {
+        display: none !important;
+    }
+}
 
 @media screen and (max-width: 674px) {
     .user {
+        float: left;
         display: none;
+        width: 60% !important;
     }
 }
 
@@ -84,4 +128,77 @@ a {
 
 a:hover {
     text-decoration: none;
+}
+
+.icon-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: #333333;
+    background: #dddddd;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+}
+
+.icon-button:hover {
+    cursor: pointer;
+}
+
+.icon-button:active {
+    background: #cccccc;
+}
+
+.icon-button__badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 25px;
+    height: 25px;
+    background: red;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+#sideModal {
+    width: 80% !important;
+}
+.men-modal-header {
+    background-color: #74ded8;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.model-item:hover {
+    background-color: #74ded8 !important;
+    border-radius: 5px;
+}
+
+.hidden-search {
+    width: 80%;
+}
+/*
+.hidden-search {
+    position: relative;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    left: 30%;
+
+    display: none;
+}*/
+
+.hidden-search input {
+    box-sizing: border-box;
+    border: 1px solid #007bff !important;
+}
+
+.srch-icon:hover .hidden-search {
+    display: block !important;
 }

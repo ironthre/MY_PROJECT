@@ -7,8 +7,8 @@
 @endsection
 
 @section('content')
-    @include('layouts.include.slider')
-    @include('layouts.include.categoryList')
+@include('layouts.include.slider')
+@include('layouts.include.col')
     {{-- Featured Products --}}
 
 
@@ -18,8 +18,8 @@
         <h4 class="text-primary"><a class="mb-4" href="{{url('view-category/Mobile Phones')}} "> Featured products</a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($featured_products as $prod)
-                <div class="col-md-3 item ">
-                    <div class="card product headache mb-3">
+                <div class=" item ">
+                    <div class="card   product headache mb-3">
                         <div class="image-container">
                             <div class="first">
                                 <div class="d-flex justify-content-between align-items-center"> <span class="discount">-20%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
@@ -57,8 +57,8 @@
             $z= ($x-$y)/100;
 
             @endphp
-                <div class="col-md-3 item">
-                    <div class="card product headache mb-3">
+                <div class=" item">
+                    <div class="card   product headache mb-3">
                         <div class="image-container">
                             <div class="first">
                                 <div class="d-flex justify-content-between align-items-center"> <span class="discount">{{$z}}</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
@@ -91,8 +91,8 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Accessories')}}"> Accessories </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($accessory as $prod)
-                <div class="col-md-3 item">
-                    <div class="card product headache mb-3">
+                <div class=" item">
+                    <div class="card   product headache mb-3">
                         <div class="image-container">
                             <div class="first">
                                 <div class="d-flex justify-content-between align-items-center"> <span class="discount">{{$z}}%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
@@ -124,8 +124,8 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Music System')}}"> Music System </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($music as $prod)
-                <div class="col-md-3 item">
-                    <div class="card product headache mb-3">
+                <div class=" item">
+                    <div class="card   product headache mb-3">
                         <div class="image-container">
                             <div class="first">
                                 <div class="d-flex justify-content-between align-items-center"> <span class="discount">-{{$z}}%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
@@ -158,8 +158,8 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Televisions')}}"> Flat Screen TV </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($tv as $prod)
-                <div class="col-md-3 item">
-                    <div class="card product headache mb-3">
+                <div class=" item">
+                    <div class="card   product headache mb-3">
                         <div class="image-container">
                             <div class="first">
                                 <div class="d-flex justify-content-between align-items-center"> <span class="discount">-{{$z}}%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
@@ -192,8 +192,8 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Hand Bags')}}"> Hand Bags </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($bags as $prod)
-                <div class="col-md-3 item">
-                    <div class="card product headache mb-3">
+                <div class=" item">
+                    <div class="card   product headache mb-3">
                         <div class="image-container">
                             <div class="first">
                                 <div class="d-flex justify-content-between align-items-center"> <span class="discount">-{{$z}}%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
@@ -226,8 +226,8 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Sandals')}}"> Sandals </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($sandals as $prod)
-                <div class="col-md-3 item">
-                    <div class="card product headache mb-3">
+                <div class=" item">
+                    <div class="card   product headache mb-3">
                         <div class="image-container">
                             <div class="first">
                                 <div class="d-flex justify-content-between align-items-center"> <span class="discount">-{{$z}}%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
@@ -260,8 +260,8 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Textile & Decor')}}"> Textile and Decor </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($textile as $prod)
-                <div class="col-md-3 item">
-                    <div class="card product headache mb-3">
+                <div class=" item">
+                    <div class="card   product headache mb-3">
                         <div class="image-container">
                             <div class="first">
                                 <div class="d-flex justify-content-between align-items-center"> <span class="discount">-{{$z}}%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
@@ -294,8 +294,8 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Kanga & Vitenge')}}"> Kanga na Vitenge </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($kanga as $prod)
-                <div class="col-md-3 item">
-                    <div class="card product headache mb-3">
+                <div class=" item">
+                    <div class="card   product headache mb-3">
                         <div class="image-container">
                             <div class="first">
                                 <div class="d-flex justify-content-between align-items-center"> <span class="discount">-{{$z}}%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
@@ -322,8 +322,39 @@
     </div>
 </div>
 
+<a href="#" class="to-top">
+    <i class="fas fa-arrow-up"></i>
+</a>
 
 
+<style>
+
+.to-top {
+  background: white;
+  position: fixed;
+  bottom: 16px;
+  right:32px;
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:32px;
+  color:#1f1f1f;
+  text-decoration: none;
+  opacity:0;
+  pointer-events: none;
+  transition: all .4s;
+  z-index: 4000;
+}
+
+.to-top.active {
+  bottom:32px;
+  pointer-events: auto;
+  opacity:1;
+}
+</style>
 
     {{-- @include('layouts.include.productCard') --}}
 
@@ -333,8 +364,18 @@
 
 @section('scripts')
 <script>
+
+    const toTop = document.querySelector(".to-top");
+
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 100) {
+    toTop.classList.add("active");
+  } else {
+    toTop.classList.remove("active");
+  }
+});
     $('.featured-carousel').owlCarousel({
-        center: true,
+        center: false,
         items:2,
         loop:true,
         nav: true,

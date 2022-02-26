@@ -33,7 +33,7 @@
                             <h6>{{$item->products->selling_price}}</h6>
                         </div>
                         <div class="col-md-2">
-                            <button class="btn btn-danger delete-wish-item"><i class="fa fa-trash"></i>Remove</button>
+                            <button class="btn btn-danger delete-wish-item"><i class="fa fa-trash"></i></button>
                         </div>
                         <div class="col-md-3">
                             <button class="btn btn-success addToCartBtn"><i class="fa fa-shopping-cart"></i>Add to Cart</button>

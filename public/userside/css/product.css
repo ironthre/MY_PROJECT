@@ -652,6 +652,12 @@ a {
     background-color: #144965;
 }
 
-.ui-menu {
+.ui-menu,
+.dd_menu {
+    z-index: 4000;
+}
+
+.account,
+.dropdown-item {
     z-index: 4000;
 }
