@@ -15,8 +15,8 @@
     <!-- product -->
     <nav aria-label="breadcrumb font-weight-bolder">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark font-weight-bolder" href="{{url('/')}}">Home</a></li>
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark font-weight-bolder" href="{{url('view-category/'.$product->category->name)}}">{{$product->category->name}}</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark " href="{{url('/')}}">Home</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark " href="{{url('view-category/'.$product->category->name)}}">{{$product->category->name}}</a></li>
             <li class="breadcrumb-item text-sm text-dark active font-weight-bolder" aria-current="page">{{$product->name}}</li>
           </ol>
     </nav>
@@ -142,7 +142,7 @@
                     <div class="card product headache mb-3">
                         <div class="image-container">
                             <div class="first">
-                                <div class="d-flex justify-content-between align-items-center"> <span class="discount">-10%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
+                                <div class="d-flex justify-content-between align-items-center"> <span class="discount">-10%</span> <span class="wishlist2"><button class="btn addToWishlist"><i class="far fa-heart"></i></button></span> </div>
                             </div>
                             <a href="{{url('Product-Details/'.$prod->name)}}">
                                 <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
@@ -212,7 +212,7 @@
         loop:true,
         margin:10,
         nav:true,
-        navText: ["<i class='fa fa-2x fa-chevron-left' style='color:white'></i>","<i class='fa fa-2x fa-chevron-right' style='color:white'></i>"],
+        navText: ["<i class='fa fa-chevron-left' style='color:white'></i>","<i class='fa fa-chevron-right' style='color:white'></i>"],
         dots:false,
         responsive:{
             0:{

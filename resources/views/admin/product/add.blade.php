@@ -42,8 +42,12 @@
                         <input type="text" class="form-control" id="" name="meta_title" placeholder="">
                     </div>
                     <div class="form-group input-groups col-md-3">
-                        <label for="">Meta_Keyword</label>
-                        <input type="text" class="form-control" id="" name="meta_keywords" placeholder="">
+                        <label for="">Rate Product</label>
+                            <select class="form-select"  name="rate">
+                                <option value="Hign">High </option>
+                                <option value="mediu">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
                     </div>
                 </div>
 
@@ -97,7 +101,7 @@
                 </div>
 
                 <div class="col-md-12 mb-5">
-                    <input type="file" name="images" class="form-control-file">
+                    <input type="file" name="images" class="form-control-file" multiple>
                 </div>
 
                 <div class="col-md-12">

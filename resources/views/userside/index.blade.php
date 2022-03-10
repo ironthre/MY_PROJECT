@@ -379,7 +379,7 @@ window.addEventListener("scroll", () => {
         items:2,
         loop:true,
         nav: true,
-        navText: ["<i class='fa fa-2x fa-chevron-left' style='color:white'></i>","<i class='fa fa-2x fa-chevron-right' style='color:white'></i>"],
+        navText: ["<i class='fa  fa-chevron-left' style='color:white'></i>","<i class='fa  fa-chevron-right' style='color:white'></i>"],
         margin:1,
         responsive:{
             600:{

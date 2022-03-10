@@ -11,6 +11,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmailController;
 use Illuminate\Controllers\Admin\ProductController;
 
 /*
@@ -39,9 +40,12 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+// Route::get('/contact', function () {
+//     return view('contact');
+// })->name('contact');
+
+Route::get('/contact', [EmailController::class, 'createForm']);
+Route::post('/contact', [EmailController::class, 'ContactUsForm'])->name('contact');
 
 Route::get('product/mobile', function () {
     return view('/userside/products/index');

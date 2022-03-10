@@ -44,14 +44,15 @@ class ProductController extends Controller
         if ($request->hasFile('images')) {
             // $image = new Image;
             // echo "<pre>";
-            // print_r($request->file('images'));
-            // die();
+            //echo 'hello';
+            //print_r($request->file('images'));
+            //sdie();
             $headache = $request->file('images');
             $a = '';
             foreach ($headache as $key => $imagefile) {
                 $ext = $imagefile->getClientOriginalExtension();
                 $filename = time() . rand(1, 1000) . '.' . $ext;
-                $imagefile->move('assets/uploads/product/', $filename);
+                $imagefile->move('assets/uploads/multiple', $filename);
                 $a = $a . ',' . $filename;
             }
             $product->images = $a;
@@ -70,7 +71,14 @@ class ProductController extends Controller
         $product->status = $request->input('status') == TRUE ? '1' : '0';
         $product->trending = $request->input('trending') == TRUE ? '1' : '0';
         $product->meta_title = $request->input('meta_title');
-        $product->meta_keywords = $request->input('meta_keywords');
+        if ($request->input('rate')) {
+            echo 'rate';
+            die();
+        } else {
+            echo 'no rate';
+            die();
+        }
+        $product->meta_keywords = $request->input('rate');
         $product->meta_descrip = $request->input('meta_descrip');
         $product->save();
         return redirect('/products')->with('status', "Product Added Successfully");

@@ -76,7 +76,7 @@ a {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.first {
+.wishlist .first {
     position: absolute;
     width: 100%;
     padding: 9px;
@@ -605,8 +605,8 @@ a {
     position: absolute;
     left: 0;
     display: block;
-    width: 40px;
-    height: 60px;
+    width: 20px;
+    height: 40px;
     color: white;
     background-color: #144965 !important;
     font-size: 35px;
@@ -616,8 +616,8 @@ a {
 .owl-nav .owl-next {
     position: absolute;
     right: 0;
-    width: 40px;
-    height: 60px;
+    width: 20px;
+    height: 40px;
     color: white;
     background-color: #144965 !important;
 }
