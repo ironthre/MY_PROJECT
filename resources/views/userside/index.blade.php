@@ -8,7 +8,7 @@
 
 @section('content')
 @include('layouts.include.slider')
-@include('layouts.include.col')
+@include('layouts.include.category')
     {{-- Featured Products --}}
 
 
@@ -18,25 +18,64 @@
         <h4 class="text-primary"><a class="mb-4" href="{{url('view-category/Mobile Phones')}} "> Featured products</a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($featured_products as $prod)
+                @php
+                    $selling_price = $prod->selling_price;
+                    $org_price = $prod->org_price;
+                    $disc_price = $org_price-$selling_price;
+                    $disc_percentage = $disc_price/100;
+                @endphp
                 <div class=" item ">
                     <div class="card   product headache mb-3">
                         <div class="image-container">
-                            <div class="first">
-                                <div class="d-flex justify-content-between align-items-center"> <span class="discount">-20%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
-                            </div>
-                             <a href="{{url('Product-Details/'.$prod->name)}}">
+                            <a href="{{url('Product-Details/'.$prod->name)}}">
                                 <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
-                             </a>
+                            </a>
                         </div>
-                        <div class="product-detail-container p-2">
+                        <div class="product-detail-container p-2 mb-0">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="dress-name"><a href="{{url('Product-Details/'.$prod->name)}}">{{$prod->name}}</a></h5>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div class="d-flex flex-column mb-2"> <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small> </div>
+
+                            <div class=" justify-content-between  rating ">
+                                <div>
+                                    @if ($prod->rate == 4.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+
+                                    @elseif($prod->rate == 4)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @elseif ($prod->rate == 3.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @else
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @endif
+                                    <span class="rating-number">{{$prod->rate}}</span>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div> <i class="fa fa-star rating-star"></i> <span class="rating-number">4.8</span> </div>
+                            <div class="d-flex justify-content-between align-items-center ">
+                                <div class="d-flex flex-column mb-2">
+                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                </div>
+                                <div class="first">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="discount">-{{$disc_percentage}}%</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -51,18 +90,15 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Mobile Phones')}} "> Mobile Phones</a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($phone as $prod)
-            @php
-            $x= $prod->selling_price;
-            $y=$prod->org_price;
-            $z= ($x-$y)/100;
-
-            @endphp
+                @php
+                    $selling_price = $prod->selling_price;
+                    $org_price = $prod->org_price;
+                    $disc_price = $org_price-$selling_price;
+                    $disc_percentage = $disc_price/100;
+                @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
                         <div class="image-container">
-                            <div class="first">
-                                <div class="d-flex justify-content-between align-items-center"> <span class="discount">{{$z}}</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
-                            </div>
                              <a href="{{url('Product-Details/'.$prod->name)}}">
                                 <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
                              </a>
@@ -71,11 +107,47 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="dress-name"><a href="{{url('Product-Details/'.$prod->name)}}">{{$prod->name}}</a></h5>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div class="d-flex flex-column mb-2"> <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small> </div>
+
+                            <div class="rating justify-content-between  ">
+                                <div>
+                                    @if ($prod->rate == 4.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+
+                                    @elseif($prod->rate == 4)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @elseif ($prod->rate == 3.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @else
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @endif
+                                    <span class="rating-number">{{$prod->rate}}</span>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div> <i class="fa fa-star rating-star"></i> <span class="rating-number">4.8</span> </div>
+                            <div class="d-flex justify-content-between align-items-center ">
+                                <div class="d-flex flex-column mb-2">
+                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                </div>
+                                <div class="first">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="discount">-{{$disc_percentage}}%</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -91,12 +163,15 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Accessories')}}"> Accessories </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($accessory as $prod)
+                @php
+                    $selling_price = $prod->selling_price;
+                    $org_price = $prod->org_price;
+                    $disc_price = $org_price-$selling_price;
+                    $disc_percentage = $disc_price/100;
+                @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
                         <div class="image-container">
-                            <div class="first">
-                                <div class="d-flex justify-content-between align-items-center"> <span class="discount">{{$z}}%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
-                            </div>
                              <a href="{{url('Product-Details/'.$prod->name)}}">
                                 <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
                              </a>
@@ -105,11 +180,47 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="dress-name"><a href="{{url('Product-Details/'.$prod->name)}}">{{$prod->name}}</a></h5>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div class="d-flex flex-column mb-2"> <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small> </div>
+
+                            <div class="rating justify-content-between  ">
+                                <div>
+                                    @if ($prod->rate == 4.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+
+                                    @elseif($prod->rate == 4)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @elseif ($prod->rate == 3.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @else
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @endif
+                                    <span class="rating-number">{{$prod->rate}}</span>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div> <i class="fa fa-star rating-star"></i> <span class="rating-number">4.8</span> </div>
+                            <div class="d-flex justify-content-between align-items-center ">
+                                <div class="d-flex flex-column mb-2">
+                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                </div>
+                                <div class="first">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="discount">-{{$disc_percentage}}%</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -124,12 +235,15 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Music System')}}"> Music System </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($music as $prod)
+                @php
+                    $selling_price = $prod->selling_price;
+                    $org_price = $prod->org_price;
+                    $disc_price = $org_price-$selling_price;
+                    $disc_percentage = $disc_price/100;
+                @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
                         <div class="image-container">
-                            <div class="first">
-                                <div class="d-flex justify-content-between align-items-center"> <span class="discount">-{{$z}}%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
-                            </div>
                              <a href="{{url('Product-Details/'.$prod->name)}}">
                                 <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
                              </a>
@@ -138,14 +252,50 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="dress-name"><a href="{{url('Product-Details/'.$prod->name)}}">{{$prod->name}}</a></h5>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div class="d-flex flex-column mb-2"> <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small> </div>
+
+                            <div class="rating justify-content-between  ">
+                                <div>
+                                    @if ($prod->rate == 4.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+
+                                    @elseif($prod->rate == 4)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @elseif ($prod->rate == 3.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @else
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @endif
+                                    <span class="rating-number">{{$prod->rate}}</span>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div> <i class="fa fa-star rating-star"></i> <span class="rating-number">4.8</span> </div>
+                            <div class="d-flex justify-content-between align-items-center ">
+                                <div class="d-flex flex-column mb-2">
+                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                </div>
+                                <div class="first">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="discount">-{{$disc_percentage}}%</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </div>>
                 </div>
             @endforeach
         </div>
@@ -158,12 +308,15 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Televisions')}}"> Flat Screen TV </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($tv as $prod)
+                @php
+                    $selling_price = $prod->selling_price;
+                    $org_price = $prod->org_price;
+                    $disc_price = $org_price-$selling_price;
+                    $disc_percentage = $disc_price/100;
+                @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
                         <div class="image-container">
-                            <div class="first">
-                                <div class="d-flex justify-content-between align-items-center"> <span class="discount">-{{$z}}%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
-                            </div>
                              <a href="{{url('Product-Details/'.$prod->name)}}">
                                 <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
                              </a>
@@ -172,11 +325,47 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="dress-name"><a href="{{url('Product-Details/'.$prod->name)}}">{{$prod->name}}</a></h5>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div class="d-flex flex-column mb-2"> <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small> </div>
+
+                            <div class="rating justify-content-between  ">
+                                <div>
+                                    @if ($prod->rate == 4.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+
+                                    @elseif($prod->rate == 4)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @elseif ($prod->rate == 3.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @else
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @endif
+                                    <span class="rating-number">{{$prod->rate}}</span>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div> <i class="fa fa-star rating-star"></i> <span class="rating-number">4.8</span> </div>
+                            <div class="d-flex justify-content-between align-items-center ">
+                                <div class="d-flex flex-column mb-2">
+                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                </div>
+                                <div class="first">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="discount">-{{$disc_percentage}}%</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -192,12 +381,15 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Hand Bags')}}"> Hand Bags </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($bags as $prod)
+                @php
+                    $selling_price = $prod->selling_price;
+                    $org_price = $prod->org_price;
+                    $disc_price = $org_price-$selling_price;
+                    $disc_percentage = $disc_price/100;
+                @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
                         <div class="image-container">
-                            <div class="first">
-                                <div class="d-flex justify-content-between align-items-center"> <span class="discount">-{{$z}}%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
-                            </div>
                              <a href="{{url('Product-Details/'.$prod->name)}}">
                                 <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
                              </a>
@@ -206,11 +398,47 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="dress-name"><a href="{{url('Product-Details/'.$prod->name)}}">{{$prod->name}}</a></h5>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div class="d-flex flex-column mb-2"> <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small> </div>
+
+                            <div class="rating justify-content-between  ">
+                                <div>
+                                    @if ($prod->rate == 4.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+
+                                    @elseif($prod->rate == 4)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @elseif ($prod->rate == 3.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @else
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @endif
+                                    <span class="rating-number">{{$prod->rate}}</span>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div> <i class="fa fa-star rating-star"></i> <span class="rating-number">4.8</span> </div>
+                            <div class="d-flex justify-content-between align-items-center ">
+                                <div class="d-flex flex-column mb-2">
+                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                </div>
+                                <div class="first">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="discount">-{{$disc_percentage}}%</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -226,12 +454,15 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Sandals')}}"> Sandals </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($sandals as $prod)
+                @php
+                    $selling_price = $prod->selling_price;
+                    $org_price = $prod->org_price;
+                    $disc_price = $org_price-$selling_price;
+                    $disc_percentage = $disc_price/100;
+                @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
                         <div class="image-container">
-                            <div class="first">
-                                <div class="d-flex justify-content-between align-items-center"> <span class="discount">-{{$z}}%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
-                            </div>
                              <a href="{{url('Product-Details/'.$prod->name)}}">
                                 <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
                              </a>
@@ -240,11 +471,47 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="dress-name"><a href="{{url('Product-Details/'.$prod->name)}}">{{$prod->name}}</a></h5>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div class="d-flex flex-column mb-2"> <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small> </div>
+
+                            <div class="rating justify-content-between  ">
+                                <div>
+                                    @if ($prod->rate == 4.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+
+                                    @elseif($prod->rate == 4)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @elseif ($prod->rate == 3.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @else
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @endif
+                                    <span class="rating-number">{{$prod->rate}}</span>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div> <i class="fa fa-star rating-star"></i> <span class="rating-number">4.8</span> </div>
+                            <div class="d-flex justify-content-between align-items-center ">
+                                <div class="d-flex flex-column mb-2">
+                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                </div>
+                                <div class="first">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="discount">-{{$disc_percentage}}%</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -260,12 +527,15 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Textile & Decor')}}"> Textile and Decor </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($textile as $prod)
+                @php
+                    $selling_price = $prod->selling_price;
+                    $org_price = $prod->org_price;
+                    $disc_price = $org_price-$selling_price;
+                    $disc_percentage = $disc_price/100;
+                @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
                         <div class="image-container">
-                            <div class="first">
-                                <div class="d-flex justify-content-between align-items-center"> <span class="discount">-{{$z}}%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
-                            </div>
                              <a href="{{url('Product-Details/'.$prod->name)}}">
                                 <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
                              </a>
@@ -274,11 +544,47 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="dress-name"><a href="{{url('Product-Details/'.$prod->name)}}">{{$prod->name}}</a></h5>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div class="d-flex flex-column mb-2"> <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small> </div>
+
+                            <div class="rating justify-content-between  ">
+                                <div>
+                                    @if ($prod->rate == 4.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+
+                                    @elseif($prod->rate == 4)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @elseif ($prod->rate == 3.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @else
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @endif
+                                    <span class="rating-number">{{$prod->rate}}</span>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div> <i class="fa fa-star rating-star"></i> <span class="rating-number">4.8</span> </div>
+                            <div class="d-flex justify-content-between align-items-center ">
+                                <div class="d-flex flex-column mb-2">
+                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                </div>
+                                <div class="first">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="discount">-{{$disc_percentage}}%</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -294,12 +600,15 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Kanga & Vitenge')}}"> Kanga na Vitenge </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($kanga as $prod)
+                @php
+                    $selling_price = $prod->selling_price;
+                    $org_price = $prod->org_price;
+                    $disc_price = $org_price-$selling_price;
+                    $disc_percentage = $disc_price/100;
+                @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
                         <div class="image-container">
-                            <div class="first">
-                                <div class="d-flex justify-content-between align-items-center"> <span class="discount">-{{$z}}%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
-                            </div>
                              <a href="{{url('Product-Details/'.$prod->name)}}">
                                 <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
                              </a>
@@ -308,11 +617,47 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="dress-name"><a href="{{url('Product-Details/'.$prod->name)}}">{{$prod->name}}</a></h5>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div class="d-flex flex-column mb-2"> <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small> </div>
+
+                            <div class="rating justify-content-between  ">
+                                <div>
+                                    @if ($prod->rate == 4.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+
+                                    @elseif($prod->rate == 4)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @elseif ($prod->rate == 3.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @else
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @endif
+                                    <span class="rating-number">{{$prod->rate}}</span>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div> <i class="fa fa-star rating-star"></i> <span class="rating-number">4.8</span> </div>
+                            <div class="d-flex justify-content-between align-items-center ">
+                                <div class="d-flex flex-column mb-2">
+                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                </div>
+                                <div class="first">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="discount">-{{$disc_percentage}}%</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -376,18 +721,18 @@ window.addEventListener("scroll", () => {
 });
     $('.featured-carousel').owlCarousel({
         center: false,
-        items:2,
+        // items:2,
         loop:true,
         nav: true,
         navText: ["<i class='fa  fa-chevron-left' style='color:white'></i>","<i class='fa  fa-chevron-right' style='color:white'></i>"],
         margin:1,
         responsive:{
-            600:{
-                items:5
-            }
-            // 1000:{
-            //     items:5
-            // }
+             600:{
+                 items:5
+             }
+        //     1000:{
+        //          items:5
+        //  }
         }
             // center: true,
             // loop:true,

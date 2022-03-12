@@ -22,7 +22,7 @@ a {
     border: none;
     border-radius: 10px;
     width: 190px;
-    height: 280px;
+    height: 250px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -46,7 +46,7 @@ a {
 .discount {
     background-color: red;
     padding-top: 1px;
-    padding-bottom: 1px;
+    /* padding-bottom: 1px; */
     padding-left: 4px;
     padding-right: 4px;
     font-size: 10px;
@@ -79,7 +79,7 @@ a {
 .wishlist .first {
     position: absolute;
     width: 100%;
-    padding: 9px;
+    padding: 0px;
 }
 
 .dress-name {
@@ -189,8 +189,14 @@ a {
 
 .rating-star {
     font-size: 10px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    color: rgb(209, 184, 39);
 }
-
+/* .rating {
+    margin: 0px !important;
+    padding: 0px !important;
+} */
 .rating-number {
     font-size: 10px;
     color: grey;
@@ -288,7 +294,10 @@ a {
     padding-left: 0;
     margin-left: 0;
 }
-
+.product-detail-container h5 {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
 .product-content .product-deatil h5 a span {
     color: #9aa7af;
     display: block;

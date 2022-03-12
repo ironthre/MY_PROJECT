@@ -31,30 +31,20 @@
                         <input type="text" value="{{ $product->name}}" class="form-control" id="" name="name" placeholder="Name">
                     </div>
                     <div class="form-group input-groups col-md-3">
-                        <label for="">Slug</label>
-                        <input type="text"  value="{{ $product->slug}}" class="form-control" id="" name="slug" placeholder="Slug">
+                        <label for="">Rate Product</label>
+                            <select class="form-select"  name="rate">
+                                <option value="{{4.5}}">High 4.5</option>
+                                <option value="{{4.0}}">Medium 4</option>
+                                <option value="{{3.5}}">Low 3.5</option>
+                                <option value="{{2.5}}">Lowest 2.8</option>
+                            </select>
                     </div>
                 </div>
 
-                <div class="form-row justify-content-around">
-                    <div class="form-group input-groups  col-md-3">
-                            <label for="">Small Description</label>
-                            <input type="text" value="{{ $product->small_description}}" class="form-control" id="" name="small_description" placeholder="Name">
-                    </div>
-                    <div class="form-group input-groups col-md-3">
-                        <label for="">Meta_Title</label>
-                        <input type="text" value="{{ $product->meta_title}}" class="form-control" id="" name="meta_title" placeholder="">
-                    </div>
-                    <div class="form-group input-groups col-md-3">
-                        <label for="">Meta_Keyword</label>
-                        <input type="text" value="{{ $product->meta_keywords}}" class="form-control" id="" name="meta_keywords" placeholder="">
-                    </div>
-
-                </div>
                 <div class="form-row justify-content-around">
                     <div class="form-group input-groups col-md-5">
-                        <label for="">Meta Description</label>
-                        <textarea class="form-control" id="" name="meta_descrip" rows="3">{{ $product->meta_desrip}}"</textarea>
+                        <label for="">Small Description</label>
+                        <textarea class="form-control" id="" name="small_description" rows="3">{{ $product->small_description}}"</textarea>
                     </div>
                     <div class="form-group input-groups col-md-5">
                         <label for="">Product Detaels</label>

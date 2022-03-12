@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
 use App\Models\Product;
-use App\Models\Image;
+use App\Models\Contact;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
@@ -14,13 +14,15 @@ class ProductController extends Controller
     public function index()
     {
         $product = Product::all();
-        return view('admin.product.index', compact('product'));
+        $contact = Contact::all();
+        return view('admin.product.index', compact('product', 'contact'));
     }
 
     public function add()
     {
         $category = Category::all();
-        return view('admin.product.add', compact('category'));
+        $contact = Contact::all();
+        return view('admin.product.add', compact('category', 'contact'));
     }
 
     public function insert(Request $request)
@@ -47,6 +49,9 @@ class ProductController extends Controller
             //echo 'hello';
             //print_r($request->file('images'));
             //sdie();
+            // echo "<pre>";
+            // print_r($request->file('images'));
+            // die();
             $headache = $request->file('images');
             $a = '';
             foreach ($headache as $key => $imagefile) {
@@ -71,14 +76,8 @@ class ProductController extends Controller
         $product->status = $request->input('status') == TRUE ? '1' : '0';
         $product->trending = $request->input('trending') == TRUE ? '1' : '0';
         $product->meta_title = $request->input('meta_title');
-        if ($request->input('rate')) {
-            echo 'rate';
-            die();
-        } else {
-            echo 'no rate';
-            die();
-        }
-        $product->meta_keywords = $request->input('rate');
+        $product->meta_keywords = $request->input('meta_keyword');
+        $product->rate = $request->input('rate');
         $product->meta_descrip = $request->input('meta_descrip');
         $product->save();
         return redirect('/products')->with('status', "Product Added Successfully");
@@ -88,7 +87,8 @@ class ProductController extends Controller
     {
         $category = Category::all();
         $product = Product::find($id);
-        return view('admin.product.edit', compact('product', 'category'));
+        $contact = Contact::all();
+        return view('admin.product.edit', compact('product', 'category', 'contact'));
     }
 
     public function update(Request $request, $id)
@@ -110,25 +110,23 @@ class ProductController extends Controller
             $product->image = $filename;
 
             // save to other inputs to database
-
-            $product->name = $request->input('name');
-            $product->slug = $request->input('slug');
-            $product->small_description = $request->input('small_description');
-            $product->description = $request->input('description');
-            $product->org_price = $request->input('org_price');
-            $product->selling_price = $request->input('selling_price');
-            $product->qty = $request->input('qty');
-            $product->tax = $request->input('tax');
-            $product->status = $request->input('status') == TRUE ? '1' : '0';
-            $product->trending = $request->input('trending') == TRUE ? '1' : '0';
-            $product->meta_title = $request->input('meta_title');
-            $product->meta_keywords = $request->input('meta_keywords');
-            $product->meta_descrip = $request->input('meta_descrip');
-            $product->update();
-            return redirect('/products')->with('status', "Product Updated Successfully");
-        } else {
-            return redirect('/dashboard')->with('status', "Not Updated");
         }
+        $product->name = $request->input('name');
+        $product->slug = $request->input('slug');
+        $product->small_description = $request->input('small_description');
+        $product->description = $request->input('description');
+        $product->org_price = $request->input('org_price');
+        $product->selling_price = $request->input('selling_price');
+        $product->qty = $request->input('qty');
+        $product->tax = $request->input('tax');
+        $product->status = $request->input('status') == TRUE ? '1' : '0';
+        $product->trending = $request->input('trending') == TRUE ? '1' : '0';
+        $product->meta_title = $request->input('meta_title');
+        $product->meta_keywords = $request->input('meta_keywords');
+        $product->meta_descrip = $request->input('meta_descrip');
+        $product->rate = $request->input('rate');
+        $product->update();
+        return redirect('/products')->with('status', "Product Updated Successfully");
     }
 
     public function delete($id)

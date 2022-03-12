@@ -14,7 +14,7 @@ body {
 
 .input-groups {
     position: relative;
-    border: 2px solid var(--border);
+    border: 1px solid var(--border);
     border-radius: 8px;
     margin-top: 20px;
     margin-bottom: 15px;
@@ -41,7 +41,7 @@ textarea {
 
 .input-groups,
 .input-groups {
-    border-color: var(--primary);
+    border-color: var(--border);
 }
 
 .input-groups input:focus,

@@ -39,7 +39,7 @@
 
                                 @foreach ( $images as $image)
                                     @if ($image)
-                                        <img src="{{asset('assets/uploads/product/'.$image)}}" class="img-thumbnail" onclick="document.getElementById('nightWork').src='{{asset('assets/uploads/product/'.$image)}}'" width="100" height="100" alt="" />
+                                        <img src="{{asset('assets/uploads/multiple/'.$image)}}" class="img-thumbnail" onclick="document.getElementById('nightWork').src='{{asset('assets/uploads/multiple/'.$image)}}'" width="100" height="100" alt="" />
                                     @endif
                                 @endforeach
                             </div>
@@ -55,11 +55,34 @@
                         <h4 class="">{{$product->name}}</h4>
                     </div>
                     <div class="rate mb-2">
+                        @if ($product->rate == 4.5)
+                        <span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+						<span class="fa-regular fa-star-half-stroke"></span>
+
+                        @elseif($product->rate == 4)
+                        <span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa-regular fa-star"></span>
+                        @elseif ($product->rate == 3.5)
                         <span class="fa fa-star checked"></span>
 						<span class="fa fa-star checked"></span>
 						<span class="fa fa-star checked"></span>
 						<span class="fa-regular fa-star-half-stroke"></span>
 						<span class="fa-regular fa-star"></span>
+                        @else
+						<span class="fa fa-star checked"></span>
+						<span class="fa fa-star checked"></span>
+						<span class="fa-regular fa-star-half-stroke"></span>
+						<span class="fa-regular fa-star"></span>
+                        <span class="fa-regular fa-star"></span>
+
+                        @endif
+
                     </div>
                     <h5><i class="fa-solid fa-truck-fast mr-2"></i><span>Free Delivery in Dodoma</span></h5>
                 </div>
@@ -71,20 +94,22 @@
                         <span class="new-prices text-danger mx-3">Tsh {{$product->selling_price}}</span>
                         <span class="old-prices text-danger bold">Tsh {{$product->org_price}}</span>
                     </div>
-
+                    <form action="{{url('single-checkout')}}" method="POST">
+                        {{ csrf_field() }}
                     <div class="row input-group pl-3 mb-3">
-                        <input type="hidden" name="" value="{{$product->id}}" class="prod_id">
+                        <input type="hidden" name="id" value="{{$product->id}}" class="prod_id">
                         <h5>Quantity:</h5>
                         <div class="input-group mx-3 text-center " style="width: 130px;">
                             <div class="input-group-prepend">
                                 <button class="input-group-text decre-btn">-</button>
                             </div>
-                            <input type="text" class="form-control text-center qty-input" name="quantity " value="1">
+                            <input type="text" class="form-control text-center qty-input" name="quantity" value="1">
                             <div class="input-group-append">
                                 <button class="input-group-text incre-btn">+</button>
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <hr />
 
@@ -103,16 +128,16 @@
                         @endif
                     </div>
                      <div class="col-md-12 mb-2">
-                            <button class="btn btn-white btn-outline-primary "><i class="fa fa-envelope"></i> Contact Seller</button>
+                            <a class="btn btn-white btn-outline-primary " href="{{url('contact')}}"><i class="fa fa-envelope"></i> Contact Seller</a>
                             <button class="btn btn-white btn-outline-danger addToWishlist"><i class="fa-solid fa-heart"></i>Wishlist</button>
                      </div>
                     <div class="col-md-12">
                         @if ($product->qty>0)
                             <button class="btn btn-white btn-primary addToCartBtn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
-                            <button class="btn btn-white btn-success" href="{{url('checkout')}}"><i class="fa-solid fa-bag-shopping"></i> Order Product</button>
+                           <button type="submit" class="btn btn-primary">Submit</button>
                         @endif
 
-
+</form>
 
                     </div>
                 </div>
@@ -138,25 +163,64 @@
     <div class="row">
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($related as $prod)
+                @php
+                    $selling_price = $prod->selling_price;
+                    $org_price = $prod->org_price;
+                    $disc_price = $org_price-$selling_price;
+                    $disc_percentage = $disc_price/100;
+                @endphp
                 <div class="col-md-3 item">
-                    <div class="card product headache mb-3">
+                    <div class="card   product headache mb-3">
                         <div class="image-container">
-                            <div class="first">
-                                <div class="d-flex justify-content-between align-items-center"> <span class="discount">-10%</span> <span class="wishlist2"><button class="btn addToWishlist"><i class="far fa-heart"></i></button></span> </div>
-                            </div>
-                            <a href="{{url('Product-Details/'.$prod->name)}}">
+                             <a href="{{url('Product-Details/'.$prod->name)}}">
                                 <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
-                            </a>
+                             </a>
                         </div>
                         <div class="product-detail-container p-2">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="dress-name"><a href="{{url('Product-Details/'.$prod->name)}}">{{$prod->name}}</a></h5>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div class="d-flex flex-column mb-2"> <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small> </div>
+
+                            <div class="rating justify-content-between  ">
+                                <div>
+                                    @if ($prod->rate == 4.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+
+                                    @elseif($prod->rate == 4)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @elseif ($prod->rate == 3.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @else
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @endif
+                                    <span class="rating-number">{{$prod->rate}}</span>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div> <i class="fa fa-star rating-star"></i> <span class="rating-number">4.8</span> </div>
+                            <div class="d-flex justify-content-between align-items-center ">
+                                <div class="d-flex flex-column mb-2">
+                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                </div>
+                                <div class="first">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="discount">-{{$disc_percentage}}%</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -170,25 +234,64 @@
     <div class="row">
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($popular as $prod)
+                @php
+                    $selling_price = $prod->selling_price;
+                    $org_price = $prod->org_price;
+                    $disc_price = $org_price-$selling_price;
+                    $disc_percentage = $disc_price/100;
+                @endphp
                 <div class="col-md-3 item">
-                    <div class="card product headache mb-3">
+                    <div class="card   product headache mb-3">
                         <div class="image-container">
-                            <div class="first">
-                                <div class="d-flex justify-content-between align-items-center"> <span class="discount">-10%</span> <span class="wishlist2"><i class="far fa-heart"></i></span> </div>
-                            </div>
-                            <a href="{{url('Product-Details/'.$prod->name)}}">
+                             <a href="{{url('Product-Details/'.$prod->name)}}">
                                 <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
-                            </a>
+                             </a>
                         </div>
                         <div class="product-detail-container p-2">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="dress-name"><a href="{{url('Product-Details/'.$prod->name)}}">{{$prod->name}}</a></h5>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div class="d-flex flex-column mb-2"> <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small> </div>
+
+                            <div class="rating justify-content-between  ">
+                                <div>
+                                    @if ($prod->rate == 4.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+
+                                    @elseif($prod->rate == 4)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @elseif ($prod->rate == 3.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @else
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @endif
+                                    <span class="rating-number">{{$prod->rate}}</span>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div> <i class="fa fa-star rating-star"></i> <span class="rating-number">4.8</span> </div>
+                            <div class="d-flex justify-content-between align-items-center ">
+                                <div class="d-flex flex-column mb-2">
+                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                </div>
+                                <div class="first">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="discount">-{{$disc_percentage}}%</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -276,7 +379,32 @@
         });
 
     });
+     $('.singleOrder').click(function(e){
+        e.preventDefault();
 
+        var product_id = $(this).closest('.product_data').find('.prod_id').val();
+        var product_qty = $(this).closest('.product_data').find('.qty-input').val();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            method: "POST",
+            url: "{{ url('/single-checkout')}}",
+            data: {
+                'product_id': product_id,
+                'product_qty': product_qty,
+            },
+            success: function(response){
+                swal(response.status);
+
+            }
+        });
+
+    });
 
     $('.addToWishlist').click(function(e){
         e.preventDefault();

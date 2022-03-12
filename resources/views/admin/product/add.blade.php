@@ -27,34 +27,21 @@
                         <input type="text" class="form-control" id="" name="name" placeholder="">
                     </div>
                     <div class="form-group input-groups col-md-3">
-                            <label for="">Slug</label>
-                            <input type="text" class="form-control" id="" name="slug" placeholder="">
-                    </div>
-                </div>
-
-                <div class="form-row justify-content-around">
-                    <div class="form-group input-groups  col-md-3">
-                            <label for="">Small Description</label>
-                            <input type="text" class="form-control" id="" name="small_description" placeholder="">
-                    </div>
-                    <div class="form-group input-groups col-md-3">
-                        <label for="">Meta_Title</label>
-                        <input type="text" class="form-control" id="" name="meta_title" placeholder="">
-                    </div>
-                    <div class="form-group input-groups col-md-3">
                         <label for="">Rate Product</label>
                             <select class="form-select"  name="rate">
-                                <option value="Hign">High </option>
-                                <option value="mediu">Medium</option>
-                                <option value="low">Low</option>
+                                <option value="{{4.5}}">High 4.5</option>
+                                <option value="{{4.0}}">Medium 4</option>
+                                <option value="{{3.5}}">Low 3.5</option>
+                                <option value="{{2.5}}">Lowest 2.8</option>
                             </select>
                     </div>
                 </div>
 
+
                 <div class="form-row justify-content-around">
-                    <div class="form-group input-groups col-md-5">
-                        <label for="">Meta Description</label>
-                        <textarea class="form-control text-area" id="" name="meta_descrip" rows="5"></textarea>
+                    <div class="form-group input-groups  col-md-5">
+                            <label for="">Small Description</label>
+                            <input type="text" class="form-control" id="" name="small_description" placeholder="">
                     </div>
                     <div class="form-group input-groups col-md-5">
                         <label for="">Product Deteals</label>
@@ -63,11 +50,11 @@
                 </div>
 
                 <div class="form-row justify-content-around">
-                    <div class="form-group input-groups col-md-2">
+                    <div class="form-group input-groups col-md-3">
                         <label for="">Original Price</label>
                         <input type="number" class="form-control" id="" name="org_price" rows="3">
                     </div>
-                    <div class="form-group input-groups col-md-2">
+                    <div class="form-group input-groups col-md-3">
                         <label for="">Selling Price</label>
                         <input type="number" class="form-control" id="" name="selling_price" rows="3">
                     </div>
@@ -101,7 +88,7 @@
                 </div>
 
                 <div class="col-md-12 mb-5">
-                    <input type="file" name="images" class="form-control-file" multiple>
+                    <input type="file" name="images[]" class="form-control-file" multiple>
                 </div>
 
                 <div class="col-md-12">

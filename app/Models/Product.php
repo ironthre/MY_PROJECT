@@ -17,6 +17,7 @@ class Product extends Model
         'description',
         'org_price',
         'selling_price',
+        'rate',
         'image',
         'images',
         'qty',

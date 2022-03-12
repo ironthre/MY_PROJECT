@@ -80,7 +80,9 @@ Route::post('delete-wish-item', [WishlistController::class, 'deleteWishItem']);
 Route::middleware(['auth'])->group(function () {
     Route::get('cart', [CartController::class, 'viewCart']);
     Route::get('checkout', [CheckoutController::class, 'index']);
+    Route::post('single-checkout', [CheckoutController::class, 'indexsingle']);
     Route::post('place-order', [CheckoutController::class, 'placeorder']);
+    Route::post('single-order', [CheckoutController::class, 'singleOrder']);
     Route::get('my-orders', [UserController::class, 'index']);
     Route::get('view-orders/{id}', [UserController::class, 'viewOrder']);
     Route::get('wishlist', [WishlistController::class, 'index']);

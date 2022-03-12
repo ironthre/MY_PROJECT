@@ -14,9 +14,14 @@
         </nav>
     </div>
     <div class="container my-2 py-4">
-        <div class="card wishCard">
-            @if ($wish->count() > 0)
+        @if (Session::has('message_sent'))
+                <div class="alert alert-danger" role="alert">
+                    {{Session::get('status')}}
+                </div>
+            @endif
+        <div class="card wishCard mx-auto col-md-10">
                 <div class="card-body">
+                     @if ($wish->count() > 0)
                     @foreach ($wish as $item )
                     <div class="row  product_data mb-1">
                         <div class="col-md-1">
@@ -25,24 +30,22 @@
                         <div class="col-md-2">
                             <h6>{{$item->products->name}}</h6>
                         </div>
+                        <input type="hidden" value="{{$item->prod_id}}" class="prod_id" >
                         <div class="col-md-2">
-                            <input type="hidden" value="{{$item->prod_id}}" class="prod_id" >
                             <p>{{$item->products->small_description}}</p>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-2">
                             <h6>{{$item->products->selling_price}}</h6>
                         </div>
                         <div class="col-md-2">
                             <button class="btn btn-danger delete-wish-item"><i class="fa fa-trash"></i></button>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 ">
                             <button class="btn btn-success addToCartBtn"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
                         </div>
                     </div>
                     @endforeach
-                </div>
-            @else
-                <div class="card-body text-center ">
+                    @else
                     <h4 class="text-warning"> <i class="fa fa-2x fa-heart mr-2"></i>Wishlist is Empty</h4>
                     <a href="{{url('/All Products')}}" class="btn btn-danger my-3"><i class="fa fa-heart mr-2"></i>Add Products to Wishlist</a>
                 </div>

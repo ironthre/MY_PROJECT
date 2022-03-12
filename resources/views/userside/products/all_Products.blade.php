@@ -14,22 +14,64 @@
         </nav>
         <div class="row justify-content-center">
             @foreach ($all_products as $prod)
+                @php
+                    $selling_price = $prod->selling_price;
+                    $org_price = $prod->org_price;
+                    $disc_price = $org_price-$selling_price;
+                    $disc_percentage = $disc_price/100;
+                @endphp
                 <div class="col-md-2.2 item">
-                    <div class="card product my-3 mx-3 headache">
+                    <div class="card   product headache mb-3">
                         <div class="image-container">
-                            <div class="first">
-                                <div class="d-flex justify-content-between align-items-center"> <span class="discount">-25%</span> <span class="wishlist2"><i class="far fa-heart "></i></span> </div>
-                            </div> <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
+                             <a href="{{url('Product-Details/'.$prod->name)}}">
+                                <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
+                             </a>
                         </div>
                         <div class="product-detail-container p-2">
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="dress-name"><a href="{{url('Product-Details/'.$prod->name)}}">{{$prod->name}}</a></h5>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div class="d-flex flex-column mb-2"> <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->selling_price}}</small> </div>
+
+                            <div class="rating justify-content-between  ">
+                                <div>
+                                    @if ($prod->rate == 4.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+
+                                    @elseif($prod->rate == 4)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @elseif ($prod->rate == 3.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @else
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @endif
+                                    <span class="rating-number">{{$prod->rate}}</span>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center pt-1">
-                                <div> <i class="fa fa-star rating-star"></i> <span class="rating-number">4.8</span> </div>
+                            <div class="d-flex justify-content-between align-items-center ">
+                                <div class="d-flex flex-column mb-2">
+                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                </div>
+                                <div class="first">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="discount">-{{$disc_percentage}}%</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

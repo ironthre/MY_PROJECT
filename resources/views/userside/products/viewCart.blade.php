@@ -13,8 +13,8 @@
             </ol>
         </nav>
     </div>
-    <div class="container my-2 py-4">
-        <div class="card cartCard">
+    <div class="container my-2 py-4 mx-auto">
+        <div class="card cartCard col-md-7 mx-auto">
             @if ($cartItems->count() > 0)
                 <div class="card-body">
                     @php
@@ -57,11 +57,11 @@
                     @endforeach
                 </div>
                 <div class="card-footer">
-                    <h6>Total Price: Tsh {{$total}}   <a href="{{url('checkout')}}" class="btn btn-outline-success float-right">Place Order</a> </h6>
+                    <h6>Total Price: Tsh {{$total}}   <a href="{{url('checkout')}}" class="btn btn-primary float-right">Place Order</a> </h6>
 
                 </div>
             @else
-                <div class="card-body text-center ">
+                <div class="card-body text-center">
                     <h4 class="text-warning"> <i class="fa fa-2x fa-shopping-cart mr-2"></i>Cart is Empty</h4>
                     <a href="{{url('/All Products')}}" class="btn btn-success my-3"><i class="fa  fa-shopping-cart mr-2"></i>Add Products to Cart</a>
                 </div>

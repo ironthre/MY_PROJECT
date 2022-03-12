@@ -6,8 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\Category;
-
-
+use App\Models\Contact;
 
 class CatogoryController extends Controller
 {
@@ -15,12 +14,14 @@ class CatogoryController extends Controller
     {
         //Create variable for category model to fetch all data from db and pass it in view
         $category = Category::all();
-        return view('admin.category.index', compact('category'));
+        $contact = Contact::all();
+        return view('admin.category.index', compact('category', 'contact'));
     }
 
     public function add()
     {
-        return view('admin.category.add');
+        $contact = Contact::all();
+        return view('admin.category.add', compact('contact'));
     }
 
     public function insert(Request $request)
@@ -59,7 +60,8 @@ class CatogoryController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
-        return view('admin.category.edit', compact('category'));
+        $contact = Contact::all();
+        return view('admin.category.edit', compact('category', 'contact'));
     }
 
     public function update(Request $request, $id)

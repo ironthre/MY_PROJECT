@@ -41,7 +41,7 @@ class WishlistController extends Controller
             if (Product::where('id', $prod_id)->first()) {
                 $wishItem = Wishlist::where('prod_id', $prod_id)->where('user_id', Auth::id())->first();
                 $wishItem->delete();
-                return response()->json(['status' => 'Item Removed form Cart']);
+                return response()->json(['status' => 'Item Removed form wishlist']);
             } else {
                 return response()->json(['status' =>  "Product Not Found"]);
             }

@@ -8,6 +8,7 @@
           <li data-target="#display" data-slide-to='1'></li>
           <li data-target="#display" data-slide-to='2'></li>
           <li data-target="#display" data-slide-to='3'></li>
+          <li data-target="#display" data-slide-to='4'></li>
         </ul>
         {{-- End of Indicators --}}
 
@@ -17,13 +18,16 @@
             <img src="{{asset('assets/image/DispKO.jpg')}}" style="border-radius: 8px;"  alt="Display1" class="d-block img-fluid" >
           </div>
           <div class="carousel-item">
-            <img src="{{asset('assets/image/DispKO1.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block  img-fluid">
+            <img src="{{asset('assets/image/slider1.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block  img-fluid">
           </div>
           <div class="carousel-item">
-            <img src="{{asset('assets/image/DispKO2.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
+            <img src="{{asset('assets/image/slider2.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
           </div>
           <div class="carousel-item">
-            <img src="{{asset('assets/image/DispKO.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
+            <img src="{{asset('assets/image/DispKO1.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
+          </div>
+          <div class="carousel-item">
+            <img src="{{asset('assets/image/slider3.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
           </div>
         </div>
 
