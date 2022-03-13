@@ -39,6 +39,9 @@ Route::get('/sidenav', function () {
 Route::get('/about', function () {
     return view('about');
 })->name('about');
+Route::get('/help', function () {
+    return view('help');
+})->name('about');
 
 // Route::get('/contact', function () {
 //     return view('contact');

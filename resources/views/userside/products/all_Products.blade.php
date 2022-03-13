@@ -21,10 +21,10 @@
                     $disc_percentage = $disc_price/100;
                 @endphp
                 <div class="col-md-2.2 item">
-                    <div class="card   product headache mb-3">
+                    <div class="card   product headache mb-3 mx-3">
                         <div class="image-container">
                              <a href="{{url('Product-Details/'.$prod->name)}}">
-                                <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
+                                <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;width: 190px;" class="img-fluid rounded thumbnail-image">
                              </a>
                         </div>
                         <div class="product-detail-container p-2">

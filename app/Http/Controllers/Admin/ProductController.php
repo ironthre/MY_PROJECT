@@ -80,7 +80,7 @@ class ProductController extends Controller
         $product->rate = $request->input('rate');
         $product->meta_descrip = $request->input('meta_descrip');
         $product->save();
-        return redirect('/products')->with('status', "Product Added Successfully");
+        return redirect('add-product')->with('status', "Product Added Successfully");
     }
 
     public function edit($id)

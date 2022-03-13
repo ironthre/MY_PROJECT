@@ -15,7 +15,7 @@
 {{--  --}}
 <div class="container mt-4">
     <div class="row">
-        <h4 class="text-primary"><a class="mb-4" href="{{url('view-category/Mobile Phones')}} "> Featured products</a></h4>
+        <h4 class="text-primary"> Featured products</h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($featured_products as $prod)
                 @php
@@ -295,7 +295,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>>
+                    </div>
                 </div>
             @endforeach
         </div>
@@ -600,6 +600,78 @@
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Kanga & Vitenge')}}"> Kanga na Vitenge </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($kanga as $prod)
+                @php
+                    $selling_price = $prod->selling_price;
+                    $org_price = $prod->org_price;
+                    $disc_price = $org_price-$selling_price;
+                    $disc_percentage = $disc_price/100;
+                @endphp
+                <div class=" item">
+                    <div class="card   product headache mb-3">
+                        <div class="image-container">
+                             <a href="{{url('Product-Details/'.$prod->name)}}">
+                                <img src="{{asset('assets/uploads/product/'.$prod->image)}}" style="height: 180px;" class="img-fluid rounded thumbnail-image">
+                             </a>
+                        </div>
+                        <div class="product-detail-container p-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="dress-name"><a href="{{url('Product-Details/'.$prod->name)}}">{{$prod->name}}</a></h5>
+                            </div>
+
+                            <div class="rating justify-content-between  ">
+                                <div>
+                                    @if ($prod->rate == 4.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+
+                                    @elseif($prod->rate == 4)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @elseif ($prod->rate == 3.5)
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @else
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa fa-star rating-star"></i>
+                                        <i class="fa-regular rating-star fa-star-half-stroke"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                        <i class="fa-regular rating-star fa-star"></i>
+                                    @endif
+                                    <span class="rating-number">{{$prod->rate}}</span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center ">
+                                <div class="d-flex flex-column mb-2">
+                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                </div>
+                                <div class="first">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="discount">-{{$disc_percentage}}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
+
+<div class="container mt-2">
+    <div class="row">
+        <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Refrigerators & Coolers')}}"> Refrigerators & Coolers </a></h4>
+        <div class="owl-carousel featured-carousel my-3 owl-theme">
+            @foreach ($cooler as $prod)
                 @php
                     $selling_price = $prod->selling_price;
                     $org_price = $prod->org_price;

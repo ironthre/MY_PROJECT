@@ -10,17 +10,18 @@ class UsersideController extends Controller
 {
     public function index()
     {
-        $featured_products = Product::where('trending', '1')->get();
-        $trending_category = Category::where('popular', '1')->get();
-        $bags = Product::where('cate_id', '17')->get();
-        $sandals = Product::where('cate_id', '18')->get();
-        $phone = Product::where('cate_id', '12')->get();
-        $accessory = Product::where('cate_id', '17')->get();
-        $kanga = Product::where('cate_id', '19')->get();
-        $music = Product::where('cate_id', '16')->get();
-        $textile = Product::where('cate_id', '15')->get();
-        $tv = Product::where('cate_id', '14')->get();
-        return view('userside.index', compact('featured_products', 'trending_category', 'bags', 'sandals', 'phone', 'accessory', 'kanga', 'music', 'textile', 'tv'));
+        $featured_products = Product::where('trending', '1')->inRandomOrder()->get();
+        $trending_category = Category::where('popular', '1')->inRandomOrder()->get();
+        $bags = Product::where('cate_id', '17')->inRandomOrder()->get();
+        $sandals = Product::where('cate_id', '18')->inRandomOrder()->get();
+        $phone = Product::where('cate_id', '12')->inRandomOrder()->get();
+        $accessory = Product::where('cate_id', '23')->inRandomOrder()->get();
+        $kanga = Product::where('cate_id', '19')->inRandomOrder()->get();
+        $music = Product::where('cate_id', '16')->inRandomOrder()->get();
+        $textile = Product::where('cate_id', '15')->inRandomOrder()->get();
+        $tv = Product::where('cate_id', '14')->inRandomOrder()->get();
+        $cooler = Product::where('cate_id', '24')->inRandomOrder()->get();
+        return view('userside.index', compact('featured_products', 'trending_category', 'bags', 'sandals', 'phone', 'accessory', 'cooler', 'kanga', 'music', 'textile', 'tv'));
     }
     public function products()
     {

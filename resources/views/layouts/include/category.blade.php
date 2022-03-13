@@ -2,8 +2,10 @@
         <div class="titles">
             <div class="category-icon">
                 <div class="icon-image">
-                    <img src="{{asset('assets/catego/bagsIcon.jpg')}}" alt="" srcset="" class="img">
-                    <h6 class="cate-icon-title">Bags</h6>
+                    <a class="" href="{{url('view-category/Hand Bags')}}">
+                        <img src="{{asset('assets/catego/bagsIcon.jpg')}}" alt="" srcset="" class="img">
+                        <h6 class="cate-icon-title">Bags</h6>
+                    </a>
                 </div>
             </div>
         </div>
@@ -11,64 +13,81 @@
         <div class="titles">
             <div class="category-icon">
                 <div class="icon-image">
-                    <img src="{{asset('assets/catego/sandalsIcon.jpg')}}" alt="" srcset="" class="img">
+                    <a class="" href="{{url('view-category/Sandals')}}">
+                        <img src="{{asset('assets/catego/sandalsIcon.jpg')}}" alt="" srcset="" class="img">
+                        <h6 class="cate-icon-title">Sandals</h6>
+                    </a>
                 </div>
-                <h6 class="cate-icon-title">Sandals</h6>
+
             </div>
         </div>
         <div class="titles">
             <div class="category-icon">
                 <div class="icon-image">
-                    <img src="{{asset('assets/catego/smartTVICON.jpg')}}" alt="" srcset="" class="img">
-                    <h6 class="cate-icon-title">TV Screen</h6>
-                </div>
-            </div>
-        </div>
-        <div class="titles">
-            <div class="category-icon">
-                <div class="icon-image">
-                    <img src="{{asset('assets/catego/acceIcon.jpg')}}" alt="" srcset="" class="img">
-                    <h6 class="cate-icon-title">Accessories</h6>
+                    <a class="" href="{{url('view-category/Televisions')}}">
+                        <img src="{{asset('assets/catego/smartTVICON.jpg')}}" alt="" srcset="" class="img">
+                        <h6 class="cate-icon-title">TV Screen</h6>
+                    </a>
                 </div>
             </div>
         </div>
         <div class="titles">
             <div class="category-icon">
                 <div class="icon-image">
-                    <img src="{{asset('assets/catego/KangaIcon1.jpg')}}" alt="" srcset="" class="img">
-                    <h6 class="cate-icon-title">Vitenge</h6>
+                    <a class="" href="{{url('view-category/Accessories')}}">
+                        <img src="{{asset('assets/catego/acceIcon.jpg')}}" alt="" srcset="" class="img">
+                        <h6 class="cate-icon-title">Accessories</h6>
+                    </a>
                 </div>
             </div>
         </div>
         <div class="titles">
             <div class="category-icon">
                 <div class="icon-image">
-                    <img src="{{asset('assets/catego/MusicIcon.jpg')}}" alt="" srcset="" class="img">
-                    <h6 class="cate-icon-title">Music</h6>
+                    <a class="" href="{{url('view-category/Kanga & Vitenge')}}">
+                        <img src="{{asset('assets/catego/KangaIcon1.jpg')}}" alt="" srcset="" class="img">
+                        <h6 class="cate-icon-title">Vitenge</h6>
+                    </a>
                 </div>
             </div>
         </div>
         <div class="titles">
             <div class="category-icon">
                 <div class="icon-image">
-                    <img src="{{asset('assets/catego/smartIcon.jpg')}}" alt="" srcset="" class="img">
-                    <h6 class="cate-icon-title">Phones</h6>
+                    <a class="" href="{{url('view-category/Music System')}}">
+                        <img src="{{asset('assets/catego/MusicIcon.jpg')}}" alt="" srcset="" class="img">
+                        <h6 class="cate-icon-title">Music</h6>
+                    </a>
                 </div>
             </div>
         </div>
         <div class="titles">
             <div class="category-icon">
                 <div class="icon-image">
-                    <img src="{{asset('assets/catego/sandalsIcon.jpg')}}" alt="" srcset="" class="img">
-                    <h6 class="cate-icon-title">Home Decor</h6>
+                    <a class="" href="{{url('view-category/Mobile Phones')}} ">
+                        <img src="{{asset('assets/catego/smartIcon.jpg')}}" alt="" srcset="" class="img">
+                        <h6 class="cate-icon-title">Phones</h6>
+                    </a>
                 </div>
             </div>
         </div>
         <div class="titles">
             <div class="category-icon">
                 <div class="icon-image">
-                    <img src="{{asset('assets/catego/FrijIcon1.jpg')}}" alt="" srcset="" class="img">
-                    <h6 class="cate-icon-title">Refrigerators</h6>
+                    <a class="" href="{{url('view-category/Textile & Decor')}}">
+                        <img src="{{asset('assets/catego/sandalsIcon.jpg')}}" alt="" srcset="" class="img">
+                        <h6 class="cate-icon-title">Home Decor</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="titles">
+            <div class="category-icon">
+                <div class="icon-image">
+                    <a class="" href="{{url('view-category/Refrigerators & Coolers')}}">
+                        <img src="{{asset('assets/catego/FrijIcon1.jpg')}}" alt="" srcset="" class="img">
+                        <h6 class="cate-icon-title">Refrigerators</h6>
+                    </a>
                 </div>
             </div>
         </div>

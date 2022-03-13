@@ -314,7 +314,7 @@
           <a class="nav-link " href="{{url('about')}}">About</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link " href="{{url('about')}}">Help</a>
+          <a class="nav-link " href="{{url('help')}}">Help</a>
         </li>
       </ul>
     </div>

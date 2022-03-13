@@ -82,11 +82,12 @@
                         </label>
                     </div>
                 </div>
-
+                Product Image
                 <div class="col-md-12 mb-5">
                     <input type="file" name="image" class="form-control-file">
                 </div>
 
+                Other Multiple Image ( Ctr + Selected images)
                 <div class="col-md-12 mb-5">
                     <input type="file" name="images[]" class="form-control-file" multiple>
                 </div>

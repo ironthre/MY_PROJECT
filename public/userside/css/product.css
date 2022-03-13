@@ -586,10 +586,21 @@ a {
 .thumb-product {
     cursor: pointer;
     margin-top: 4px;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding: 0px !important;
+}
+.pro-img {
+    width: 500px !important;
+    height: 500px !important;
 }
 
 .img-thumbnail {
-    border: 2px solid #0b0c0c;
+    border: 1px solid #0b0c0c;
+    /* width: 70px !important; */
+    height: 70px;
+    margin: 0px !important;
+    padding: 0px !important;
 }
 
 .img-thumbnail .active {
@@ -597,7 +608,7 @@ a {
 }
 
 .thumb-img {
-    height: 140px;
+    height: 100px;
 }
 .owl-nav {
     position: absolute;

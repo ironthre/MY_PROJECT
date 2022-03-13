@@ -18,16 +18,16 @@
             <img src="{{asset('assets/image/DispKO.jpg')}}" style="border-radius: 8px;"  alt="Display1" class="d-block img-fluid" >
           </div>
           <div class="carousel-item">
-            <img src="{{asset('assets/image/slider1.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block  img-fluid">
+            <img src="{{asset('assets/image/DispKO2.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block  img-fluid">
           </div>
           <div class="carousel-item">
-            <img src="{{asset('assets/image/slider2.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
+            <img src="{{asset('assets/image/DispKO.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
           </div>
           <div class="carousel-item">
             <img src="{{asset('assets/image/DispKO1.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
           </div>
           <div class="carousel-item">
-            <img src="{{asset('assets/image/slider3.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
+            <img src="{{asset('assets/image/DispKO.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
           </div>
         </div>
 

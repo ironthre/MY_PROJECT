@@ -35,11 +35,11 @@
                         @endphp
                         <div class="row thumb-img ">
                             <div class="owl-carousel thumb-product owl-theme">
-                                <img src="{{asset('assets/uploads/product/'.$product->image)}}" class="img-thumbnail" onclick="document.getElementById('nightWork').src='{{asset('assets/uploads/product/'.$product->image)}}'" width="100" height="100" alt="" />
+                                <img src="{{asset('assets/uploads/product/'.$product->image)}}" class="img-thumbnail" onclick="document.getElementById('nightWork').src='{{asset('assets/uploads/product/'.$product->image)}}'" width="50px" height="50px" alt="" />
 
                                 @foreach ( $images as $image)
                                     @if ($image)
-                                        <img src="{{asset('assets/uploads/multiple/'.$image)}}" class="img-thumbnail" onclick="document.getElementById('nightWork').src='{{asset('assets/uploads/multiple/'.$image)}}'" width="100" height="100" alt="" />
+                                        <img src="{{asset('assets/uploads/multiple/'.$image)}}" class="img-thumbnail" onclick="document.getElementById('nightWork').src='{{asset('assets/uploads/multiple/'.$image)}}'" width="50px" height="50px" alt="" />
                                     @endif
                                 @endforeach
                             </div>
@@ -134,29 +134,16 @@
                     <div class="col-md-12">
                         @if ($product->qty>0)
                             <button class="btn btn-white btn-primary addToCartBtn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
-                           <button type="submit" class="btn btn-primary">Submit</button>
+                           <button type="submit" class="btn btn-primary">Order Product</button>
                         @endif
 
-</form>
+                </form>
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="bg-light">
-        <div class="card my-3">
-            <div class="card-header">
-                Product Details
-            </div>
-            <div class="card-body">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia neque sit rem nulla deserunt, inventore alias ea facere aperiam nesciunt hic culpa illum commodi autem. Dignissimos tempore veniam temporibus ex?
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque sit esse ratione reiciendis. Omnis, consectetur rerum sunt cumque ratione, ducimus officiis reprehenderit deserunt maxime error, consequuntur nulla cupiditate rem eius?
-            </div>
-        </div>
-    </div>
-
 
     <h4>Related Product</h4>
 
@@ -334,8 +321,7 @@
     })
 
     $('.thumb-product').owlCarousel({
-        loop:true,
-        margin:10,
+        loop:false,
         nav:true,
         navText: ["<i class='fa  fa-chevron-left' style='color:white'></i>","<i class='fa  fa-chevron-right' style='color:white'></i>"],
         dots:false,
@@ -352,6 +338,32 @@
             }
         }
     })
+
+    loadcart();
+    loadwish();
+
+    function loadcart(){
+        $.ajax({
+            method: "GET",
+            url: "{{ url('/load-cart-data')}}",
+            success: function(response){
+                $('.cart-count').html();
+                $('.cart-count').html(response.count);
+
+            }
+        });
+    }
+
+    function loadwish(){
+        $.ajax({
+            method: "GET",
+            url: "{{ url('/load-wish-data')}}",
+            success: function(response){
+                $('.wishlist-count').html();
+                $('.wishlist-count').html(response.wish);
+            }
+        });
+    }
 
     $('.addToCartBtn').click(function(e){
         e.preventDefault();
@@ -373,6 +385,7 @@
                 'product_qty': product_qty,
             },
             success: function(response){
+                loadcart();
                 swal(response.status);
 
             }
@@ -424,6 +437,7 @@
                 'product_id': product_id,
             },
             success: function(response){
+                loadwish();
                 swal(response.status);
 
             }
