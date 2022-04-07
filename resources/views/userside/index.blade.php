@@ -1,4 +1,12 @@
+{{--  <div id="loader-wrapper">
+    <div id="loader">
 
+    </div>
+
+    <div class="loader-section section-left"><img src="{{ asset('assets/image/Logo3.png')}}" alt="" width="250" height="100" class="d-block logo img-fluid"></div>
+    <div class="loader-section section-right"></div>
+
+</div>  --}}
 @extends('layouts.userside')
 
 
@@ -7,6 +15,7 @@
 @endsection
 
 @section('content')
+
 @include('layouts.include.slider')
 @include('layouts.include.category')
     {{-- Featured Products --}}
@@ -22,7 +31,7 @@
                     $selling_price = $prod->selling_price;
                     $org_price = $prod->org_price;
                     $disc_price = $org_price-$selling_price;
-                    $disc_percentage = $disc_price/100;
+                    $disc_percentage = round($disc_price/$org_price*100, 2);
                 @endphp
                 <div class=" item ">
                     <div class="card   product headache mb-3">
@@ -85,7 +94,7 @@
     </div>
 </div>
 
-    <div class="container mt-2">
+<div class="container mt-2">
     <div class="row">
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Mobile Phones')}} "> Mobile Phones</a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
@@ -94,7 +103,7 @@
                     $selling_price = $prod->selling_price;
                     $org_price = $prod->org_price;
                     $disc_price = $org_price-$selling_price;
-                    $disc_percentage = $disc_price/100;
+                    $disc_percentage = round($disc_price/$org_price*100, 2);
                 @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
@@ -156,9 +165,8 @@
         </div>
     </div>
 </div>
-
     {{-- Trending Category/Products --}}
-    <div class="container mt-2">
+<div class="container mt-2">
     <div class="row">
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Accessories')}}"> Accessories </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
@@ -167,7 +175,7 @@
                     $selling_price = $prod->selling_price;
                     $org_price = $prod->org_price;
                     $disc_price = $org_price-$selling_price;
-                    $disc_percentage = $disc_price/100;
+                    $disc_percentage = round($disc_price/$org_price*100, 2);
                 @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
@@ -229,6 +237,8 @@
         </div>
     </div>
 </div>
+
+
     {{-- Mobile phones --}}
   <div class="container mt-2">
     <div class="row">
@@ -239,7 +249,7 @@
                     $selling_price = $prod->selling_price;
                     $org_price = $prod->org_price;
                     $disc_price = $org_price-$selling_price;
-                    $disc_percentage = $disc_price/100;
+                    $disc_percentage = round($disc_price/$org_price*100, 2);
                 @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
@@ -312,7 +322,7 @@
                     $selling_price = $prod->selling_price;
                     $org_price = $prod->org_price;
                     $disc_price = $org_price-$selling_price;
-                    $disc_percentage = $disc_price/100;
+                    $disc_percentage = round($disc_price/$org_price*100, 2);
                 @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
@@ -374,6 +384,7 @@
         </div>
     </div>
 </div>
+@include('layouts.include.ads')
 
 {{-- Accessories --}}
 <div class="container mt-2">
@@ -385,7 +396,7 @@
                     $selling_price = $prod->selling_price;
                     $org_price = $prod->org_price;
                     $disc_price = $org_price-$selling_price;
-                    $disc_percentage = $disc_price/100;
+                    $disc_percentage = round($disc_price/$org_price*100, 2);
                 @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
@@ -458,7 +469,7 @@
                     $selling_price = $prod->selling_price;
                     $org_price = $prod->org_price;
                     $disc_price = $org_price-$selling_price;
-                    $disc_percentage = $disc_price/100;
+                    $disc_percentage = round($disc_price/$org_price*100, 2);
                 @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
@@ -531,7 +542,7 @@
                     $selling_price = $prod->selling_price;
                     $org_price = $prod->org_price;
                     $disc_price = $org_price-$selling_price;
-                    $disc_percentage = $disc_price/100;
+                    $disc_percentage = round($disc_price/$org_price*100, 2);
                 @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
@@ -604,7 +615,7 @@
                     $selling_price = $prod->selling_price;
                     $org_price = $prod->org_price;
                     $disc_price = $org_price-$selling_price;
-                    $disc_percentage = $disc_price/100;
+                    $disc_percentage = round($disc_price/$org_price*100, 2);
                 @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">
@@ -676,7 +687,7 @@
                     $selling_price = $prod->selling_price;
                     $org_price = $prod->org_price;
                     $disc_price = $org_price-$selling_price;
-                    $disc_percentage = $disc_price/100;
+                    $disc_percentage = round($disc_price/$org_price*100, 2);
                 @endphp
                 <div class=" item">
                     <div class="card   product headache mb-3">

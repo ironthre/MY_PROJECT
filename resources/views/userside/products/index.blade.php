@@ -18,7 +18,7 @@
                     $selling_price = $prod->selling_price;
                     $org_price = $prod->org_price;
                     $disc_price = $org_price-$selling_price;
-                    $disc_percentage = $disc_price/100;
+                    $disc_percentage = round($disc_price/$org_price*100, 2);
                 @endphp
                  <div class="col-md-2.2 item">
                     <div class="card   product headache mb-3 mx-3">

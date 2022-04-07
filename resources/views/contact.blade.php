@@ -8,39 +8,14 @@
             <li class="breadcrumb-item text-sm text-dark active font-weight-bolder" aria-current="page">Contact</li>
           </ol>
         </nav>
-        {{-- <div class="container">
-            <div class="conta col-3 col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h4>Send SMS</h4>
-                        <h5>07xxxxxxxx</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="conta col-3 col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h4>whatsapp</h4>
-                        <h5>07xxxxxxxx</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="conta col-3 col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h4>call us</h4>
-                        <h5>07xxxxxxxx</h5>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
+
         <div class="container my-3 pb-5 col-md-5">
             @if (Session::has('message_sent'))
                 <div class="alert alert-success" role="alert">
                     {{Session::get('message_sent')}}
                 </div>
             @endif
-            <form action="" method="post" action="{{ route('contact') }}">
+    <form action="" method="post" action="{{ route('contact') }}">
     @csrf
     <h4 >Leave us a message <span class="text-danger ml-4" style="font-size: 15px;">* Required</span></h4>
     <div class="form-group">
@@ -54,30 +29,11 @@
         @endif
     </div>
     <div class="form-group">
-        <label>Email <span class="text-danger">*</span></label>
-        <input type="email" class="form-control {{ $errors->has('email') ? 'error' : '' }}" name="email" id="email">
-        @if ($errors->has('email'))
-        <div class="error">
-            {{ $errors->first('email') }}
-        </div>
-        @endif
-    </div>
-    <div class="form-group">
-        <label>Phone <span class="text-danger">*</span></label>
+        <label>Phone Number<span class="text-danger">*</span></label>
         <input type="text" class="form-control {{ $errors->has('phone') ? 'error' : '' }}" name="phone" id="phone">
         @if ($errors->has('phone'))
         <div class="error">
             {{ $errors->first('phone') }}
-        </div>
-        @endif
-    </div>
-    <div class="form-group">
-        <label>Subject <span class="text-danger">*</span></label>
-        <input type="text" class="form-control {{ $errors->has('subject') ? 'error' : '' }}" name="subject"
-            id="subject">
-        @if ($errors->has('subject'))
-        <div class="error">
-            {{ $errors->first('subject') }}
         </div>
         @endif
     </div>

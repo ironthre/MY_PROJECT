@@ -13,7 +13,7 @@
             <div class="col-md-3">
                 <h6 class="font-weight-bold">Location</h6>
                 <p>Dodoma, 6th Road opposite with NMB Bank</p>
-                <a href="" class="map"><span>View in map</span></a>
+
 
             </div>
             <div class="col-md-3">

@@ -8,26 +8,22 @@
           <li data-target="#display" data-slide-to='1'></li>
           <li data-target="#display" data-slide-to='2'></li>
           <li data-target="#display" data-slide-to='3'></li>
-          <li data-target="#display" data-slide-to='4'></li>
         </ul>
         {{-- End of Indicators --}}
 
         {{-- Images of Display --}}
         <div class="carousel-inner py-1" >
           <div class="carousel-item  active">
-            <img src="{{asset('assets/image/DispKO.jpg')}}" style="border-radius: 8px;"  alt="Display1" class="d-block img-fluid" >
+            <img src="{{asset('assets/image/electronics.jpg')}}" style="border-radius: 8px;"  alt="Display1" class="d-block img-fluid" >
           </div>
           <div class="carousel-item">
-            <img src="{{asset('assets/image/DispKO2.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block  img-fluid">
+            <img src="{{asset('assets/image/AC,FRIDGE AND WD.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block  img-fluid">
           </div>
           <div class="carousel-item">
-            <img src="{{asset('assets/image/DispKO.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
+            <img src="{{asset('assets/image/blankets and pillows.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
           </div>
           <div class="carousel-item">
-            <img src="{{asset('assets/image/DispKO1.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
-          </div>
-          <div class="carousel-item">
-            <img src="{{asset('assets/image/DispKO.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
+            <img src="{{asset('assets/image/SANDALS.jpg')}}" style="border-radius: 8px;" alt="Display1" class="d-block img-fluid" >
           </div>
         </div>
 

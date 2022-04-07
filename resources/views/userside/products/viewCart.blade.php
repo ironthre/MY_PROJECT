@@ -144,7 +144,7 @@
             success: function(response){
                 loadcart();
                 $('.cartCard').load(location.href + " .cartCard");
-                swal(response.status,"success");
+                swal("",response.status,"warning");
 
             }
         });

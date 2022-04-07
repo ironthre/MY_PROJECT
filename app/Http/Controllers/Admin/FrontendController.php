@@ -19,6 +19,6 @@ class FrontendController extends Controller
         $category = Category::get();
         $orders = Order::get();
         $contact = Contact::get();
-        return view('Admin.index', compact('products', 'users', 'category', 'orders', 'contact'));
+        return view('admin.index', compact('products', 'users', 'category', 'orders', 'contact'));
     }
 }

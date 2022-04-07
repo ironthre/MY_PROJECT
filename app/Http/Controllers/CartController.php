@@ -25,7 +25,7 @@ class CartController extends Controller
                     $cartItem->user_id = Auth::id();
                     $cartItem->prod_qty = $product_qty;
                     $cartItem->save();
-                    return response()->json(['status' => $prod_check->name . " Added to Cart"]);
+                    return response()->json(['status' => $prod_check->name . " Added to your cart list"]);
                 }
             }
         } else {
@@ -55,7 +55,7 @@ class CartController extends Controller
             if (Cart::where('prod_id', $prod_id)->where('user_id', Auth::id())->exists()) {
                 $cartItem = Cart::where('prod_id', $prod_id)->where('user_id', Auth::id())->first();
                 $cartItem->delete();
-                return response()->json(['status' => 'Item Remove form Cart']);
+                return response()->json(['status' => 'Item Removed from your cart list']);
             }
         }
     }

@@ -23,6 +23,7 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
+                                <th>Date</th>
                                 <th>Tracking No</th>
                                 <th>Total Price</th>
                                 <th>Status</th>
@@ -32,11 +33,13 @@
                         <tbody>
                         @foreach ($orders as $item)
                                 <tr>
+                                    <td>{{ $item->created_at }}</td>
                                     <td>{{$item->tracking_no}}</td>
                                     <td>{{$item->total_price}}</td>
                                     <td>{{$item->status == 0 ? 'Pending' : 'completed'}}</td>
                                     <td>
                                         <a href="{{url('view-orders/'.$item->id)}}" class="btn btn-primary">View</a>
+                                        <span><a href="{{url('view-orders/'.$item->id)}}" class="btn btn-danger">Cancel</a></span>
                                     </td>
                                 </tr>
 

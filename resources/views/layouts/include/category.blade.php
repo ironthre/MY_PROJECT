@@ -75,7 +75,7 @@
             <div class="category-icon">
                 <div class="icon-image">
                     <a class="" href="{{url('view-category/Textile & Decor')}}">
-                        <img src="{{asset('assets/catego/sandalsIcon.jpg')}}" alt="" srcset="" class="img">
+                        <img src="{{asset('assets/catego/HomeDecor.jpg')}}" alt="" srcset="" class="img">
                         <h6 class="cate-icon-title">Home Decor</h6>
                     </a>
                 </div>
@@ -121,7 +121,7 @@
             .img{
                 width: 100vw !important;
                 height: 80px !important;
-                padding: 10px;
+                padding: 5px;
             }
         }
 
@@ -129,7 +129,7 @@
             .img{
                 width: 23vw !important;
                 height: 80px !important;
-                padding: 10px;
+                padding: 5px;
             }
         }
         @media (max-width: 550px) {
@@ -144,7 +144,7 @@
             .img{
                 width: 20vw !important;
                 height: 80px !important;
-                padding: 10px;
+                padding: 5px;
             }
         }
         /* @media (min-width: 750px) {
@@ -158,14 +158,14 @@
             .img{
                 width: 14vw !important;
                 height: 120px !important;
-                padding: 10px;
+                padding: 5px;
             }
         }
         @media (min-width: 1075px) {
             .img{
                 width: 8vw !important;
                 height: 100px !important;
-                padding: 10px;
+                padding: 5px;
             }
         }
     </style>

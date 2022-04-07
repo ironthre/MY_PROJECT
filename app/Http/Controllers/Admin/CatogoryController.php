@@ -107,4 +107,6 @@ class CatogoryController extends Controller
         $category->delete();
         return redirect('categories')->with('status', "Category Deleted Successfully");
     }
+
+
 }

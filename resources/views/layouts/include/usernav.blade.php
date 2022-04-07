@@ -79,41 +79,41 @@
 		</li>
         @endif
         @else
-        {{-- <li class="">
-			<a class=" "  data-toggle="modal" data-target="#loginModal">
-                <span class="fas fa-heart material-icons"></span>
-            </a>
-		</li> --}}
         <li class="nr_li dd_main icon-button ml-3">
-                    <a class=" "  >
+            <a class=" "  >
                 <span class="fas fa-user material-icons"></span>
             </a>
-					<div class="dd_menu">
-						<div class="dd_left">
-							<ul>
-								<li><i class="far fa-plus-square"></i></li>
-								<li><i class="fas fa-cog"></i></li>
-								<li><i class="fas fa-sign-out-alt"></i></li>
-							</ul>
-						</div>
-						<div class="dd_right">
-							<ul>
-								<li>Profile</li>
-								<li><a class=""  href="{{url('my-orders')}}">Orders</a></li>
-								<li>
-                                    <a class=""  href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
+            <div class="dd_menu">
+                <div class="dd_left">
+                    <ul>
+                        <li><i class="far fa-plus-square"></i></li>
+                        <li><i class="fas fa-cog"></i></li>
+                        <li><i class="fas fa-sign-out-alt"></i></li>
+                    </ul>
+                </div>
+				<div class="dd_right">
+					<ul>
+						<li>Profile</li>
+						<li><a class=""  href="{{url('my-orders')}}">Orders</a></li>
+						<li>
+                            <a class=""  href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">{{ __('Logout') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                                </li>
-							</ul>
-						</div>
-					</div>
-				</li>
-
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+					</ul>
+				</div>
+			</div>
+		</li>
+        <script>
+            var dd_main = document.querySelector(".dd_main");
+            dd_main.addEventListener("click", function(){
+                this.classList.toggle("active");
+            })
+        </script>
     @endguest
         <li class="icon-button d-flex srch-icon ml-3">
 			<a class=" "  onclick="open_search()" data-toggle="collapse" data-target="#exampleModal">
@@ -136,36 +136,31 @@
 		</li>
     @endauth
     <div class="collapse navbar-collapse page-wrapper toggled " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
-                        <form class="d-flex hidden-search mx-auto" action="{{url('searchProduct')}}"  method="POST">
-                            @csrf
-                            <div class="input-group-prepend mr-3">
-                                <div class="btn input-group-text fas fa-arrow-left-long" onclick="close_search()"></div>
-                            </div>
-                            <input type="search" class="form-control border-0 " id="searchBar" name="searchproducts" id="" placeholder="Search here...." >
-                            <button class="btn btn-outline-white bg-primary" type="submit"><i class="fas fa-search"></i></button>
-                        </form>
-                         <script>
-        var availableTags = [];
-        $.ajax({
+        <form class="d-flex hidden-search mx-auto" action="{{url('searchProduct')}}"  method="POST">
+            @csrf
+            <div class="input-group-prepend mr-3">
+                <div class="btn input-group-text fas fa-arrow-left-long" onclick="close_search()"></div>
+            </div>
+            <input type="search" class="form-control border-0 " id="searchBar" name="searchproducts" id="" placeholder="Search here...." >
+            <button class="btn btn-outline-white bg-primary" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+        <script>
+            var availableTags = [];
+            $.ajax({
             method: "GET",
             url: "{{ url('/product-list')}}",
             success: function(response){
                 searchProducts(response);
-            }
-        });
-
-        function searchProducts(availableTags){
-            $( "#searchBar" ).autocomplete({
-            source: availableTags
+                }
             });
-        }
-  </script>
+
+            function searchProducts(availableTags){
+                $( "#searchBar" ).autocomplete({
+                    source: availableTags
+                });
+            }
+        </script>
     </div>
-
-
-        @include('layouts.include.account')
-        <div class="vr"></div>
     </div>
 
     {{-- Login Menu --}}
@@ -205,30 +200,22 @@
                     <button type="submit" class="btn btn-info btn-block btn-round">{{ __('Login') }}</button>
                 </form>
 
-                <div class="text-center text-muted delimiter">or use a social network</div>
-                <div class="d-flex justify-content-center social-buttons">
-                    <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Twitter">
-                    <i class="fab fa-twitter"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Facebook">
-                    <i class="fab fa-facebook"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Linkedin">
-                    <i class="fab fa-linkedin"></i>
-                    </button>
-                </div>
                 <div class="modal-footer d-flex justify-content-center">
                         <div class="signup-section">
                             Not a member yet? <a href="{{ route('register') }}" class="text-info" >{{ __('Register') }}</a>.
                         </div>
-                        {{-- Register model --}}
-
-                        {{-- End of Register Model --}}
                 </div>
                 </div>
             </div>
             </div>
         </div>
+        @if (count($errors) > 0 )
+            <script>
+                $( document ).ready(function() {
+                    $('#loginModal').modal('show');
+                });
+            </script>
+        @endif
     </div>
     {{-- End Of Login Menu --}}
 
@@ -320,7 +307,7 @@
     </div>
   </div>
 </nav>
-
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 <script>
     function open_search(){
         document.getElementById("exampleModal").style.display = "block ";

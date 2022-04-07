@@ -557,6 +557,10 @@ a {
     width: calc(100% - 70px);
 }
 
+.parsley-errors-list li{
+    list-style: none;
+    color: red;
+}
 @media only screen and (min-width: 1024px) {
     .product-content div[class*="col-md-4"] {
         padding-right: 0;

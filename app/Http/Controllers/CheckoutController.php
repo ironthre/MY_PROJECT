@@ -27,6 +27,7 @@ class CheckoutController extends Controller
 
     public function indexsingle(Request $request)
     {
+
         $qty = $request->input('quantity');
         $id = $request->input('id');
         $msg = 12;
@@ -37,21 +38,21 @@ class CheckoutController extends Controller
 
     public function singleOrder(Request $request)
     {
+
+
         $order = new Order();
         $order->user_id = Auth::id();
         $order->fname = $request->input('fname');
         $order->lname = $request->input('lname');
-        $order->email = $request->input('email');
+        $order->phone2 = $request->input('phone2');
         $order->phone1 = $request->input('phone1');
         $order->city = $request->input('city');
         $order->address1 = $request->input('address1');
-
         $total = 0;
         $orederItem_Id  = $request->input('id');
         $order_qty = $request->input('qty');
         $order_price = $request->input('price');
         $total_price = $order_qty * $order_price;
-
         $order->total_price = $total_price;
         $order->tracking_no = rand(10000000, 99999999);
         $order->save();
@@ -65,6 +66,7 @@ class CheckoutController extends Controller
         $prod = Product::where('id', $orederItem_Id)->first();
         $prod->qty = $prod->qty - $order_qty;
         $prod->update();
+        //return $request->input('price');
 
         if (Auth::user()->address1 == NULL) {
             $user = User::where('id', Auth::id())->first();
@@ -81,10 +83,18 @@ class CheckoutController extends Controller
     public function placeorder(Request $request)
     {
         $order = new Order();
+        $request->validate([
+            'fname' => 'required',
+            'lname' => 'required',
+            'phone1' => 'required|digits_between:10,12',
+            'phone2' => 'required|digits_between:10,12',
+            'city' => 'required',
+            'address1' => 'required',
+        ]);
         $order->user_id = Auth::id();
         $order->fname = $request->input('fname');
         $order->lname = $request->input('lname');
-        $order->email = $request->input('email');
+        $order->phone2 = $request->input('phone2');
         $order->phone1 = $request->input('phone1');
         $order->city = $request->input('city');
         $order->address1 = $request->input('address1');
@@ -126,6 +136,7 @@ class CheckoutController extends Controller
         }
         $cartItems = Cart::where('user_id', Auth::id())->get();
         Cart::destroy($cartItems);
-        return redirect('/All Products')->with('status', 'Order Placed Successful');
+        // return redirect('/All Products')->with('status', 'Order Placed Successful');
+        return redirect('my-orders')->with('status', 'Order Placed Successful');
     }
 }

@@ -51,7 +51,8 @@
                                                     <span class="text-xs font-weight-bold">{{ $user->phone1 }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-xs font-weight-bold">{{ $user->role_as == '0'? 'User' : 'Admin'  }}</span>
+                                                    <span class="text-xs font-weight-bold">{{  $user->role_as == '2'? 'Super Admin':
+                                                        ( $user->role_as == '1'? 'Normal Admin' : 'User')  }}</span>
                                                 </td>
                                                 <td class="align-middle">
                                                     <a href="{{ url('view-user/'.$user->id) }}" class="btn btn-primary mb-0">View</a>

@@ -121,10 +121,8 @@
                 <hr />
                 <div class="product-detail-three pl-4">
                     <div class="stock">
-                        @if ($product->qty>0)
-                            <button for="" class="baddge btn-success mb-3 ml-4">In Stock</button>
-                        @else
-                            <button for="" class="baddge btn-warning mb-3 ml-4">Out 0f Stock</button>
+                        @if ($product->qty<1)
+                            <label for="" class="baddge btn-warning mb-3 ml-4">Solid Out</label>
                         @endif
                     </div>
                      <div class="col-md-12 mb-2">
@@ -386,7 +384,7 @@
             },
             success: function(response){
                 loadcart();
-                swal(response.status);
+                swal("",response.status,"info");
 
             }
         });

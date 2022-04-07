@@ -130,7 +130,7 @@
                 // window.location.reload();
                 loadwish();
                  $('.wishCard').load(location.href + " .wishCard");
-                swal(response.status,"success");
+                swal("",response.status,"success");
 
             }
         });

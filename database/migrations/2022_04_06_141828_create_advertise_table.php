@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChumaTable extends Migration
+class CreateAdvertiseTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateChumaTable extends Migration
      */
     public function up()
     {
-        Schema::create('chuma', function (Blueprint $table) {
+        Schema::create('advertise', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
-            $table->string('prod_id');
+            $table->string('brand');
+            $table->string('phone');
+            $table->string('owner');
+            $table->string('email');
+            $table->date('expire');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -28,6 +32,8 @@ class CreateChumaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chuma');
+        Schema::dropIfExists('advertise');
     }
 }
+
+

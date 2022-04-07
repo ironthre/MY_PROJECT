@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Advertise;
 use Illuminate\Http\Request;
+
 
 class UsersideController extends Controller
 {
     public function index()
     {
+        $ads = Advertise::get();
         $featured_products = Product::where('trending', '1')->inRandomOrder()->get();
         $trending_category = Category::where('popular', '1')->inRandomOrder()->get();
         $bags = Product::where('cate_id', '17')->inRandomOrder()->get();
@@ -21,7 +24,7 @@ class UsersideController extends Controller
         $textile = Product::where('cate_id', '15')->inRandomOrder()->get();
         $tv = Product::where('cate_id', '14')->inRandomOrder()->get();
         $cooler = Product::where('cate_id', '24')->inRandomOrder()->get();
-        return view('userside.index', compact('featured_products', 'trending_category', 'bags', 'sandals', 'phone', 'accessory', 'cooler', 'kanga', 'music', 'textile', 'tv'));
+        return view('userside.index', compact('featured_products', 'trending_category', 'bags', 'sandals', 'ads','phone', 'accessory', 'cooler', 'kanga', 'music', 'textile', 'tv'));
     }
     public function products()
     {

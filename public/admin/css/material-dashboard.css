@@ -76,7 +76,10 @@
         scroll-behavior: smooth;
     }
 }
-
+.parsley-errors-list li{
+    list-style: none;
+    color: var(--bs-primary);
+}
 body {
     margin: 0;
     font-family: var(--bs-body-font-family);
