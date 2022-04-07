@@ -123,6 +123,8 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
     Route::get('all-users', [UserDashboardController::class, 'allUsers']);
     Route::get('view-user/{id}', [UserDashboardController::class, 'viewUser']);
+    Route::get('admin-profile', [UserDashboardController::class, 'profile']);
+    Route::post('update-profile',[UserDashboardController::class, 'updateProfile']);
     //Route::get('delete-category/{id}', [ProductController::class, 'delete']);
 });
 
@@ -135,5 +137,5 @@ Route::middleware(['auth', 'superAdmin'])->group(function () {
     Route::get('user-view/{id}', [AdvertiseController::class, 'userview']);
     Route::get('user-update/{id}', [AdvertiseController::class, 'userupdate']);
     Route::post('update-access', [AdvertiseController::class, 'update']);
-
+    Route::get('delete-ad/{id}',[AdvertiseController::class,'delete']);
 });

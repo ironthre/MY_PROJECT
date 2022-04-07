@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Category;
@@ -67,6 +68,20 @@ class AdvertiseController extends Controller
         }
 
     }
+
+    public function delete($id)
+    {
+        $ad = Advertise::find($id);
+        if ($ad->image) {
+            $path = 'assets/image/' . $ad->image;
+            if (File::exists($path)) {
+                File::delete($path);
+            }
+        }
+        $ad->delete();
+        return redirect('view-ads')->with('status', "Ad Deleted Successfully");
+    }
+
     public function showAds()
     {
         $ads = Advertise::get();

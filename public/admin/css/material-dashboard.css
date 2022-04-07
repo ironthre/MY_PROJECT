@@ -4602,11 +4602,11 @@ fieldset:disabled .btn {
     background-position: center;
     background-size: 100%;
 }
-
+/*
 .navbar-nav-scroll {
-    max-height: var(--bs-scroll-height, 75vh);
+    max-height: var(--bs-scroll-height, 90vh);
     overflow-y: auto;
-}
+} */
 
 @media (min-width: 576px) {
     .navbar-expand-sm {

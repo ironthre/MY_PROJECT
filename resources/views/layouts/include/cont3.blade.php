@@ -7,16 +7,17 @@
                 </div>
             </div>
             <div class="card-body px-0 pb-2">
-                <form action="{{ url('creating') }}" method="post" enctype="multipart/form-data">
+                <form data-parsley-validate action="{{ url('creating') }}" method="post" id="adForm" enctype="multipart/form-data">
                     @csrf
                     <div class="row mt-2 mb-4 mx-auto">
                         <div class="form-group input-groups col-md-6">
                             <label for="">Brand Name</label><br>
                             <input  type="text" name="brand" required>
                         </div>
-                        <div class="form-group input-groups mt-2 float-right col-md-6">
+                        <div class="form-group input-groups float-right col-md-6">
                             <label for="">Phone Contact</label><br>
-                            <input  type="text" name="phone" required>
+                            <input  type="text" name="phone" required data-parsley-pattern="[0-9]+$"
+                            data-parsley-length="[10,12]" data-parsley-pattern="[0-9]+$" data-parsley-trigger="keyup" autofocus>
                         </div>
                     </div>
                     <div class="row my-4 mx-auto">
@@ -24,7 +25,7 @@
                             <label for="">Owner</label><br>
                             <input  type="text" name="owner" required>
                         </div>
-                        <div class=" form-group input-groups mt-2 float-right col-md-6">
+                        <div class=" form-group input-groups float-right col-md-6">
                             <label for="">Email</label><br>
                             <input  type="email" name="email" required>
                         </div>
@@ -35,7 +36,7 @@
                             <label for="">Exp Date</label><br>
                             <input type="date" name="expire" required>
                         </div>
-                        <div class="form-group input-groups mt-2 float-right col-md-6">
+                        <div class="form-group input-groups float-right col-md-6">
                             <label for="">Image</label><br>
                             <input class="form-control-file" type="file" name="image" required>
                         </div>
@@ -50,3 +51,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(function(){
+        $('#adForm').parsley();
+    });
+</script>

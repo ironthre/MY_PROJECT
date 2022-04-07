@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="{{url('insert-product')}}" method="POST" id="checkForm" class="inline-form" enctype="multipart/form-data">
+            <form data-parsley-validate action="{{url('insert-product')}}" method="POST" id="checkForm" class="inline-form" enctype="multipart/form-data">
                 @csrf
                 <div class="form-row justify-content-around">
                     <div class="form-group input-groups col-md-3 ">
@@ -57,10 +57,6 @@
                     <div class="form-group input-groups col-md-3">
                         <label for="">Selling Price <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="" name="selling_price" rows="3" required data-parsley-pattern="[0-9]+$"  data-parsley-trigger="keyup" autofocus>
-                    </div>
-                    <div class="form-group input-groups col-md-2">
-                        <label for="">Tax</label>
-                        <input type="text" class="form-control" id="" name="tax" placeholder="">
                     </div>
                     <div class="form-group input-groups col-md-2">
                         <label for="">Quantity<span class="text-danger">*</span></label>

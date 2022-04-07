@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="{{url('update-product/'.$product->id)}}" method="POST" class="inline-form" enctype="multipart/form-data">
+            <form data-parsley-validate action="{{url('update-product/'.$product->id)}}" method="POST" id="checkForm" class="inline-form" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <div class="form-row justify-content-around">
@@ -55,19 +55,15 @@
                 <div class="form-row justify-content-around">
                     <div class="form-group input-groups col-md-2">
                         <label for="">Original Price</label>
-                        <input type="number" value="{{ $product->org_price}}" class="form-control" id="" name="org_price" rows="3">
+                        <input type="text" value="{{ $product->org_price}}" class="form-control" id="" name="org_price" rows="3" data-parsley-pattern="[0-9]+$"  data-parsley-trigger="keyup" autofocus>
                     </div>
                     <div class="form-group input-groups col-md-2">
                         <label for="">Selling Price</label>
-                        <input type="number" value="{{ $product->selling_price}}" class="form-control" id="" name="selling_price" rows="3">
-                    </div>
-                    <div class="form-group input-groups col-md-2">
-                        <label for="">Tax</label>
-                        <input type="number" value="{{ $product->tax}}" class="form-control" id="" name="tax" placeholder="">
+                        <input type="text" value="{{ $product->selling_price}}" class="form-control" id="" name="selling_price" rows="3" data-parsley-pattern="[0-9]+$"  data-parsley-trigger="keyup" autofocus>
                     </div>
                     <div class="form-group input-groups col-md-2">
                         <label for="">Quantity</label>
-                        <input type="number" value="{{ $product->qty}}" class="form-control" id="" name="qty" placeholder="">
+                        <input type="text" value="{{ $product->qty}}" class="form-control" id="" name="qty" placeholder="" data-parsley-pattern="[0-9]+$"  data-parsley-trigger="keyup" autofocus>
                     </div>
                 </div>
 
@@ -106,3 +102,8 @@
     </div>
 
 @endsection
+<script>
+    $(function(){
+        $('#checkForm').parsley();
+    });
+</script>

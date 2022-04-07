@@ -16,10 +16,8 @@
                                 <table class="table align-items-center justify-content-center mb-0">
                                     <thead>
                                         <tr>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Description</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Meta description</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Category</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Category Description</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Action</th>
                                             <th></th>
                                         </tr>
@@ -39,12 +37,6 @@
                                                 </td>
                                                 <td>
                                                     <p class="text-sm font-weight-bold mb-0">{{ $item->description }}</p>
-                                                </td>
-                                                <td>
-                                                    <span class="text-xs font-weight-bold">{{ $item->slug }}</span>
-                                                </td>
-                                                <td>
-                                                    <span class="text-xs font-weight-bold">{{ $item->meta_descrip }}</span>
                                                 </td>
                                                 <td class="align-middle">
                                                     <a href="{{ url('edit-category/'.$item->id) }}" class="btn btn-primary mb-0">Edit</a>

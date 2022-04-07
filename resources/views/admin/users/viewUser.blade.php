@@ -10,14 +10,14 @@
             </div>
         </div>
         <div class="card-body px-0 mx-3 pb-2 ">
-            <h6 for="">Current Role: {{$users->role_as == '2'? 'Super Admin':
-                                           ( $users->role_as == '1'? 'Normal Admin' : 'User')}}</h6>
-            <h6 for="">Full Name: {{$users->fnam}} {{$users->lname}}</h6>
-            <h6 for="">Email: {{$users->email}}</h6>
-            <h6 for="">Phone Number1: {{$users->phone1}}</h6>
-            <h6 for="">Address One: {{$users->city}}  {{$users->address1}}</h6>
-            <h6 for="">Phone Number2: {{$users->phone2}}</h6>
-            <h6 for="">Address Two: {{$users->address2}}</h6>
+            <h6 for=""><span class="opacity-7">Current Role:</span> {{$users->role_as == '2'? 'Super Admin':
+                ( $users->role_as == '1'? 'Normal Admin' : 'User')}}</h6>
+            <h6 for=""><span class="opacity-7">Full Name:</span>  {{$users->fnam}} {{$users->lname}}</h6>
+            <h6 for=""><span class="opacity-7">Email: </span> {{$users->email}}</h6>
+            <h6 for=""><span class="opacity-7">Phone Number1:</span> {{$users->phone1}}</h6>
+            <h6 for=""><span class="opacity-7">Address One:</span> {{$users->city}}  {{$users->address1}}</h6>
+            <h6 for=""><span class="opacity-7">Phone Number2:</span> {{$users->phone2}}</h6>
+            <h6 for=""><span class="opacity-7">Address Two:</span> {{$users->address2}}</h6>
         </div>
       <hr class="dark horizontal my-0">
       <div class="card-footer p-3">

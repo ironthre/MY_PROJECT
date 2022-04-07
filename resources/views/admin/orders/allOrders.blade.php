@@ -11,8 +11,8 @@
         </div>
         <div class="card-body">
             <table class="table table-bordered">
-                <a href="{{url('orders')}}" class="float-end m-3 btn btn-primary">New Orders</a>
-                <a href="{{url('order-history')}}" class="float-end m-3 btn btn-primary">Order History</a>
+                <a href="{{url('orders')}}" class="float-end m-3 btn btn-primary">New / Pending  Orders</a>
+                <a href="{{url('order-history')}}" class="float-end m-3 btn btn-primary">Completed Order</a>
                 <thead>
                     <tr>
                         <th>Order Date</th>

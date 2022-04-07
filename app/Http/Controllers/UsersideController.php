@@ -14,7 +14,7 @@ class UsersideController extends Controller
     {
         $ads = Advertise::get();
         $featured_products = Product::where('trending', '1')->inRandomOrder()->get();
-        $trending_category = Category::where('popular', '1')->inRandomOrder()->get();
+        $trending_category = Category::inRandomOrder()->get();
         $bags = Product::where('cate_id', '17')->inRandomOrder()->get();
         $sandals = Product::where('cate_id', '18')->inRandomOrder()->get();
         $phone = Product::where('cate_id', '12')->inRandomOrder()->get();

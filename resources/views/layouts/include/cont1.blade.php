@@ -132,7 +132,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users_normal as $user )
+                            @foreach ($users_admin as $user )
                                 <tr>
                                     <td>
                                         <p class="text-sm font-weight-bold mb-0">{{ $user->name}}</p>

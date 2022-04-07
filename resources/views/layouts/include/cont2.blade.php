@@ -49,8 +49,7 @@
                                    <td> {{$ads->owner }}</td>
                                    <td> {{$ads->expire}}</td>
                                    <td class="align-middle">
-                                        <a href="{{ url('user-view/'.$ads->id) }}" class="btn btn-primary mb-0">View</a>
-                                        <a href="{{ url('user-update/'.$ads->id) }}" class="btn btn-primary mb-0">Edit</a>
+                                        <a href="{{ url('delete-ad/'.$ads->id) }}" class="btn btn-primary mb-0">Delete</a>
                                     </td>
 
                                     {{--  <span class="text-xs font-weight-bold">phone1</span>  --}}

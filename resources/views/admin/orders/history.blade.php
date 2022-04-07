@@ -12,7 +12,7 @@
         <div class="card-body">
             <table class="table table-bordered">
                 <a href="{{url('all-orders')}}" class="float-end m-3 btn btn-primary">view all</a>
-                <a href="{{url('/orders')}}" class="float-end m-3 btn btn-primary">New Order</a>
+                <a href="{{url('/orders')}}" class="float-end m-3 btn btn-primary">New / Pending Order</a>
                 <thead>
                     <tr>
                         <th>Order Date</th>

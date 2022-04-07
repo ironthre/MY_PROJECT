@@ -16,33 +16,12 @@
 
                 <div class="form-row justify-content-around">
                     <div class="form-group input-groups  col-md-5">
-                            <label for="">Name</label>
+                            <label for="">Category Name</label>
                             <input type="text" class="form-control" id="" name="name" value="{{$category->name}}" placeholder="Name">
                     </div>
-                    <div class="form-group input-groups col-md-5">
-                            <label for="">Slug</label>
-                            <input type="text" class="form-control" id="" name="slug" value="{{$category->slug}}" placeholder="Slug">
-                    </div>
-                </div>
 
-                <div class="form-row justify-content-around">
                     <div class="form-group input-groups col-md-5">
-                        <label for="">Meta_Title</label>
-                        <input type="text" class="form-control" id="" name="meta_title" value="{{$category->meta_title}}" placeholder="">
-                    </div>
-                    <div class="form-group input-groups col-md-5">
-                        <label for="">Meta_Keyword</label>
-                        <input type="text" class="form-control" id="" name="meta_keyword" value="{{$category->meta_keywords}}" placeholder="">
-                    </div>
-                </div>
-
-                <div class="form-row justify-content-around">
-                    <div class="form-group input-groups col-md-5">
-                        <label for="">Meta Description</label>
-                        <textarea class="form-control" id="" name="meta_desc" rows="3">{{$category->meta_descrip}}</textarea>
-                    </div>
-                    <div class="form-group input-groups col-md-5">
-                        <label for="">Product Description</label>
+                        <label for="">Category Description</label>
                         <textarea class="form-control" id="" name="description" rows="3">{{$category->description}}</textarea>
                     </div>
                 </div>
@@ -54,19 +33,14 @@
                             Status
                         </label>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="popular" {{$category->popular == "1"? 'checked':''}} >
-                        <label class="form-check-label" for="">
-                            Popular
-                        </label>
-                    </div>
+
                 </div>
                 @if ($category->image)
                     <img src="{{ asset('assets/uploads/category/'.$category->image)}}" width="250px" alt="">
 
                 @endif
 
-                <div class="col-md-12 mb-5">
+                <div class="col-md-3 mb-2">
                     <input type="file" name="image" class="form-control-file">
                 </div>
 
