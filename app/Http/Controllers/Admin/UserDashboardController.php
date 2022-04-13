@@ -41,4 +41,16 @@ class UserDashboardController extends Controller
         $user->update();
         return back()->with('status','Profile Updated Successful');
     }
+    public function message($id)
+    {
+        $contact = Contact::all();
+        $msg = Contact::where('id', $id)->first();
+        return view('admin.users.message', compact('msg','contact'));
+    }
+    public function deleteMsg($id)
+    {
+        $msg = Contact::find($id);
+        $msg->delete();
+        return redirect('dashboard')->with('status', 'Message was deleted');
+    }
 }

@@ -125,6 +125,8 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('view-user/{id}', [UserDashboardController::class, 'viewUser']);
     Route::get('admin-profile', [UserDashboardController::class, 'profile']);
     Route::post('update-profile',[UserDashboardController::class, 'updateProfile']);
+    Route::get('message/{id}',[UserDashboardController::class, 'message']);
+    Route::get('delete-msg/{id}',[UserDashboardController::class, 'deleteMsg']);
     //Route::get('delete-category/{id}', [ProductController::class, 'delete']);
 });
 

@@ -795,45 +795,32 @@
 
     const toTop = document.querySelector(".to-top");
 
-window.addEventListener("scroll", () => {
-  if (window.pageYOffset > 100) {
-    toTop.classList.add("active");
-  } else {
-    toTop.classList.remove("active");
-  }
-});
-    $('.featured-carousel').owlCarousel({
-        center: false,
-        // items:2,
+    window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 100) {
+        toTop.classList.add("active");
+    } else {
+        toTop.classList.remove("active");
+    }
+    });
+
+    $('.owl-carousel').owlCarousel({
         loop:true,
-        nav: true,
+        margin:2,
+        nav:true,
         navText: ["<i class='fa  fa-chevron-left' style='color:white'></i>","<i class='fa  fa-chevron-right' style='color:white'></i>"],
-        margin:1,
         responsive:{
-             600:{
-                 items:5
-             }
-        //     1000:{
-        //          items:5
-        //  }
+            0:{
+                items:2
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:5
+            }
         }
-            // center: true,
-            // loop:true,
-            // margin:10,
-            // nav:true,
-            // dots:false,
-            // responsive:{
-            //     // 0:{
-            //     //     items:2
-            //     // },
-            //      600:{
-            //          items:5
-            //      },
-            //     // 1000:{
-            //     //     items:5
-            //     // }
-            // }
     })
+
     loadcart();
     loadwish();
 

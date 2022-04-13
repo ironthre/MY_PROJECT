@@ -35,16 +35,16 @@
 <nav class="navbar navbar-expand-lg contact navbar-light bg-primary">
   <div class="container-fluid">
       <div class="col-7 col-sm-8  col-md-5  mx-auto">
-          <span class="">
+          <span class="wel">
             Welcome to our Online Shopping center
           </span>
       </div>
       <div class="col-5 col-sm-4  col-md-3  mx-auto ">
-          <i class="fas fa-phone-alt"></i><span>+255 743 289 196</span>
+          <i class="fas fa-phone-alt"></i><span class="wel">+255 743 289 196</span>
 
       </div>
        <div class=" col-sm-3  col-md-4 d-none d-md-block mx-auto justify-content-center ">
-           <i class="fas fa-envelope fa-fw"></i><span>info@andmack.co.tz</span>
+           <i class="fas fa-envelope fa-fw"></i><span class="wel">info@andmack.co.tz</span>
       </div>
   </div>
 </nav>

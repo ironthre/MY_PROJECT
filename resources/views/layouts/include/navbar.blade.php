@@ -49,7 +49,7 @@
               <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                 @foreach ($contact as $cont)
                 <li class="mb-2">
-                    <a class="dropdown-item border-radius-md" href="javascript:;">
+                    <a class="dropdown-item border-radius-md notify" data-bs-toggle="modal" data-bs-target="#notificationModal" data-value="{{ $cont->id }}">
                         <div class="d-flex py-1">
                             <div class="d-flex flex-column justify-content-center">
                                 <h6 class="text-sm font-weight-normal mb-1">
@@ -63,10 +63,35 @@
                         </div>
                     </a>
                 </li>
+                    {{--  Notification Modal  --}}
+            <div class="modal fade" id="notificationModal" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Modal title</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p id="delete-cort-form"></p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {{-- Notification Modal   --}}
+
               @endforeach
             </ul>
             </li>
             @endif
+            <script>
+            $('.notify').on('click', function () {
+                $('#delete-court-form').attr('action', $(this).data('value'));
+            });
+        </script>
           </ul>
         </div>
       </div>

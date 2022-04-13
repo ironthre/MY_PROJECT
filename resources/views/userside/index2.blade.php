@@ -38,3 +38,35 @@
 
 
 @endsection
+$('.featured-carousel').owlCarousel({
+    center: false,
+    // items:2,
+    loop:true,
+    nav: true,
+    navText: ["<i class='fa  fa-chevron-left' style='color:white'></i>","<i class='fa  fa-chevron-right' style='color:white'></i>"],
+    margin:1,
+    responsive:{
+         600:{
+             items:5
+         }
+    //     1000:{
+    //          items:5
+    //  }
+    }
+        // center: true,
+        // loop:true,
+        // margin:10,
+        // nav:true,
+        // dots:false,
+        // responsive:{
+        //     // 0:{
+        //     //     items:2
+        //     // },
+        //      600:{
+        //          items:5
+        //      },
+        //     // 1000:{
+        //     //     items:5
+        //     // }
+        // }
+})
