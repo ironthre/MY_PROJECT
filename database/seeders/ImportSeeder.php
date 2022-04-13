@@ -21,7 +21,7 @@ class ImportSeeder extends Seeder
             'username' => isset($DATABASE_URL['user'])? $DATABASE_URL['user'] : null,
             'password' => isset($DATABASE_URL['pass'])? $DATABASE_URL['pass'] : null,
         ];
-        exec("pgsql --user={$db['username']} --password={$db['password']} --host={$db['host']} --database={$db['database']} < $sql ");
+        exec("mysql --user={$db['username']} --password={$db['password']} --host={$db['host']} --database={$db['database']} < $sql ");
         \Log::info("SQL Import Done");
     }
 }
