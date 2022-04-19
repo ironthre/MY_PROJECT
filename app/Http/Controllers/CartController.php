@@ -29,7 +29,7 @@ class CartController extends Controller
                 }
             }
         } else {
-            return response()->json(['status' =>  "New User"]);
+            return response()->json(['status' =>  "Login / Register to Continue..."]);
         }
     }
 
@@ -57,6 +57,8 @@ class CartController extends Controller
                 $cartItem->delete();
                 return response()->json(['status' => 'Item Removed from your cart list']);
             }
+        }else {
+            return response()->json(['status' =>  " Login to Continue"]);
         }
     }
 

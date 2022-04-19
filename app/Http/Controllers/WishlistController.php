@@ -30,7 +30,7 @@ class WishlistController extends Controller
                 return response()->json(['status' =>  "Product Not Found"]);
             }
         } else {
-            return response()->json(['status' =>  " Login to Continue"]);
+            return response()->json(['status' =>  "Login / Register to Continue..."]);
         }
     }
 
