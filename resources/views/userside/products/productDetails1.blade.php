@@ -125,19 +125,20 @@
                             <label for="" class="baddge btn-warning mb-3 ml-4">Solid Out</label>
                         @endif
                     </div>
-                     <div class="col-md-12 mb-2">
-                            <a class="btn btn-white btn-outline-primary " href="{{url('contact')}}"><i class="fa fa-envelope"></i> Contact Seller</a>
-                            <button class="btn btn-white btn-outline-danger addToWishlist"><i class="fa-solid fa-heart"></i>Wishlist</button>
-                     </div>
+
                     <div class="col-md-12">
                         @if ($product->qty>0)
                             <button class="btn btn-white btn-primary addToCartBtn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
                            <button type="submit" class="btn btn-primary">Order Product</button>
                         @endif
-
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <a class="btn btn-white btn-outline-primary " href="{{url('contact')}}"><i class="fa fa-envelope"></i> Contact Seller</a>
+                        <button class="btn btn-white btn-outline-danger addToWishlist"><i class="fa-solid fa-heart"></i>Wishlist</button>
+                 </div>
                 </form>
 
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -215,7 +216,7 @@
     </div>
 
 
-    <h4>You May also like this</h4>
+    <h4>You May also like</h4>
     <div class="row">
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($popular as $prod)

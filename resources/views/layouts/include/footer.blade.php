@@ -3,7 +3,7 @@
 </style>
 
 <div class="container-fluid footer ">
-    <div class=" text-start">
+    <div class="text-start">
         <div class="row pt-4">
             <div class="col-md-3">
                 <h6 class="font-weight-bold">Company</h6>
@@ -12,28 +12,20 @@
             </div>
             <div class="col-md-3">
                 <h6 class="font-weight-bold">Location</h6>
-                <p>Dodoma, 6th Road opposite with NMB Bank</p>
-
-
+                <p class="font-weight-light">Dodoma, 6th Road opposite with NMB Bank</p>
             </div>
             <div class="col-md-3">
                 <h6 class="font-weight-bold">Contact Us</h6>
-                <p><i class=" fa-fw"></i>Call/Whatsapp +255 629 817 353</p>
-                <p><i></i>Email: info@andmack.co.tz</p>
+                <p class="font-weight-light"><i class=" fa-fw"></i>Call/Whatsapp +255 629 817 353</p>
+                <p class="font-weight-light"><i></i>Email: info@andmack.co.tz</p>
             </div>
-            <div class="template-demo">
+            <div class="col-md-3">
                 <h6 class="font-weight-bold">Social</h6>
-                <button type="button" class="btn btn-social-icon btn-facebook btn-rounded"><i class="fab fa-facebook"></i></button>
-                <button type="button" class="btn btn-social-icon btn-youtube btn-rounded"><i class="fab fa-youtube"></i></button>
-                <button type="button" class="btn btn-social-icon btn-twitter btn-rounded"><i class="fab fa-twitter"></i></button>
-                <button type="button" class="btn btn-social-icon btn-instagram btn-rounded"><i class="fab fa-instagram"></i></button>
+                <a href="https://twitter.com/ANDMARK BUSINESS" target="_blank" class="icon-button icon-social twitter"><i class="fab fa-twitter"></i><span></span></a>
+                <a href="https://facebook.com/Andmark Business" target="_blank" class="icon-button icon-social facebook"><i class="fab fa-facebook"></i><span></span></a>
+                <a href="https://instagram.com/andmark.business" target="_blank" class="icon-button icon-social instagram"><i class="fab fa-instagram"></i><span></span></a>
             </div>
-
-                </div>
-                <div class="card-footer">
-
-                </div>
-
+        </div>
     </div>
 </div>
 

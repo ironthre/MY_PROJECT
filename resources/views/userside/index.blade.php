@@ -16,14 +16,22 @@
 
 @section('content')
 
+@if ($message = Session::get('success'))
+<div class="alert alert-success alert-block">
+	<button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>{!! session('success') !!}</strong>
+</div>
+
+@endif
+
 @include('layouts.include.slider')
 @include('layouts.include.category')
     {{-- Featured Products --}}
 
 
 {{--  --}}
-<div class="container mt-4">
-    <div class="row">
+<div class="container mt-4 ">
+    <div class="row mx-1">
         <h4 class="text-primary"> Featured products</h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($featured_products as $prod)
@@ -95,7 +103,7 @@
 </div>
 
 <div class="container mt-2">
-    <div class="row">
+    <div class="row mx-1">
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Mobile Phones')}} "> Mobile Phones</a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($phone as $prod)
@@ -105,7 +113,7 @@
                     $disc_price = $org_price-$selling_price;
                     $disc_percentage = round($disc_price/$org_price*100, 2);
                 @endphp
-                <div class=" item">
+                <div class="item">
                     <div class="card   product headache mb-3">
                         <div class="image-container">
                              <a href="{{url('Product-Details/'.$prod->name)}}">
@@ -167,7 +175,7 @@
 </div>
     {{-- Trending Category/Products --}}
 <div class="container mt-2">
-    <div class="row">
+    <div class="row mx-1">
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Accessories')}}"> Accessories </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($accessory as $prod)
@@ -241,7 +249,7 @@
 
     {{-- Mobile phones --}}
   <div class="container mt-2">
-    <div class="row">
+    <div class="row mx-1">
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Music System')}}"> Music System </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($music as $prod)
@@ -314,7 +322,7 @@
 
 {{-- Vitenge na Kanga --}}
 <div class="container mt-2">
-    <div class="row">
+    <div class="row mx-1">
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Televisions')}}"> Flat Screen TV </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($tv as $prod)
@@ -388,7 +396,7 @@
 
 {{-- Accessories --}}
 <div class="container mt-2">
-    <div class="row">
+    <div class="row mx-1">
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Hand Bags')}}"> Hand Bags </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($bags as $prod)
@@ -461,7 +469,7 @@
 
 {{-- TV --}}
 <div class="container mt-2">
-    <div class="row">
+    <div class="row mx-1">
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Sandals')}}"> Sandals </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($sandals as $prod)
@@ -534,7 +542,7 @@
 
 {{--  --}}
 <div class="container mt-2">
-    <div class="row">
+    <div class="row mx-1">
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Textile & Decor')}}"> Textile and Decor </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($textile as $prod)
@@ -607,7 +615,7 @@
 
 {{--  --}}
 <div class="container mt-2">
-    <div class="row">
+    <div class="row mx-1">
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Kanga & Vitenge')}}"> Kanga na Vitenge </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($kanga as $prod)
@@ -679,7 +687,7 @@
 </div>
 
 <div class="container mt-2">
-    <div class="row">
+    <div class="row mx-1">
         <h4 class="text-primary mb-2"><a class="" href="{{url('view-category/Refrigerators & Coolers')}}"> Refrigerators & Coolers </a></h4>
         <div class="owl-carousel featured-carousel my-3 owl-theme">
             @foreach ($cooler as $prod)

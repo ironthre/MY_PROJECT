@@ -29,6 +29,30 @@ class LoginController extends Controller
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
 
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            'username' => [trans('auth.failed')],
+        ]);
+    }
+
+    public function username()
+    {
+        $login = request()->input('username');
+
+        if(is_numeric($login)){
+            $field = 'phone1';
+        } elseif (filter_var($login, FILTER_VALIDATE_EMAIL)) {
+            $field = 'email';
+        } else {
+            $field = 'username';
+        }
+
+        request()->merge([$field => $login]);
+
+        return $field;
+    }
+
     protected function authenticated(){
         if(Auth::user()->role_as == '1') {
             return redirect('dashboard')->with('status', 'Welcome to Your Dashboard');

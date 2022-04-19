@@ -180,13 +180,13 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Your email address..." required autocomplete="email" autofocus>
+                        <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Username / Email /Phone" name="username" value="{{ old('username') }}" required autofocus>
 
-                    @error('email')
+                        @error('username')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                    @enderror
+                        @enderror
                     </div>
                     <div class="form-group">
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Your password..." required autocomplete="current-password">

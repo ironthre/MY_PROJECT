@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $orders = Order::where('user_id', Auth::id())->get();
+        $orders = Order::where('user_id', Auth::id())->orderby('id','desc')->get();
         return view('userside.orders.index', compact('orders'));
     }
 

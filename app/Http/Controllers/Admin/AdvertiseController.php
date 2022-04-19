@@ -28,8 +28,8 @@ class AdvertiseController extends Controller
         $users_normal = User::where('role_as','0')->get();
         $users_admin = User::where('role_as','1')->get();
         $users_super = User::where('role_as','2')->get();
-        $pending_order = Order::where('status','pending')->get();
-        $complete_order = Order::where('status','complete')->get();
+        $pending_order = Order::where('status','0')->get();
+        $complete_order = Order::where('status','1')->get();
         return view('admin.advertise.index', compact('products', 'users','users_normal', 'users_admin', 'users_super', 'category', 'orders', 'contact','pending_order','solid_out','complete_order'));
     }
 

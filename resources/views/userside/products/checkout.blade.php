@@ -98,7 +98,7 @@
                             <span><input type="radio" name="payment" id=""></span>
                         </div>
                         @if ($cartItems->count() > 0)
-                            <button type="submit" class="btn btn-primary float-right" >Place Order</button>
+                            <button type="submit" class="btn btn-primary float-right" onclick="this.disabled = true" >Place Order</button>
                         @else
                             <h5>No Products</h5>
                         @endif

@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 col-sm-6 mb-xl-0 my-4">
+    <div class="col-md-3 col-sm-6 mb-xl-0 my-4">
       <div class="card">
         <div class="card-header p-3 pt-2">
           <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 col-sm-6 mb-xl-0 my-4">
+    <div class="col-md-3 col-sm-6 mb-xl-0 my-4">
       <div class="card">
         <div class="card-header p-3 pt-2">
           <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 col-sm-6 my-4">
+    <div class="col-md-3 col-sm-6 my-4">
       <div class="card">
         <div class="card-header p-3 pt-2">
           <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
@@ -74,7 +74,7 @@
 
 
 <div class="row col-md-10 mx-auto">
-    <div class="col-md-6 col-sm-6 mb-xl-0 my-6">
+    <div class="col-md-4 col-sm-6 mb-xl-0 my-6">
         <div class="card">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
@@ -87,9 +87,9 @@
                 <table class="table align-users-center justify-content-center mb-0">
                     <thead>
                         <tr>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Image</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Product Name</th>
-                            {{--  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Phone</th>
+                            {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Phone</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Role</th>
                             <th></th>  --}}
                         </tr>
@@ -97,6 +97,11 @@
                     <tbody>
                         @foreach ($solid_out as $user )
                             <tr>
+                                <td>
+                                    <div class="d-flex px-2">
+                                        <img src="{{ asset('assets/uploads/product/'.$user->image)}}" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
+                                    </div>
+                                </td>
                                 <td>
                                     <p class="text-sm font-weight-bold mb-0">{{ $user->name}}</p>
                                 </td>
