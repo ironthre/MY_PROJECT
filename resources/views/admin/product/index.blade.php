@@ -47,7 +47,7 @@
                                                     <span class="text-xs font-weight-bold">{{ number_format($item->selling_price) }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-xs font-weight-bold">{{ $item->qty }}</span>
+                                                    <span class="text-xs font-weight-bold {{$item->qty==0?'btn btn-info':' '}}">{{ $item->qty }}</span>
                                                 </td>
                                                 <td class="align-middle">
                                                     <a href="{{ url('edit-product/'.$item->id) }}" class="btn btn-primary mb-0">Edit</a>

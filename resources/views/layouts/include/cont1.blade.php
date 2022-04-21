@@ -108,7 +108,7 @@
                 </table>
             </div>
           </div>
-    </div>
+        </div>
     </div>
       <div class="col-md-6 col-sm-6 mb-xl-0 my-6">
         <div class="card">
