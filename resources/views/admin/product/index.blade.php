@@ -44,7 +44,7 @@
                                                     <span class="text-xs font-weight-bold">{{ Str::limit($item->description,20 )}}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-xs font-weight-bold">{{ $item->selling_price }}</span>
+                                                    <span class="text-xs font-weight-bold">{{ number_format($item->selling_price) }}</span>
                                                 </td>
                                                 <td>
                                                     <span class="text-xs font-weight-bold">{{ $item->qty }}</span>

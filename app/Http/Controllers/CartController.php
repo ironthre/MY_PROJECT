@@ -29,7 +29,7 @@ class CartController extends Controller
                 }
             }
         } else {
-            return response()->json(['status' =>  "Login / Register to Continue..."]);
+            return response()->json(['status' =>  "Login | Register to Continue"]);
         }
     }
 

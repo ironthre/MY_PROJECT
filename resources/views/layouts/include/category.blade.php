@@ -126,21 +126,22 @@
         }
 
         @media (max-width: 464px) {
+            /* ANY NEW  */
+        }
+        @media (max-width: 464px) {
+            .titles{
+
+                margin-left: 10px;
+                margin-right: 10px;
+
+            }
             .img{
                 width: 23vw !important;
                 height: 80px !important;
                 padding: 5px;
             }
         }
-        @media (max-width: 550px) {
-            .titles{
-
-                margin-left: 10px;
-                margin-right: 10px;
-
-        }
-        }
-        @media (min-width: 570px) {
+        @media (min-width: 465px) {
             .img{
                 width: 20vw !important;
                 height: 80px !important;

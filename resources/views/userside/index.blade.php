@@ -86,7 +86,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center ">
                                 <div class="d-flex flex-column mb-2">
-                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                    <span class="new-price">Tsh {{number_format($prod->selling_price)}}</span> <small class="old-price text-right float-right">Tsh {{number_format($prod->org_price)}}</small>
                                 </div>
                                 <div class="first">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -158,7 +158,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center ">
                                 <div class="d-flex flex-column mb-2">
-                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                    <span class="new-price">Tsh {{number_format($prod->selling_price)}}</span> <small class="old-price text-right float-right">Tsh {{number_format($prod->org_price)}}</small>
                                 </div>
                                 <div class="first">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -230,7 +230,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center ">
                                 <div class="d-flex flex-column mb-2">
-                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                    <span class="new-price">Tsh {{number_format($prod->selling_price)}}</span> <small class="old-price text-right float-right">Tsh {{number_format($prod->org_price)}}</small>
                                 </div>
                                 <div class="first">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -304,7 +304,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center ">
                                 <div class="d-flex flex-column mb-2">
-                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                    <span class="new-price">Tsh {{number_format($prod->selling_price)}}</span> <small class="old-price text-right float-right">Tsh {{number_format($prod->org_price)}}</small>
                                 </div>
                                 <div class="first">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -377,7 +377,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center ">
                                 <div class="d-flex flex-column mb-2">
-                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                    <span class="new-price">Tsh {{number_format($prod->selling_price)}}</span> <small class="old-price text-right float-right">Tsh {{number_format($prod->org_price)}}</small>
                                 </div>
                                 <div class="first">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -451,7 +451,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center ">
                                 <div class="d-flex flex-column mb-2">
-                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                    <span class="new-price">Tsh {{number_format($prod->selling_price)}}</span> <small class="old-price text-right float-right">Tsh {{number_format($prod->org_price)}}</small>
                                 </div>
                                 <div class="first">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -524,7 +524,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center ">
                                 <div class="d-flex flex-column mb-2">
-                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                    <span class="new-price">Tsh {{number_format($prod->selling_price)}}</span> <small class="old-price text-right float-right">Tsh {{number_format($prod->org_price)}}</small>
                                 </div>
                                 <div class="first">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -597,7 +597,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center ">
                                 <div class="d-flex flex-column mb-2">
-                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                    <span class="new-price">Tsh {{number_format($prod->selling_price)}}</span> <small class="old-price text-right float-right">Tsh {{number_format($prod->org_price)}}</small>
                                 </div>
                                 <div class="first">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -670,7 +670,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center ">
                                 <div class="d-flex flex-column mb-2">
-                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                    <span class="new-price">Tsh {{number_format($prod->selling_price)}}</span> <small class="old-price text-right float-right">Tsh {{number_format($prod->org_price)}}</small>
                                 </div>
                                 <div class="first">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -742,7 +742,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center ">
                                 <div class="d-flex flex-column mb-2">
-                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                    <span class="new-price">Tsh {{number_format($prod->selling_price)}}</span> <small class="old-price text-right float-right">Tsh {{number_format($prod->org_price)}}</small>
                                 </div>
                                 <div class="first">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -823,7 +823,10 @@
             600:{
                 items:3
             },
-            1000:{
+            999:{
+                items:4
+            },
+            1209:{
                 items:5
             }
         }

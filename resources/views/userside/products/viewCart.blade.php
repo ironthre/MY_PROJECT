@@ -14,52 +14,50 @@
         </nav>
     </div>
     <div class="container my-2 py-4 mx-auto">
-        <div class="card cartCard col-md-7 mx-auto">
-            @if ($cartItems->count() > 0)
-                <div class="card-body">
+        <div class="card col-md-7 mx-auto">
+                <div class="card-body cartTable table-responsive">
+                    @if ($cartItems->count() > 0)
                     @php
                         $total = 0;
                     @endphp
                     @foreach ($cartItems as $item )
-                    <div class="row  product_data mb-1">
-                        <div class="col-md-2">
-                            <img src="{{asset('assets/uploads/product/'.$item->products->image)}}"  height="50px" width="50px" alt="">
-                        </div>
-                        <div class="col-md-3">
-                            <h6>{{$item->products->name}}</h6>
-                        </div>
-                        <div class="col-md-2">
-                            <h6>{{$item->products->selling_price}}</h6>
-                        </div>
-                        <div class="col-md-3">
-                            <input type="hidden" value="{{$item->prod_id}}" class="prod_id" >
-                            @if ($item->products->qty >= $item->prod_qty)
-                                <div class="input-group mx-3 text-center " style="width: 130px;">
-                                    <div class="input-group-prepend">
-                                        <button class="input-group-text changeQuantity decre-btn">-</button>
-                                    </div>
-                                    <input type="text" class="form-control text-center qty-input" name="quantity " value="{{$item->prod_qty}}">
-                                    <div class="input-group-append">
-                                        <button class="input-group-text changeQuantity incre-btn">+</button>
-                                    </div>
-                                </div>
-                                @php
-                                    $total += $item->products->selling_price*$item->prod_qty;
-                                @endphp
-                            @else
-                                <h6>Out of Stock</h6>
-                            @endif
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-danger delete-cart-item"><i class="fa fa-trash"></i></button>
-                        </div>
-                    </div>
+                    <table class="table table-borderless">
+                        <tbody class="product_data">
+                            <tr>
+                                <td><img src="{{asset('assets/uploads/product/'.$item->products->image)}}"  height="50px" width="50px" alt=""></td>
+                                <td><p>{{$item->products->name}}</p></td>
+                                <td><p>{{number_format($item->products->selling_price)}}</p></td>
+                                <td>
+                                    <input type="hidden" value="{{$item->prod_id}}" class="prod_id" >
+                                    @if ($item->products->qty >= $item->prod_qty)
+                                        <div class="input-group text-center " style="width: 130px;">
+                                            <div class="input-group-prepend">
+                                                <button class="input-group-text changeQuantity decre-btn">-</button>
+                                            </div>
+                                            <input type="text" class="form-control text-center qty-input" name="quantity " value="{{$item->prod_qty}}">
+                                            <div class="input-group-append">
+                                                <button class="input-group-text changeQuantity incre-btn">+</button>
+                                            </div>
+                                        </div>
+                                        @php
+                                            $total += $item->products->selling_price*$item->prod_qty;
+                                        @endphp
+                                    @else
+                                        <p>Out of Stock</p>
+                                    @endif
+                                </td>
+                                <td><button class="btn btn-danger delete-cart-item"><i class="fa fa-trash"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
                     @endforeach
-                </div>
-                <div class="card-footer">
-                    <h6>Total Price: Tsh {{$total}}   <a href="{{url('checkout')}}" class="btn btn-primary float-right">Place Order</a> </h6>
+                    <div class="card-footer">
+                        <p style="width: 400px">Total Price: Tsh {{number_format($total)}} </p>
+                        <p><a href="{{url('checkout')}}" class="btn btn-primary ">Place Order</a></p>
 
+                    </div>
                 </div>
+
             @else
                 <div class="card-body text-center">
                     <h4 class="text-warning"> <i class="fa fa-2x fa-shopping-cart mr-2"></i>Cart is Empty</h4>
@@ -143,7 +141,7 @@
             },
             success: function(response){
                 loadcart();
-                $('.cartCard').load(location.href + " .cartCard");
+                $('.cartTable').load(location.href + " .cartTable");
                 swal("",response.status,"warning");
 
             }
@@ -173,7 +171,7 @@
             url: "{{ url('/update-cart-item')}}",
             data: data,
             success: function(response){
-                $('.cartCard').load(location.href + " .cartCard");
+                $('.cartTable').load(location.href + " .cartTable");
             }
         });
 

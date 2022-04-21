@@ -33,7 +33,12 @@ class CheckoutController extends Controller
         $msg = 12;
         $text = 'hello user';
         $product = Product::find($id);
-        return view('userside.products.checkoutSingle', compact('product', 'text'))->with('qty', $qty);
+        if(Auth::check()){
+            return view('userside.products.checkoutSingle', compact('product', 'text'))->with('qty', $qty);
+        }else{
+            return back()->with('openLogin','Login | Register');
+        }
+
     }
 
     public function singleOrder(Request $request)
@@ -54,6 +59,7 @@ class CheckoutController extends Controller
         $order_price = $request->input('price');
         $total_price = $order_qty * $order_price;
         $order->total_price = $total_price;
+        $order->pay_method = $request->input('payment');
         $order->tracking_no = rand(10000000, 99999999);
         $order->save();
 
@@ -106,7 +112,7 @@ class CheckoutController extends Controller
             $total += $prod->products->selling_price;
         }
         $order->total_price = $total;
-
+        $order->pay_method = $request->input('payment');
 
         $order->tracking_no = rand(10000000, 99999999);
         $order->save();

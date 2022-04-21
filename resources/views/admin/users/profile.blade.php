@@ -14,7 +14,17 @@
                                            ( $user->role_as == '1'? 'Normal Admin' : 'User')}}</h6>
             <h6 for=""><span class="opacity-7">Full Name:</span>  {{$user->fnam}} {{$user->lname}}</h6>
             <h6 for=""><span class="opacity-7">Email: </span> {{$user->email}}</h6>
-            <h6 for=""><span class="opacity-7">Phone Number1:</span> {{$user->phone1}}</h6>
+            @php
+            if (!function_exists('format')) {
+                function format($phone_number)
+                    {
+                        $cleaned = preg_replace('/[^[:digit:]]/', '', $phone_number);
+                        preg_match('/(\d{4})(\d{3})(\d{3})/', $cleaned, $matches);
+                        return "{$matches[1]}-{$matches[2]}-{$matches[3]}";
+                    }
+            }
+            @endphp
+            <h6 for=""><span class="opacity-7">Phone Number1:</span> {{format($user->phone1)}}</h6>
             <h6 for=""><span class="opacity-7">Address One:</span> {{$user->city}}  {{$user->address1}}</h6>
             <h6 for=""><span class="opacity-7">Phone Number2:</span> {{$user->phone2}}</h6>
             <h6 for=""><span class="opacity-7">Address Two:</span> {{$user->address2}}</h6>

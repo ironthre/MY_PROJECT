@@ -44,12 +44,24 @@
                                 <tr>
 
                                    <td> {{$ads->brand }}</td>
-                                   <td> {{$ads->phone }}</td>
+                                   <td>
+                                        @php
+                                            if (!function_exists('format')) {
+                                                function format($phone_number)
+                                                    {
+                                                        $cleaned = preg_replace('/[^[:digit:]]/', '', $phone_number);
+                                                        preg_match('/(\d{4})(\d{3})(\d{3})/', $cleaned, $matches);
+                                                        return "{$matches[1]}-{$matches[2]}-{$matches[3]}";
+                                                    }
+                                            }
+                                        @endphp
+                                       {{format($ads->phone )}}
+                                    </td>
                                    <td> {{$ads->email }}</td>
                                    <td> {{$ads->owner }}</td>
-                                   <td> {{$ads->expire}}</td>
+                                   <td> {{date('F d, Y', strtotime($ads->expire))}}</td>
                                    <td class="align-middle">
-                                        <a href="{{ url('delete-ad/'.$ads->id) }}" class="btn btn-primary mb-0">Delete</a>
+                                        <a href="{{ url('delete-ad/'.$ads->id) }}" class="btn btn-danger mb-0">Delete</a>
                                     </td>
 
                                     {{--  <span class="text-xs font-weight-bold">phone1</span>  --}}

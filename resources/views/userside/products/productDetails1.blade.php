@@ -91,8 +91,8 @@
                 <div class="product-detail-two pl-4">
                     <div class="d-flex flex-row mb-2">
                         <h5>Price:</h5>
-                        <span class="new-prices text-danger mx-3">Tsh {{$product->selling_price}}</span>
-                        <span class="old-prices text-danger bold">Tsh {{$product->org_price}}</span>
+                        <span class="new-prices text-danger mx-3">Tsh {{number_format($product->selling_price)}}</span>
+                        <span class="old-prices text-danger bold">Tsh {{number_format($product->org_price)}}</span>
                     </div>
                     <form action="{{url('single-checkout')}}" method="POST">
                         {{ csrf_field() }}
@@ -126,15 +126,15 @@
                         @endif
                     </div>
 
-                    <div class="col-md-12">
+                    <div class="col-md-12 mb-2">
                         @if ($product->qty>0)
-                            <button class="btn btn-white btn-primary addToCartBtn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
-                           <button type="submit" class="btn btn-primary">Order Product</button>
+                           <button type="submit" class="btn btn-primary mb-2">Order Product</button>
+                           <button class="btn btn-white btn-primary addToCartBtn mb-2"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
                         @endif
                     </div>
                     <div class="col-md-12 mb-2">
-                        <a class="btn btn-white btn-outline-primary " href="{{url('contact')}}"><i class="fa fa-envelope"></i> Contact Seller</a>
-                        <button class="btn btn-white btn-outline-danger addToWishlist"><i class="fa-solid fa-heart"></i>Wishlist</button>
+                        <button class="btn btn-white btn-outline-danger addToWishlist mb-2"><i class="fa-solid fa-heart"></i>Wishlist</button>
+                        <a class="btn btn-white btn-outline-primary mb-2" href="{{url('contact')}}"><i class="fa fa-envelope"></i> Contact Seller</a>
                  </div>
                 </form>
 
@@ -200,7 +200,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center ">
                                 <div class="d-flex flex-column mb-2">
-                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                    <span class="new-price">Tsh {{number_format($prod->selling_price)}}</span> <small class="old-price text-right float-right">Tsh {{number_format($prod->org_price)}}</small>
                                 </div>
                                 <div class="first">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -271,7 +271,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center ">
                                 <div class="d-flex flex-column mb-2">
-                                    <span class="new-price">Tsh {{$prod->selling_price}}</span> <small class="old-price text-right float-right">Tsh {{$prod->org_price}}</small>
+                                    <span class="new-price">Tsh {{number_format($prod->selling_price)}}</span> <small class="old-price text-right float-right">Tsh {{number_format($prod->org_price)}}</small>
                                 </div>
                                 <div class="first">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -286,7 +286,70 @@
         </div>
     </div>
 
+    @if (session('openLogin'))
+    //some js function that will open your hidden modal
+    //if you use bootstrap modal
+    <script>
+                $( document ).ready(function() {
+                    $('#loginModal').modal('show');
+                });
+            </script>
+    @endif
+    {{-- Login Menu --}}
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"   aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-title text-center">
+                <h4>Login</h4>
+                </div>
+                <div class="d-flex flex-column text-center">
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <div class="form-group">
+                        <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Username / Email /Phone" name="username" value="{{ old('username') }}" required autofocus>
 
+                        @error('username')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Your password..." required autocomplete="current-password">
+
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    </div>
+                    <button type="submit" class="btn btn-info btn-block btn-round">{{ __('Login') }}</button>
+                </form>
+
+                <div class="modal-footer d-flex justify-content-center">
+                        <div class="signup-section">
+                            Not a member yet? <a href="{{ route('register') }}" class="text-info" >{{ __('Register') }}</a>.
+                        </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        @if (count($errors) > 0 )
+            <script>
+                $( document ).ready(function() {
+                    $('#loginModal').modal('show');
+                });
+            </script>
+        @endif
+    </div>
+    {{-- End Of Login Menu --}}
     <!-- end product -->
 </div>
 <link rel="stylesheet" href="{{asset('userside/css/hide-menu.css')}}">
@@ -310,10 +373,10 @@
             600:{
                 items:3
             },
-            800:{
+            999:{
                 items:4
             },
-            1000:{
+            1209:{
                 items:5
             }
         }
@@ -326,14 +389,16 @@
         dots:false,
         responsive:{
             0:{
-                items:4
+                items:2
             },
             600:{
+                items:3
+            },
+            999:{
                 items:4
             },
-
-            1000:{
-                items:4
+            1209:{
+                items:5
             }
         }
     })
@@ -469,8 +534,6 @@
         }
 
     });
-
-
 
 
 </script>

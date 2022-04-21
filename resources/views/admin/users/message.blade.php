@@ -10,7 +10,17 @@
             </div>
         </div>
         <div class="card-body px-0 mx-3 pb-2 ">
-            <h6 for=""><span class="opacity-7">Contact:</span>  {{$msg->phone}}</h6>
+            @php
+            if (!function_exists('format')) {
+                function format($phone_number)
+                    {
+                        $cleaned = preg_replace('/[^[:digit:]]/', '', $phone_number);
+                        preg_match('/(\d{4})(\d{3})(\d{3})/', $cleaned, $matches);
+                        return "{$matches[1]}-{$matches[2]}-{$matches[3]}";
+                    }
+            }
+            @endphp
+            <h6 for=""><span class="opacity-7">Contact:</span>  {{format($msg->phone)}}</h6>
             <h6 for=""><span class="opacity-7">Message: </span> {{$msg->message}}</h6>
             <h6 for=""><span class="opacity-7">Date:</span> {{$msg->created_at}}</h6>
         </div>

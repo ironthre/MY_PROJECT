@@ -22,12 +22,12 @@
             <div class="col-md-7">
                 <div class="card">
                     <div class="card-body">
-                        <h6>Basic Details <span class="text-danger">* Required</span> </h6>
+                        <label>Basic Details <span class="text-danger">* Required</span> </label>
                         <hr>
                         <div class="row checkout-form">
                             <div class="col-md-6 mb-3">
                                 <label for="firstname">First Name <span class="text-danger">*</span></label>
-                                <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" name="fname" value="{{ Auth::user()->fnam}}"
+                                <input type="text" id="fnam" class="form-control @error('fnam') is-invalid @enderror" name="fname" value="{{ Auth::user()->fnam}}"
                                  placeholder="Enter first name" required data-parsley-trigger="keyup" autofocus>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -72,19 +72,19 @@
 
             <div class="col-md-5">
                 <div class="card">
-                    <div class="card-body">
-                        <h6>Order Details</h6>
-                        <table class="table">
+                    <div class="card-body table-responsive">
+                        <label>Order Details</label>
+                        <table class="table" style="width:100%">
                             <tbody>
                                 <thead>
-                                    <th>Product Name</th>
-                                    <th>Quantity</th>
-                                    <th>Price</th>
+                                    <th style="width:130px">Product Name</th>
+                                    <th style="width:50px">Quantity</th>
+                                    <th style="width:80px">Price</th>
                                 </thead>
                                 <tr>
                                     <td>{{$product->name}}</td>
                                     <td>{{$qty}}</td>
-                                    <td>{{$product->selling_price}}</td>
+                                    <td>{{number_format($product->selling_price)}}</td>
 
                                 </tr>
 
@@ -97,16 +97,12 @@
                         </table>
                         <hr>
                         <div class="">
-                            <h5>Mode Of Payment <span class="text-danger">*</span></h5>
-                            <input type="radio" name="payment" id="">&nbsp; Mobile Money
-                            <p id="details" >Airtel Money Namba ya Kampuni 28767 Kumbukumbu Namba222222878</p>
-                            <input type="radio" name="payment" id=""> &nbsp; Cash on Derivery
-                            <span><input type="radio" name="payment" id=""></span>
-                            <span>new order</span>
+                            <label class="font-weight-bold">Mode Of Payment <span class="text-danger">*</span></label> <br>
+                            <input type="radio" name="payment" value="Mobile Money" id="mobile" onclick="show1();" required>&nbsp; Mobile Money <br>
+                            <p id="details" class="ml-5" style="display: none">Airtel Money Namba ya Kampuni xxxx Kumbukumbu Namba xxxxxxxx</p>
+                            <input type="radio" name="payment" id="cash" value="Cash On Derivery" onclick="show2();" required>&nbsp; Cash on Derivery
                         </div>
-
-
-                            <button type="submit" class="btn btn-primary float-right" onclick="this.disabled = true">Place Order</button>
+                            <button type="submit" class="btn btn-primary float-right" >Place Order</button>
                     </div>
                 </div>
             </div>
@@ -125,22 +121,18 @@
         font-weight: 500;
 
     }
+    table { width: 100%;height: 100%;border: 3px red double; }
 </style>
 
 <script>
     $(function (){
         $('#checkForm').parsley();
     });
-    $('#details').hide();
-    $('input[name="payment"]').on('change',function(){
-        $('#details').hide();
-        $(this).next().show();
-    });
-
-    $('span').hide();
-$('input[name="payment"]').on('change',function(){
-    $('span').hide();
-    $(this).next().show();
-});
+    function show2(){
+        document.getElementById('details').style.display ='none';
+    }
+    function show1(){
+        document.getElementById('details').style.display ='block';
+    }
 </script>
 

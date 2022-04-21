@@ -29,8 +29,8 @@ class WishlistController extends Controller
             } else {
                 return response()->json(['status' =>  "Product Not Found"]);
             }
-        } else {
-            return response()->json(['status' =>  "Login / Register to Continue..."]);
+        }else {
+            return response()->json(['status' =>  "Login | Register to Continue"]);
         }
     }
 
@@ -41,7 +41,7 @@ class WishlistController extends Controller
             if (Product::where('id', $prod_id)->first()) {
                 $wishItem = Wishlist::where('prod_id', $prod_id)->where('user_id', Auth::id())->first();
                 $wishItem->delete();
-                return response()->json(['status' => 'Item Removed form wishlist']);
+                return response()->json(['status' => 'Item Removed from wishlist']);
             } else {
                 return response()->json(['status' =>  "Product Not Found"]);
             }

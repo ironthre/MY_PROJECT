@@ -9,10 +9,10 @@
                 </h6>
             </div>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-bordered">
-                <a href="{{url('orders')}}" class="float-end m-3 btn btn-primary">New / Pending  Orders</a>
-                <a href="{{url('order-history')}}" class="float-end m-3 btn btn-primary">Completed Order</a>
+                <a href="{{url('orders')}}" class="float-end m-1 btn btn-dark">New / Pending  Orders</a>
+                <a href="{{url('order-history')}}" class="float-end m-1 btn btn-success">Completed Order</a>
                 <thead>
                     <tr>
                         <th>Order Date</th>
@@ -27,10 +27,10 @@
                         <tr>
                             <td>{{ date('d-m-Y'), strtotime($item->created_at)}}</td>
                             <td>{{$item->tracking_no}}</td>
-                            <td>{{$item->total_price}}</td>
-                            <td>{{$item->status == 0 ? 'Pending' : 'completed'}}</td>
+                            <td>{{number_format($item->total_price)}}</td>
+                            <td class="text-white text-uppercase {{$item->status==0?'bg-dark':'bg-success'}}">{{$item->status == 0 ? 'Pending': 'Completed'}}</td>
                             <td>
-                                <a href="{{url('admin/view-orders/'.$item->id)}}" class="btn btn-primary">Order Details</a>
+                                <a href="{{url('admin/view-orders/'.$item->id)}}" class="p-2 m-1 btn btn-primary">Order Details</a>
                             </td>
                         </tr>
                     @endforeach

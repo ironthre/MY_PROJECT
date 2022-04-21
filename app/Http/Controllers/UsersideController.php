@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Advertise;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 
@@ -94,5 +96,11 @@ class UsersideController extends Controller
         } else {
             return redirect()->back();
         }
+    }
+
+    public function profile()
+    {
+        $user = User::where('id', Auth::id())->first();
+        return view('userside.profile', compact('user'));
     }
 }

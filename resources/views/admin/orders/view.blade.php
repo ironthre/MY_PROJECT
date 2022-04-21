@@ -10,14 +10,14 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="mb-3">Order Details
 
                                     </h4>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body table-responsive">
                                     <table class="table ">
                                         <thead>
                                             <tr>
@@ -35,7 +35,8 @@
                                                         {{$item->products->name}}
                                                     </td>
                                                     <td>{{$item->qty}}</td>
-                                                    <td>{{$item->price}}</td>
+                                                    <td>{{number_format($item->price)}}</td>
+                                                    <td class="text-white text-uppercase {{$orders->status==0?'bg-dark':'bg-success'}}">{{$orders->status == 0 ? 'Pending': 'Completed'}}</td>
                                                     {{-- <td>{{$item->status == 0 ? 'Pending' : 'completed'}}</td> --}}
                                                 </tr>
                                         @endforeach
@@ -43,7 +44,7 @@
                                     </table>
                                 </div>
                                 <div class="card-footer">
-                                    <h4 class="text-danger">Total Price: Tsh {{$orders->total_price}}</h4>
+                                    <h4 class="text-danger">Total Price: Tsh {{number_format($orders->total_price)}}</h4>
                                     <div class="mt-3 my-4">
                                         <form action="{{url('update-order/'.$orders->id)}}" method="POST">
                                             @csrf
@@ -65,10 +66,20 @@
                                     <h4 class="m-3">Delivery Address</h4>
                                 </div>
                                 <div class="card-body">
-                                    <h6 for="">First Name: {{$orders->fname}}</h6><br>
-                                    <h6 for="">Last Name: {{$orders->lname}}</h6><br>
-                                    <h6 for="">Phone Number: {{$orders->phone1}}</h6><br>
-                                    <h6 for="">Address: {{$orders->city}}  {{$orders->address1}}</h6>
+                                    <h6 for=""><span class="opacity-7">First Name:</span> {{$orders->fname}}</h6><br>
+                                    <h6 for=""><span class="opacity-7">Last Name:</span> {{$orders->lname}}</h6><br>
+                                    @php
+                                    if (!function_exists('format')) {
+                                        function format($phone_number)
+                                            {
+                                                $cleaned = preg_replace('/[^[:digit:]]/', '', $phone_number);
+                                                preg_match('/(\d{4})(\d{3})(\d{3})/', $cleaned, $matches);
+                                                return "{$matches[1]}-{$matches[2]}-{$matches[3]}";
+                                            }
+                                    }
+                                    @endphp
+                                    <h6 for=""><span class="opacity-7">Phone Number:</span> {{format($orders->phone1)}}</h6><br>
+                                    <h6 for=""><span class="opacity-7">Address:</span> {{$orders->city}}  {{$orders->address1}}</h6>
                                 </div>
                             </div>
 

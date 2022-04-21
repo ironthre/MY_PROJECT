@@ -17,7 +17,6 @@
                                         <tr>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">User Name</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Full Name</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Phone</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Role</th>
@@ -39,25 +38,32 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <p class="text-sm font-weight-bold mb-0">{{ $user->name}}</p>
-                                                </td>
-                                                <td>
-                                                    <p class="text-sm font-weight-bold mb-0">{{ $user->fnam.' '.$user->lname }}</p>
+                                                    <p class="text-sm font-weight-bold mb-0">{{ $user->username}}</p>
                                                 </td>
                                                 <td>
                                                     <span class="text-xs font-weight-bold">{{ $user->email }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-xs font-weight-bold">{{ $user->phone1 }}</span>
+                                                    @php
+                                                    if (!function_exists('format')) {
+                                                        function format($phone_number)
+                                                            {
+                                                                $cleaned = preg_replace('/[^[:digit:]]/', '', $phone_number);
+                                                                preg_match('/(\d{4})(\d{3})(\d{3})/', $cleaned, $matches);
+                                                                return "{$matches[1]}-{$matches[2]}-{$matches[3]}";
+                                                            }
+                                                    }
+                                                    @endphp
+                                                    <span class="text-xs font-weight-bold">{{format($user->phone1)}}</span>
                                                 </td>
                                                 <td>
                                                     <span class="text-xs font-weight-bold">{{
                                                         $user->role_as == '2'? 'Super Admin':
-                                                       ( $user->role_as == '1'? 'Normal Admin' : 'User')
+                                                       ( $user->role_as == '1'? 'Normal Admin' : 'Normal User')
                                                      }}</span>
                                                 </td>
                                                 <td class="align-middle">
-                                                    <a href="{{ url('user-view/'.$user->id) }}" class="btn btn-primary mb-0">View</a>
+                                                    <a href="{{ url('user-view/'.$user->id) }}" class="btn btn-info mb-0">View</a>
                                                     <a href="{{ url('user-update/'.$user->id) }}" class="btn btn-primary mb-0">Edit</a>
                                                 </td>
                                             </tr>

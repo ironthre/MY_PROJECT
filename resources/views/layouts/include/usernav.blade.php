@@ -52,7 +52,7 @@
 
 <div class="navbar row navbar-expand-lg brand navbar-light bg-white">
   <div class="container-fluid collapse navbar-collapse">
-     <div class="col-sm-3 col-4 ">
+     <div class="col-sm-3 col-8 col-md-3 mx-auto">
         <a class="navbar-brand" href="{{url('/')}}">
             <img src="{{ asset('assets/image/Logo3.png')}}" alt="" width="250" height="100" class="d-block logo img-fluid">
         </a>
@@ -64,7 +64,7 @@
         <button class="btn btn-outline-white bg-primary" type="submit"><i class="fas fa-search"></i></button>
       </form>
     </div>
-    <div class="modal-header border-bottom-0 small-icon">
+    <div class="modal-header border-bottom-0 small-icon mx-auto">
         <li class="icon-button show-side-menu ml-3">
 			<a class=" "  data-toggle="modal" data-target="#sideModal" >
                 <span class="fas fa-bars material-icons"></span>
@@ -86,14 +86,14 @@
             <div class="dd_menu">
                 <div class="dd_left">
                     <ul>
-                        <li><i class="far fa-plus-square"></i></li>
                         <li><i class="fas fa-cog"></i></li>
+                        <li><i class="fa fa-list"></i></li>
                         <li><i class="fas fa-sign-out-alt"></i></li>
                     </ul>
                 </div>
 				<div class="dd_right">
 					<ul>
-						<li>Profile</li>
+						<li><a class=""  href="{{url('profile')}}">Profile</a></li>
 						<li><a class=""  href="{{url('my-orders')}}">Orders</a></li>
 						<li>
                             <a class=""  href="{{ route('logout') }}"
@@ -126,15 +126,16 @@
                 <span class="icon-button__badge cart-count">0</span>
             </a>
 		</li>
-      </div>
-    @auth
-        <li class="icon-button wish-icon">
+        @auth
+        <li class="icon-button wish-icon ml-3">
 			<a class=" "  href="{{url('wishlist')}}">
                 <span class="fas fa-heart material-icons"></span>
                 <span class="icon-button__badge wishlist-count">0</span>
             </a>
 		</li>
-    @endauth
+        @endauth
+      </div>
+
     <div class="collapse navbar-collapse page-wrapper toggled " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <form class="d-flex hidden-search mx-auto" action="{{url('searchProduct')}}"  method="POST">
             @csrf
@@ -248,10 +249,10 @@
                         </li>
                         @auth
                         <li class="model-item ">
-                            <a class="nav-link "  href="{{url('contact')}}"><span class="fa fa-user material-icons mr-3"></span>  Profile</a>
+                            <a class="nav-link "  href="{{url('profile')}}"><span class="fas fa-cog material-icons mr-3"></span>  Profile</a>
                         </li>
                         <li class="model-item ">
-                            <a class="nav-link " href="{{url('about')}}"><span class="fa fa-shop mr-3"></span>Orders</a>
+                            <a class="nav-link " href="{{url('my-orders')}}"><span class="fa fa-list mr-3"></span>Orders</a>
                         </li>
                         <li class="model-item ">
                             <a class="nav-link " href="{{url('about')}}"><span class="fas fa-sign-out-alt material-icons mr-3"></span>Logout</a>

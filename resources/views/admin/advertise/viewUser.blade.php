@@ -9,14 +9,24 @@
             </div>
         </div>
         <div class="card-body px-0 mx-3 pb-2 ">
-            <h6 for="">Current Role: {{$user->role_as == '2'? 'Super Admin':
+            <h6 for=""><span class="opacity-7">Current Role:</span> {{$user->role_as == '2'? 'Super Admin':
                                            ( $user->role_as == '1'? 'Normal Admin' : 'User')}}</h6>
-            <h6 for="">Full Name: {{$user->fnam}} {{$user->lname}}</h6>
-            <h6 for="">Email: {{$user->email}}</h6>
-            <h6 for="">Phone Number1: {{$user->phone1}}</h6>
-            <h6 for="">Address One: {{$user->city}}  {{$user->address1}}</h6>
-            <h6 for="">Phone Number2: {{$user->phone2}}</h6>
-            <h6 for="">Address Two: {{$user->address2}}</h6>
+            <h6 for=""><span class="opacity-7">Full Name:</span> {{$user->fnam}} {{$user->lname}}</h6>
+            <h6 for=""><span class="opacity-7">Email:</span> {{$user->email}}</h6>
+            @php
+            if (!function_exists('format')) {
+                function format($phone_number)
+                    {
+                        $cleaned = preg_replace('/[^[:digit:]]/', '', $phone_number);
+                        preg_match('/(\d{4})(\d{3})(\d{3})/', $cleaned, $matches);
+                        return "{$matches[1]}-{$matches[2]}-{$matches[3]}";
+                    }
+            }
+            @endphp
+            <h6 for=""><span class="opacity-7">Phone Number:</span> {{format($user->phone1)}}</h6>
+            <h6 for=""><span class="opacity-7">Address One:</span> {{$user->city}}  {{$user->address1}}</h6>
+            <h6 for=""><span class="opacity-7">Phone Number2:</span> {{$user->phone2}}</h6>
+            <h6 for=""><span class="opacity-7">Address Two:</span> {{$user->address2}}</h6>
         </div>
       <hr class="dark horizontal my-0">
       <div class="card-footer p-3">

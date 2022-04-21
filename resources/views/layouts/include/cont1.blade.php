@@ -6,13 +6,13 @@
             <i class="material-icons opacity-10">weekend</i>
           </div>
           <div class="text-end pt-1">
-            <p class="text-sm mb-0 text-capitalize">Total Categories</p>
+            <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Categories</p>
             <h4 class="mb-0">{{$category->count()}}</h4>
           </div>
         </div>
         <hr class="dark horizontal my-0">
         <div class="card-footer p-3">
-          <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than lask week</p>
+
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
             <i class="material-icons opacity-10">person</i>
           </div>
           <div class="text-end pt-1">
-            <p class="text-sm mb-0 text-capitalize">Total Products</p>
+            <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Products</p>
             <h4 class="mb-0">{{$products->count()}}</h4>
           </div>
         </div>
@@ -40,7 +40,7 @@
             <i class="material-icons opacity-10">person</i>
           </div>
           <div class="text-end pt-1">
-            <p class="text-sm mb-0 text-capitalize">Registered Users</p>
+            <p class="text-sm mb-0 text-capitalize font-weight-bold">Registered Users</p>
             <h4 class="mb-0">{{$users->count()}}</h4>
           </div>
         </div>
@@ -59,7 +59,7 @@
             <i class="material-icons opacity-10">weekend</i>
           </div>
           <div class="text-end pt-1">
-            <p class="text-sm mb-0 text-capitalize">Orders</p>
+            <p class="text-sm mb-0 text-capitalize font-weight-bold">Orders</p>
             <h4 class="mb-0">{{$orders->count()}}</h4>
           </div>
         </div>
@@ -89,28 +89,19 @@
                         <tr>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Image</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Product Name</th>
-                            {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Phone</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Role</th>
-                            <th></th>  --}}
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($solid_out as $user )
+                        @foreach ($solid_out as $prod )
                             <tr>
                                 <td>
                                     <div class="d-flex px-2">
-                                        <img src="{{ asset('assets/uploads/product/'.$user->image)}}" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
+                                        <img src="{{ asset('assets/uploads/product/'.$prod->image)}}" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="text-sm font-weight-bold mb-0">{{ $user->name}}</p>
+                                    <p class="text-sm font-weight-bold mb-0">{{ $prod->name}}</p>
                                 </td>
-                                {{--  <td>
-                                    <span class="text-xs font-weight-bold">{{ $user->email }}</span>
-                                </td>
-                                <td>
-                                    <span class="text-xs font-weight-bold">{{ $user->phone1 }}</span>
-                                </td>  --}}
                             </tr>
                         @endforeach
                     </tbody>
@@ -140,13 +131,23 @@
                             @foreach ($users_admin as $user )
                                 <tr>
                                     <td>
-                                        <p class="text-sm font-weight-bold mb-0">{{ $user->name}}</p>
+                                        <p class="text-sm font-weight-bold mb-0">{{ $user->username}}</p>
                                     </td>
                                     <td>
                                         <span class="text-xs font-weight-bold">{{ $user->email }}</span>
                                     </td>
                                     <td>
-                                        <span class="text-xs font-weight-bold">{{ $user->phone1 }}</span>
+                                        @php
+                                        if (!function_exists('format')) {
+                                            function format($phone_number)
+                                                {
+                                                    $cleaned = preg_replace('/[^[:digit:]]/', '', $phone_number);
+                                                    preg_match('/(\d{4})(\d{3})(\d{3})/', $cleaned, $matches);
+                                                    return "{$matches[1]}-{$matches[2]}-{$matches[3]}";
+                                                }
+                                        }
+                                        @endphp
+                                        <span class="text-xs font-weight-bold">{{ format($user->phone1)}}</span>
                                     </td>
                                 </tr>
                             @endforeach

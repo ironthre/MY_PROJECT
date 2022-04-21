@@ -13,29 +13,44 @@
             </ol>
         </nav>
     </div>
-    <div class="container my-2 py-4">
+    <div class="container my-2 py-2">
         @if (Session::has('message_sent'))
                 <div class="alert alert-danger" role="alert">
                     {{Session::get('status')}}
                 </div>
             @endif
-        <div class="card wishCard mx-auto col-md-10">
-                <div class="card-body">
+        <div class="card  mx-auto col-md-7">
+                <div class="card-body wishTable table-responsive">
                      @if ($wish->count() > 0)
                     @foreach ($wish as $item )
-                    <div class="row  product_data mb-1">
+                    <table class="table table-borderless">
+                        <tbody class="product_data">
+                            <tr>
+                                <td style="width: 100px"><img src="{{asset('assets/uploads/product/'.$item->products->image)}}"  height="50px" width="50px" alt=""></td>
+                                <td style="width: 150px"><p>{{$item->products->name}}</p></td>
+
+                                    <input type="hidden" value="{{$item->prod_id}}" class="prod_id" >
+                                    <input type="hidden" value="{{$item->qty}}" class="qty" >
+                                <td style="width: 100PX"><p>{{number_format($item->products->selling_price)}}</p></td>
+                                <td style="width: 50PX"><button class="btn btn-danger delete-wish-item"><i class="fa fa-trash"></i></button></td>
+                                <td ><button class="btn btn-success addToCartBtn" style="width: 130px"><i class="fa fa-shopping-cart"></i>Add to Cart</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    {{-- <div class="row  product_data mb-1">
                         <div class="col-md-1">
                             <img src="{{asset('assets/uploads/product/'.$item->products->image)}}"  height="50px" width="50px" alt="">
                         </div>
                         <div class="col-md-2">
-                            <h6>{{$item->products->name}}</h6>
+                            <p>{{$item->products->name}}</p>
                         </div>
                         <input type="hidden" value="{{$item->prod_id}}" class="prod_id" >
+                        <input type="hidden" value="{{$item->qty}}" class="qty" >
                         <div class="col-md-2">
                             <p>{{$item->products->small_description}}</p>
                         </div>
                         <div class="col-md-2">
-                            <h6>{{$item->products->selling_price}}</h6>
+                            <p>{{number_format($item->products->selling_price)}}</p>
                         </div>
                         <div class="col-md-2">
                             <button class="btn btn-danger delete-wish-item"><i class="fa fa-trash"></i></button>
@@ -43,11 +58,13 @@
                         <div class="col-md-3 ">
                             <button class="btn btn-success addToCartBtn"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
                         </div>
-                    </div>
+                    </div> --}}
                     @endforeach
                     @else
-                    <h4 class="text-warning"> <i class="fa fa-2x fa-heart mr-2"></i>Wishlist is Empty</h4>
-                    <a href="{{url('/All Products')}}" class="btn btn-danger my-3"><i class="fa fa-heart mr-2"></i>Add Products to Wishlist</a>
+                    <div class="card-body text-center">
+                        <h4 class="text-warning mx-auto"> <i class="fa fa-2x fa-heart mr-2"></i>Wishlist is Empty</h4>
+                        <a href="{{url('/All Products')}}" class="btn btn-danger my-3 mx-auto"><i class="fa fa-heart mr-2"></i>Add Products to Wishlist</a>
+                    </div>
                 </div>
             @endif
         </div>
@@ -129,7 +146,7 @@
             success: function(response){
                 // window.location.reload();
                 loadwish();
-                 $('.wishCard').load(location.href + " .wishCard");
+                 $('.wishTable').load(location.href + " .wishTable");
                 swal("",response.status,"success");
 
             }
@@ -143,7 +160,7 @@
         e.preventDefault();
 
         var product_id = $(this).closest('.product_data').find('.prod_id').val();
-        var product_qty = $(this).closest('.product_data').find('.qty-input').val();
+        var product_qty = $(this).closest('.product_data').find('.qty').val();
 
         $.ajaxSetup({
             headers: {
@@ -156,6 +173,7 @@
             url: "{{ url('/add-to-cart')}}",
             data: {
                 'product_id': product_id,
+                'product_qty': product_qty,
                 // 'product_qty': product_qty,
             },
             success: function(response){

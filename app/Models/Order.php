@@ -23,7 +23,7 @@ class Order extends Model
         'address2',
         'status',
         'message',
-        'cancel',
+        'pay_method',
         'tracking_no',
     ];
 

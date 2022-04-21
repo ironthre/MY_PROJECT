@@ -20,7 +20,7 @@
             <div class="col-md-7">
                 <div class="card">
                     <div class="card-body">
-                        <h6>Basic Details <span class="text-danger">* Required</span> </h6>
+                        <label>Basic Details <span class="text-danger">* Required</span> </label>
                         <hr>
                         <div class="row checkout-form">
                             <div class="col-md-6 mb-3">
@@ -69,8 +69,8 @@
             </div>
             <div class="col-md-5">
                 <div class="card">
-                    <div class="card-body">
-                        <h6>Order Details</h6>
+                    <div class="card-body table-responsive">
+                        <label>Order Details</label>
                         <table class="table">
                             <tbody>
                                 <thead>
@@ -82,7 +82,7 @@
                                 <tr>
                                     <td>{{$item->products->name}}</td>
                                     <td>{{$item->prod_qty}}</td>
-                                    <td>{{$item->products->selling_price}}</td>
+                                    <td>{{number_format($item->products->selling_price)}}</td>
 
                                 </tr>
                                 @endforeach
@@ -91,14 +91,13 @@
                         </table>
                         <hr>
                         <div class="">
-                            <h5>Mode Of Payment <span class="text-danger">*</span></h5>
-                            <label for="">Mobile Money</label>
-                            <span><input type="radio" name="payment" id="" required data-parsley-trigger="keyup"></span><br>
-                            <label for="">Cash on Derivery</label>
-                            <span><input type="radio" name="payment" id=""></span>
+                            <label class="font-weight-bold">Mode Of Payment <span class="text-danger">*</span></label> <br>
+                            <input type="radio" name="payment" value="Mobile Money" id="mobile" onclick="show1();" required>&nbsp; Mobile Money <br>
+                            <p id="details" class="ml-5" style="display: none">Airtel Money Namba ya Kampuni xxxx Kumbukumbu Namba xxxxxxxx</p>
+                            <input type="radio" name="payment" id="cash" value="Cash On Derivery" onclick="show2();" required>&nbsp; Cash on Derivery
                         </div>
                         @if ($cartItems->count() > 0)
-                            <button type="submit" class="btn btn-primary float-right" onclick="this.disabled = true" >Place Order</button>
+                            <button type="submit" class="btn btn-primary float-right"  >Place Order</button>
                         @else
                             <h5>No Products</h5>
                         @endif
@@ -122,10 +121,18 @@
         font-weight: 500;
 
     }
+    table { width: 100%;height: 100%;border: 3px red double; }
 </style>
 
 <script>
-    $(function(){
+    $(function (){
         $('#checkForm').parsley();
     });
+    function show2(){
+        document.getElementById('details').style.display ='none';
+    }
+    function show1(){
+        document.getElementById('details').style.display ='block';
+    }
 </script>
+

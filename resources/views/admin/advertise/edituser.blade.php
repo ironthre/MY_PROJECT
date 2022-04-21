@@ -14,7 +14,17 @@
             <h6 for="">Current Role: {{$user->role_as == '2'? 'Super Admin':
                                            ( $user->role_as == '1'? 'Normal Admin' : 'User')}}</h6>
             <h6 for="">Email: {{$user->email}}</h6>
-            <h6 for="">Phone Number1: {{$user->phone1}}</h6>
+            @php
+            if (!function_exists('format')) {
+                function format($phone_number)
+                    {
+                        $cleaned = preg_replace('/[^[:digit:]]/', '', $phone_number);
+                        preg_match('/(\d{4})(\d{3})(\d{3})/', $cleaned, $matches);
+                        return "{$matches[1]}-{$matches[2]}-{$matches[3]}";
+                    }
+            }
+            @endphp
+            <h6 for="">Phone Number1: {{format($user->phone1)}}</h6>
                 <br>
             <form action="{{ url('update-access') }}" method="post">
                 @csrf

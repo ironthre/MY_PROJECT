@@ -93,7 +93,19 @@
                                 <tr>
 
                                    <td> {{$ads->name }}</td>
-                                   <td> {{$ads->phone }}</td>
+                                   <td>
+                                        @php
+                                        if (!function_exists('format')) {
+                                            function format($phone_number)
+                                                {
+                                                    $cleaned = preg_replace('/[^[:digit:]]/', '', $phone_number);
+                                                    preg_match('/(\d{4})(\d{3})(\d{3})/', $cleaned, $matches);
+                                                    return "{$matches[1]}-{$matches[2]}-{$matches[3]}";
+                                                }
+                                        }
+                                        @endphp
+                                        {{format($ads->phone) }}
+                                    </td>
                                    <td> {{$ads->message }}</td>
                                    <td> {{$ads->created_at }}</td>
                                    <td class="align-middle">

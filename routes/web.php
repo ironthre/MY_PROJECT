@@ -67,6 +67,7 @@ Route::get('category/{cate_name}/{prod_name}', [UsersideController::class, 'prod
 Route::get('Product-Details/{prod_name}', [UsersideController::class, 'productDetails']);
 Route::get('/product-list', [UsersideController::class, 'productList']);
 Route::post('/searchProduct', [UsersideController::class, 'searchProduct']);
+Route::get('/profile', [UsersideController::class, 'profile']);
 
 
 
