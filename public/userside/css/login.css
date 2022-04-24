@@ -38,7 +38,7 @@ h6,
 }
 
 
-/* 
+/*
 .bar {
     width: 40vw;
 } */
@@ -148,15 +148,19 @@ h6,
 }
 
 @media screen and (max-width: 398px) {
-    .icon-button{
+    /* .icon-button{
         height: 35px !important;
         width: 35px !important;
-    }
-    .svg-inline--fa{
+    } */
+    /* .svg-inline--fa{
         height: 0.75rem;
-    }
+    } */
     .wel{
         font-size: 0.65rem;
+    }
+    .pro-img {
+        width: 400px !important;
+        height: 200px !important;
     }
 }
 .modal-header .close {

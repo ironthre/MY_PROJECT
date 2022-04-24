@@ -147,7 +147,7 @@
                 // window.location.reload();
                 loadwish();
                  $('.wishTable').load(location.href + " .wishTable");
-                swal("",response.status,"success");
+                swal("",response.status,"warning");
 
             }
         });

@@ -27,49 +27,55 @@
                 </div>
             </div>
             <div class="card-body px-0 pb-2">
-                <div class="table-responsive p-0">
-                    <table class="table align-users-center justify-content-center mb-0">
-                        <thead>
-                            <tr>
-                                <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Brand Name</th>
-                                <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Phone</th>
-                                <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
-                                <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Owner</th>
-                                <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Expire</th>
-                                <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($ads as $ads)
+                @if ()
+                    <div class="table-responsive p-0">
+                        <table class="table align-users-center justify-content-center mb-0">
+                            <thead>
                                 <tr>
-
-                                   <td> {{$ads->brand }}</td>
-                                   <td>
-                                        @php
-                                            if (!function_exists('format')) {
-                                                function format($phone_number)
-                                                    {
-                                                        $cleaned = preg_replace('/[^[:digit:]]/', '', $phone_number);
-                                                        preg_match('/(\d{4})(\d{3})(\d{3})/', $cleaned, $matches);
-                                                        return "{$matches[1]}-{$matches[2]}-{$matches[3]}";
-                                                    }
-                                            }
-                                        @endphp
-                                       {{format($ads->phone )}}
-                                    </td>
-                                   <td> {{$ads->email }}</td>
-                                   <td> {{$ads->owner }}</td>
-                                   <td> {{date('F d, Y', strtotime($ads->expire))}}</td>
-                                   <td class="align-middle">
-                                        <a href="{{ url('delete-ad/'.$ads->id) }}" class="btn btn-danger mb-0">Delete</a>
-                                    </td>
-
-                                    {{--  <span class="text-xs font-weight-bold">phone1</span>  --}}
+                                    <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Brand Name</th>
+                                    <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Phone</th>
+                                    <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
+                                    <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Owner</th>
+                                    <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Expire</th>
+                                    <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                            </thead>
+                            <tbody>
+                                @foreach($ads as $ads)
+                                    <tr>
+
+                                    <td> {{$ads->brand }}</td>
+                                    <td>
+                                            @php
+                                                if (!function_exists('format')) {
+                                                    function format($phone_number)
+                                                        {
+                                                            $cleaned = preg_replace('/[^[:digit:]]/', '', $phone_number);
+                                                            preg_match('/(\d{4})(\d{3})(\d{3})/', $cleaned, $matches);
+                                                            return "{$matches[1]}-{$matches[2]}-{$matches[3]}";
+                                                        }
+                                                }
+                                            @endphp
+                                        {{format($ads->phone )}}
+                                        </td>
+                                    <td> {{$ads->email }}</td>
+                                    <td> {{$ads->owner }}</td>
+                                    <td> {{date('F d, Y', strtotime($ads->expire))}}</td>
+                                    <td class="align-middle">
+                                            <a href="{{ url('delete-ad/'.$ads->id) }}" class="btn btn-danger mb-0">Delete</a>
+                                        </td>
+
+                                        {{--  <span class="text-xs font-weight-bold">phone1</span>  --}}
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @else
+                    <div class="card-body">
+                        <p class="font-weight-bold">Nothing to Advertise</p>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

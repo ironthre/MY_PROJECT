@@ -80,12 +80,12 @@
                 </div>
                 Product Image
                 <div class="col-md-12 mb-5" >
-                    <input type="file" name="image" class="form-control-file" required  data-parsley-trigger="keyup" autofocus>
+                    <input type="file" name="image" class="form-control-file" required  data-parsley-trigger="keyup" data-parsley-fileextension='zip' autofocus>
                 </div>
 
                 Other Multiple Image ( Ctr + Selected images)
                 <div class="col-md-12 mb-5">
-                    <input type="file" name="images[]" class="form-control-file" multiple>
+                    <input type="file" name="images[]" class="form-control-file" data-parsley-fileextension='zip' multiple>
                 </div>
 
                 <div class="col-md-12">
@@ -97,7 +97,38 @@
 
 @endsection
 <script>
-    $(function(){
-        $('#checkForm').parsley();
-    });
+    //
+    $(document).ready(function() {
+    window.ParsleyValidator
+        .addValidator('fileextension', function (value, requirement) {
+            // the value contains the file path, so we can pop the extension
+            var fileExtension = value.split('.').pop();
+
+            return fileExtension === requirement;
+        }, 32)
+        .addMessage('en', 'fileextension', 'The extension doesn\'t match the required');
+
+    $("#checkForm").parsley();
+});
+    // $(document).ready(function() {
+    //     window.ParsleyValidator
+    //         .addValidator('fileextension', function (value, requirement) {
+    //                 var tagslistarr = requirement.split(',');
+    //             var fileExtension = value.split('.').pop();
+    //                         var arr=[];
+    //                         $.each(tagslistarr,function(i,val){
+    //                         arr.push(val);
+    //                         });
+    //             if(jQuery.inArray(fileExtension, arr)!='-1') {
+    //             console.log("is in array");
+    //             return true;
+    //             } else {
+    //             console.log("is NOT in array");
+    //             return false;
+    //             }
+    //         }, 32)
+    //         .addMessage('en', 'fileextension', 'The extension doesn\'t match the required');
+
+    //     $("#checkForm").parsley();
+    // });
 </script>

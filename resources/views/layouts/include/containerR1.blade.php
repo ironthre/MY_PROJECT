@@ -80,47 +80,53 @@
                 </div>
             </div>
             <div class="card-body px-0 pb-2">
-                <div class="table-responsive p-0">
-                    <table class="table align-users-center justify-content-center mb-0">
-                        <thead>
-                            <tr>
-                                <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
-                                <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Phone</th>
-                                <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Message</th>
-                                <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Date</th>
-                                <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($contact as $ads)
+                @if ($contact->count() > 0)
+                    <div class="table-responsive p-0">
+                        <table class="table align-users-center justify-content-center mb-0">
+                            <thead>
                                 <tr>
-
-                                   <td> {{$ads->name }}</td>
-                                   <td>
-                                        @php
-                                        if (!function_exists('format')) {
-                                            function format($phone_number)
-                                                {
-                                                    $cleaned = preg_replace('/[^[:digit:]]/', '', $phone_number);
-                                                    preg_match('/(\d{4})(\d{3})(\d{3})/', $cleaned, $matches);
-                                                    return "{$matches[1]}-{$matches[2]}-{$matches[3]}";
-                                                }
-                                        }
-                                        @endphp
-                                        {{format($ads->phone) }}
-                                    </td>
-                                   <td> {{$ads->message }}</td>
-                                   <td> {{$ads->created_at }}</td>
-                                   <td class="align-middle">
-                                        <a href="{{ url('message/'.$ads->id) }}" class="btn btn-info mb-0">view</a>
-                                    </td>
-
-                                    {{--  <span class="text-xs font-weight-bold">phone1</span>  --}}
+                                    <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+                                    <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Phone</th>
+                                    <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Message</th>
+                                    <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Date</th>
+                                    <th class="text-uppercase text-dark text-xxs font-weight-bolder opacity-7 ps-2">Action</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                            </thead>
+                            <tbody>
+                                @foreach($contact as $ads)
+                                    <tr>
+
+                                    <td> {{$ads->name }}</td>
+                                    <td>
+                                            @php
+                                            if (!function_exists('format')) {
+                                                function format($phone_number)
+                                                    {
+                                                        $cleaned = preg_replace('/[^[:digit:]]/', '', $phone_number);
+                                                        preg_match('/(\d{4})(\d{3})(\d{3})/', $cleaned, $matches);
+                                                        return "{$matches[1]}-{$matches[2]}-{$matches[3]}";
+                                                    }
+                                            }
+                                            @endphp
+                                            {{format($ads->phone) }}
+                                        </td>
+                                    <td> {{$ads->message }}</td>
+                                    <td> {{$ads->created_at }}</td>
+                                    <td class="align-middle">
+                                            <a href="{{ url('message/'.$ads->id) }}" class="btn btn-info mb-0">view</a>
+                                        </td>
+
+                                        {{--  <span class="text-xs font-weight-bold">phone1</span>  --}}
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @else
+                    <div class="card-body">
+                        <p class="font-weight-bold">Empty Notification Box </p>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
@@ -134,6 +140,7 @@
           <hr class="dark horizontal my-0">
           <div class="card-body px-0 pb-2">
             <div class="table-responsive p-0">
+            @if ($solid_out->count() > 0)
                 <table class="table align-users-center justify-content-center mb-0">
                     <thead>
                         <tr>
@@ -156,6 +163,11 @@
                         @endforeach
                     </tbody>
                 </table>
+                @else
+                    <div class="card-body">
+                        <p class="font-weight-bold">Currently no products under this Category</p>
+                    </div>
+            @endif
             </div>
           </div>
         </div>

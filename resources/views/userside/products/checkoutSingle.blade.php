@@ -53,7 +53,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="firstname">Phone Number2 <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" name="phone2" value="{{ Auth::user()->phone2}}"
-                                 placeholder="Mobile Phone" required data-parsley-pattern="[0-9]+$" data-parsley-length="[10,12]" data-parsley-pattern="[0-9]+$" data-parsley-trigger="keyup" autofocus>
+                                 placeholder="Mobile Phone" required data-parsley-pattern="[0-9]+$" data-parsley-length="[10,12]"  data-parsley-trigger="keyup" autofocus>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="firstname">City / Region <span class="text-danger">*</span></label>

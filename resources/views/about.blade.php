@@ -57,8 +57,8 @@
           <div class="card">
             <div class="card-heade p-3 pt-2">
               <div class="">
-                <h4 class="text-capitalize "><img src="{{asset('assets/image/customerService.png')}}" width="60px" height="80px" alt="">full customer care support</h4>
-                <p class="mb-0"><span class="text-danger text-sm font-weight-bolder"><i class="fa fa-heart"></i></span> Monday to satarday</p>
+                <h4 class="text-capitalize  "><img src="{{asset('assets/image/customerService.png')}}" width="60px" height="80px" alt="">full customer care support</h4>
+                <p class="mb-0 pl-3"> Get fast, free help from our <br> friendly assistants.</p>
               </div>
             </div>
           </div>

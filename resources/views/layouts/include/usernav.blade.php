@@ -40,7 +40,7 @@
           </span>
       </div>
       <div class="col-5 col-sm-4  col-md-3  mx-auto ">
-          <i class="fas fa-phone-alt"></i><span class="wel">+255 743 289 196</span>
+          <i class="fa-solid fa-phone"></i><span class="wel">+255 743 289 196</span>
 
       </div>
        <div class=" col-sm-3  col-md-4 d-none d-md-block mx-auto justify-content-center ">

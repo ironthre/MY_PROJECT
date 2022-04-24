@@ -35,11 +35,11 @@
                         @endphp
                         <div class="row thumb-img ">
                             <div class="owl-carousel thumb-product owl-theme">
-                                <img src="{{asset('assets/uploads/product/'.$product->image)}}" class="img-thumbnail" onclick="document.getElementById('nightWork').src='{{asset('assets/uploads/product/'.$product->image)}}'" width="50px" height="50px" alt="" />
+                                <img src="{{asset('assets/uploads/product/'.$product->image)}}" class="img-thumbnail" onclick="document.getElementById('nightWork').src='{{asset('assets/uploads/product/'.$product->image)}}'" width="20px" height="30px" alt="" />
 
                                 @foreach ( $images as $image)
                                     @if ($image)
-                                        <img src="{{asset('assets/uploads/multiple/'.$image)}}" class="img-thumbnail" onclick="document.getElementById('nightWork').src='{{asset('assets/uploads/multiple/'.$image)}}'" width="50px" height="50px" alt="" />
+                                        <img src="{{asset('assets/uploads/multiple/'.$image)}}" class="img-thumbnail" onclick="document.getElementById('nightWork').src='{{asset('assets/uploads/multiple/'.$image)}}'" width="20px" height="30px" alt="" />
                                     @endif
                                 @endforeach
                             </div>
@@ -90,16 +90,16 @@
                 <hr />
                 <div class="product-detail-two pl-4">
                     <div class="d-flex flex-row mb-2">
-                        <h5>Price:</h5>
+                        <h5 class="text-md">Price:</h5>
                         <span class="new-prices text-danger mx-3">Tsh {{number_format($product->selling_price)}}</span>
-                        <span class="old-prices text-danger bold">Tsh {{number_format($product->org_price)}}</span>
+                        <span class="old-prices text-danger text-sm">Tsh {{number_format($product->org_price)}}</span>
                     </div>
                     <form action="{{url('single-checkout')}}" method="POST">
                         {{ csrf_field() }}
                     <div class="row input-group pl-3 mb-3">
                         <input type="hidden" name="id" value="{{$product->id}}" class="prod_id">
-                        <h5>Quantity:</h5>
-                        <div class="input-group mx-3 text-center " style="width: 130px;">
+                        <h5 class="text-md">Quantity:</h5>
+                        <div class="input-group mx-3 text-center text-sm" style="width: 130px;">
                             <div class="input-group-prepend">
                                 <button class="input-group-text decre-btn">-</button>
                             </div>
@@ -114,7 +114,7 @@
                 <hr />
 
                 <div class="description description-tabs pl-4">
-                    <h5 class=" pl-4">Product Description</h5>
+                    <h5 class=" pl-4 text-md font-weght-bold">Product Description</h5>
                     <p class="pl-4">{{$product->small_description}}</p>
                     <p class="pl-4">{{$product->description}}</p>
                 </div>
@@ -502,7 +502,7 @@
             },
             success: function(response){
                 loadwish();
-                swal(response.status);
+                swal("",response.status,"info");
 
             }
         });

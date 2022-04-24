@@ -71,8 +71,13 @@
     @if (session('status'))
         <script>
             {{--  swal("{{ session('status','success');}}");  --}}
-            swal("Order","{{ session('status');}}","success");
+            swal("","{{ session('status');}}","success");
+        </script>
+    @endif
 
+    @if (session('error'))
+        <script>
+            swal(" ","{{session('error');}}","error");
         </script>
     @endif
     {{--  @if (session('status-cart'))

@@ -91,9 +91,11 @@ class UsersideController extends Controller
             if ($product) {
                 return redirect('Product-Details' . '/' . $product->name);
             } else {
-                return redirect()->back()->with("satus", "The Product was not found");
+                // return response()->json(['view' => '/',"Product Not Found"]);
+                return redirect()->back()->with("error", "Product Not Found try another keyword");
             }
         } else {
+            // return back()->response()->json(['view' => '/',"Product Not Found"]);
             return redirect()->back();
         }
     }

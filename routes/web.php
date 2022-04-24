@@ -96,7 +96,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('my-orders', [UserController::class, 'index']);
     Route::get('view-orders/{id}', [UserController::class, 'viewOrder']);
     Route::get('wishlist', [WishlistController::class, 'index']);
-
+    Route::post('user-update', [UserController::class, 'updateProfile']);
+    Route::post('change-password', [UserController::class, 'updatePassword']);
 });
 
 

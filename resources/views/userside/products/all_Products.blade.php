@@ -5,14 +5,14 @@
 @endsection
 
 @section('content')
-    <div class="container mt-2 ">
+    <div class="container PY-2 ">
         <nav aria-label="breadcrumb font-weight-bolder">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark " href="{{url('/')}}">Home</a></li>
             <li class="breadcrumb-item text-sm text-dark active font-weight-bolder" aria-current="page">Products</li>
           </ol>
         </nav>
-        <div class="row justify-content-center">
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-5 justify-content-center">
             @foreach ($all_products as $prod)
                 @php
                     $selling_price = $prod->selling_price;
@@ -20,7 +20,7 @@
                     $disc_price = $org_price-$selling_price;
                     $disc_percentage = round($disc_price/$org_price*100, 2);
                 @endphp
-                <div class="col-md-2.2">
+                <div class="">
                     <div class="card   product headache mb-3 mx-3">
                         <div class="image-container">
                              <a href="{{url('Product-Details/'.$prod->name)}}">

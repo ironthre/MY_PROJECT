@@ -29,12 +29,6 @@ class LoginController extends Controller
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
 
-    protected function sendFailedLoginResponse(Request $request)
-    {
-        throw ValidationException::withMessages([
-            'username' => [trans('auth.failed')],
-        ]);
-    }
 
     public function username()
     {
